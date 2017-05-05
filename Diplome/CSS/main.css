@@ -1,0 +1,72 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 11 avr. 2017, 11:12:35
+    Author     : CAMUGLIAL_INFO
+*/
+
+.red{
+    color:red;
+}
+.green{
+    color:green;
+}
+
+.route{
+    margin-top:10px;  
+    padding: 10px;
+
+}
+
+.route:hover{
+    background-color: #e3e6e8;
+}
+.routes{
+    height: 80%;
+    border: 1px  solid black;
+    overflow: auto;
+    height: 80%;
+}
+
+.highlight{
+    background-color: #e3e6e8;
+}
+
+#pointsInfo{
+    height: 200px;
+    overflow: auto;
+}
+#pointsInfo div{
+    margin-top: 10px;
+}
+
+.top-buffer{
+    margin-top: 20px !important;
+}
+
+.align-middle {
+
+    padding-top: 35px !important;
+    //float: none;
+}
+
+.valign{
+    vertical-align: middle !important;
+}
+
+.no-border{
+    border : none;
+    border-left: 0px !important;
+    border-right: 0px !important;
+}
+
+.disabled {
+    cursor: no-drop !important;   
+ //  cursor: no-drop !important;
+}
+.disabled a{
+    pointer-events: none;
+}

@@ -1,0 +1,382 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1412" measuredH="715" mockupW="1403" mockupH="710">
+  <controls>
+    <control controlID="16" controlTypeID="__group__" x="9" y="28" w="629" h="525" measuredW="629" measuredH="525" zOrder="1" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="0" y="0" w="629" h="525" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="16">
+          <controlProperties>
+            <text>Find%20Your%20ride%0Ahttp%3A//</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Map" x="184" y="118" w="390" h="353" measuredW="252" measuredH="222" zOrder="1" locked="false" isInGroup="16"/>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::MenuBar" x="0" y="74" w="629" h="29" measuredW="623" measuredH="29" zOrder="2" locked="false" isInGroup="16">
+          <controlProperties>
+            <text>Accueil%2C%20Map%09%09%09%09%09%09%09%09Connexion%2C%20Inscription</text>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::List" x="15" y="179" w="154" h="292" measuredW="100" measuredH="126" zOrder="3" locked="false" isInGroup="16">
+          <controlProperties>
+            <text>Trajet%20XX%0ATrajet%20XY%0ATrajet%20YY%0ATrajet%20YX%0A...</text>
+          </controlProperties>
+        </control>
+        <control controlID="4" controlTypeID="com.balsamiq.mockups::SubTitle" x="15" y="118" w="-1" h="-1" measuredW="89" measuredH="27" zOrder="4" locked="false" isInGroup="16">
+          <controlProperties>
+            <text>Trajets%20%3A</text>
+          </controlProperties>
+        </control>
+        <control controlID="5" controlTypeID="com.balsamiq.mockups::Button" x="15" y="145" w="-1" h="-1" measuredW="129" measuredH="27" zOrder="5" locked="false" isInGroup="16">
+          <controlProperties>
+            <text>Ajouter%20des%20filtres</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="38" controlTypeID="__group__" x="9" y="100" w="629" h="525" measuredW="629" measuredH="525" zOrder="4" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="0" y="0" w="629" h="525" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="38">
+          <controlProperties>
+            <text>Find%20Your%20ride%0Ahttp%3A//</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Map" x="194" y="118" w="380" h="353" measuredW="252" measuredH="222" zOrder="1" locked="false" isInGroup="38"/>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::MenuBar" x="0" y="74" w="629" h="29" measuredW="639" measuredH="29" zOrder="2" locked="false" isInGroup="38">
+          <controlProperties>
+            <text>Accueil%2C%20Map%2C%20Mes%20trajets%2C%09%09%09%09%09%09%09D%E9connexion</text>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::List" x="15" y="145" w="154" h="278" measuredW="100" measuredH="126" zOrder="3" locked="false" isInGroup="38">
+          <controlProperties>
+            <text>Trajet%20XX%0ATrajet%20XY%0ATrajet%20YY%0ATrajet%20YX%0A...</text>
+          </controlProperties>
+        </control>
+        <control controlID="4" controlTypeID="com.balsamiq.mockups::SubTitle" x="15" y="110" w="-1" h="-1" measuredW="130" measuredH="27" zOrder="4" locked="false" isInGroup="38">
+          <controlProperties>
+            <text>Vos%20trajets%20%3A</text>
+          </controlProperties>
+        </control>
+        <control controlID="5" controlTypeID="com.balsamiq.mockups::Button" x="15" y="455" w="-1" h="-1" measuredW="181" measuredH="27" zOrder="5" locked="false" isInGroup="38">
+          <controlProperties>
+            <text>Importer%20un%20nouveau%20trajet</text>
+          </controlProperties>
+        </control>
+        <control controlID="6" controlTypeID="com.balsamiq.mockups::Button" x="15" y="425" w="-1" h="-1" measuredW="166" measuredH="27" zOrder="6" locked="false" isInGroup="38">
+          <controlProperties>
+            <text>Cr%E9er%20un%20nouveau%20trajet</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="46" controlTypeID="__group__" x="9" y="77" w="629" h="525" measuredW="629" measuredH="525" zOrder="3" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="0" y="0" w="629" h="525" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="46">
+          <controlProperties>
+            <text>Find%20Your%20ride%0Ahttp%3A//</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::MenuBar" x="0" y="74" w="629" h="29" measuredW="639" measuredH="29" zOrder="1" locked="false" isInGroup="46">
+          <controlProperties>
+            <text>Accueil%2C%20Map%2C%20Mes%20trajets%2C%09%09%09%09%09%09%09D%E9connexion</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::SubTitle" x="15" y="110" w="-1" h="-1" measuredW="115" measuredH="27" zOrder="2" locked="false" isInGroup="46">
+          <controlProperties>
+            <text>Trajet%20XX%20%3A</text>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::DataGrid" x="31" y="137" w="566" h="144" measuredW="141" measuredH="141" zOrder="3" locked="false" isInGroup="46">
+          <controlProperties>
+            <text>%20%0ADur%E9e%2C%201h35%0AAutoroute%2C%20oui%0AD%E9nivl%E9%20max%2C%2020%20m%0AConssomation%2C%2015%20l</text>
+          </controlProperties>
+        </control>
+        <control controlID="4" controlTypeID="com.balsamiq.mockups::Map" x="31" y="319" w="566" h="170" measuredW="252" measuredH="222" zOrder="4" locked="false" isInGroup="46"/>
+        <control controlID="5" controlTypeID="com.balsamiq.mockups::Button" x="31" y="287" w="271" h="27" measuredW="119" measuredH="27" zOrder="5" locked="false" isInGroup="46">
+          <controlProperties>
+            <text>Modifier%20le%20trac%E9</text>
+          </controlProperties>
+        </control>
+        <control controlID="6" controlTypeID="com.balsamiq.mockups::Button" x="326" y="287" w="271" h="27" measuredW="124" measuredH="27" zOrder="6" locked="false" isInGroup="46">
+          <controlProperties>
+            <text>Exporter%20le%20trac%E9</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="81" controlTypeID="__group__" x="9" y="5" w="629" h="525" measuredW="629" measuredH="525" zOrder="0" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="0" y="0" w="629" h="525" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="81">
+          <controlProperties>
+            <text>Find%20Your%20ride%0Ahttp%3A//</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Map" x="184" y="118" w="390" h="353" measuredW="252" measuredH="222" zOrder="1" locked="false" isInGroup="81"/>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::MenuBar" x="0" y="74" w="629" h="29" measuredW="623" measuredH="29" zOrder="2" locked="false" isInGroup="81">
+          <controlProperties>
+            <text>Accueil%2C%20Map%09%09%09%09%09%09%09%09Connexion%2C%20Inscription</text>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::List" x="15" y="179" w="154" h="292" measuredW="100" measuredH="126" zOrder="3" locked="false" isInGroup="81">
+          <controlProperties>
+            <text>Trajet%20XX%0ATrajet%20XY%0ATrajet%20YY%0ATrajet%20YX%0A...</text>
+          </controlProperties>
+        </control>
+        <control controlID="4" controlTypeID="com.balsamiq.mockups::SubTitle" x="15" y="118" w="89" h="-1" measuredW="89" measuredH="27" zOrder="4" locked="false" isInGroup="81">
+          <controlProperties>
+            <text>Trajets%20%3A</text>
+          </controlProperties>
+        </control>
+        <control controlID="5" controlTypeID="com.balsamiq.mockups::Button" x="15" y="145" w="129" h="27" measuredW="129" measuredH="27" zOrder="5" locked="false" isInGroup="81">
+          <controlProperties>
+            <text>Ajouter%20des%20filtres</text>
+          </controlProperties>
+        </control>
+        <control controlID="6" controlTypeID="com.balsamiq.mockups::ModalScreen" x="0" y="76" w="628" h="420" measuredW="320" measuredH="240" zOrder="6" locked="false" isInGroup="81"/>
+        <control controlID="7" controlTypeID="com.balsamiq.mockups::TextArea" x="205" y="76" w="247" h="226" measuredW="200" measuredH="140" zOrder="7" locked="false" isInGroup="81">
+          <controlProperties>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="8" controlTypeID="com.balsamiq.mockups::TextInput" x="241" y="121" w="174" h="-1" measuredW="79" measuredH="26" zOrder="8" locked="false" isInGroup="81">
+          <controlProperties>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="9" controlTypeID="com.balsamiq.mockups::SubTitle" x="239" y="90" w="113" h="-1" measuredW="113" measuredH="27" zOrder="9" locked="false" isInGroup="81">
+          <controlProperties>
+            <text>Username</text>
+          </controlProperties>
+        </control>
+        <control controlID="10" controlTypeID="com.balsamiq.mockups::TextInput" x="243" y="192" w="174" h="-1" measuredW="79" measuredH="26" zOrder="10" locked="false" isInGroup="81">
+          <controlProperties>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="11" controlTypeID="com.balsamiq.mockups::SubTitle" x="241" y="161" w="103" h="-1" measuredW="103" measuredH="27" zOrder="11" locked="false" isInGroup="81">
+          <controlProperties>
+            <text>Password</text>
+          </controlProperties>
+        </control>
+        <control controlID="12" controlTypeID="com.balsamiq.mockups::Button" x="338" y="250" w="84" h="27" measuredW="84" measuredH="27" zOrder="12" locked="false" isInGroup="81">
+          <controlProperties>
+            <text>Connexion</text>
+          </controlProperties>
+        </control>
+        <control controlID="13" controlTypeID="com.balsamiq.mockups::Button" x="253" y="250" w="68" h="27" measuredW="68" measuredH="27" zOrder="13" locked="false" isInGroup="81">
+          <controlProperties>
+            <text>Annuler</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="122" controlTypeID="__group__" x="9" y="51" w="629" h="542" measuredW="629" measuredH="542" zOrder="2" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="0" y="0" w="629" h="542" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="122">
+          <controlProperties>
+            <text>Find%20Your%20ride%0Ahttp%3A//</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::MenuBar" x="0" y="72" w="629" h="29" measuredW="623" measuredH="29" zOrder="1" locked="false" isInGroup="122">
+          <controlProperties>
+            <text>Accueil%2C%20Map%09%09%09%09%09%09%09%09Connexion%2C%20Inscription</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Title" x="219" y="116" w="191" h="-1" measuredW="191" measuredH="43" zOrder="2" locked="false" isInGroup="122">
+          <controlProperties>
+            <text>Inscription</text>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::Label" x="100" y="164" w="99" h="-1" measuredW="99" measuredH="21" zOrder="3" locked="false" isInGroup="122">
+          <controlProperties>
+            <text>Nom%20d%27utilisateur</text>
+          </controlProperties>
+        </control>
+        <control controlID="4" controlTypeID="com.balsamiq.mockups::Label" x="100" y="202" w="32" h="-1" measuredW="32" measuredH="21" zOrder="4" locked="false" isInGroup="122">
+          <controlProperties>
+            <text>Email</text>
+          </controlProperties>
+        </control>
+        <control controlID="5" controlTypeID="com.balsamiq.mockups::Label" x="100" y="233" w="81" h="-1" measuredW="81" measuredH="21" zOrder="5" locked="false" isInGroup="122">
+          <controlProperties>
+            <text>Mot%20de%20passe</text>
+          </controlProperties>
+        </control>
+        <control controlID="6" controlTypeID="com.balsamiq.mockups::Label" x="100" y="261" w="81" h="-1" measuredW="81" measuredH="21" zOrder="6" locked="false" isInGroup="122">
+          <controlProperties>
+            <text>Mot%20de%20passe</text>
+          </controlProperties>
+        </control>
+        <control controlID="7" controlTypeID="__group__" x="92" y="299" w="415" h="170" measuredW="415" measuredH="170" zOrder="7" locked="false" isInGroup="122">
+          <groupChildrenDescriptors>
+            <control controlID="0" controlTypeID="com.balsamiq.mockups::FieldSet" x="0" y="0" w="415" h="170" measuredW="200" measuredH="170" zOrder="0" locked="false" isInGroup="7">
+              <controlProperties>
+                <text>Moto</text>
+              </controlProperties>
+            </control>
+            <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="47" y="37" w="44" h="-1" measuredW="44" measuredH="21" zOrder="1" locked="false" isInGroup="7">
+              <controlProperties>
+                <text>Marque</text>
+              </controlProperties>
+            </control>
+            <control controlID="2" controlTypeID="com.balsamiq.mockups::ComboBox" x="130" y="36" w="86" h="-1" measuredW="86" measuredH="24" zOrder="2" locked="false" isInGroup="7">
+              <controlProperties>
+                <text>Kawasaki</text>
+              </controlProperties>
+            </control>
+            <control controlID="3" controlTypeID="com.balsamiq.mockups::Label" x="47" y="75" w="43" h="-1" measuredW="43" measuredH="21" zOrder="3" locked="false" isInGroup="7">
+              <controlProperties>
+                <text>Mod%E8le</text>
+              </controlProperties>
+            </control>
+            <control controlID="4" controlTypeID="com.balsamiq.mockups::ComboBox" x="130" y="73" w="66" h="-1" measuredW="66" measuredH="24" zOrder="4" locked="false" isInGroup="7">
+              <controlProperties>
+                <text>Z%20750</text>
+              </controlProperties>
+            </control>
+            <control controlID="5" controlTypeID="com.balsamiq.mockups::Label" x="41" y="131" w="83" h="-1" measuredW="83" measuredH="21" zOrder="5" locked="false" isInGroup="7">
+              <controlProperties>
+                <text>Consomation%20%3A</text>
+              </controlProperties>
+            </control>
+            <control controlID="6" controlTypeID="com.balsamiq.mockups::TextInput" x="134" y="128" w="22" h="-1" measuredW="22" measuredH="27" zOrder="6" locked="false" isInGroup="7">
+              <controlProperties>
+                <text>9</text>
+              </controlProperties>
+            </control>
+            <control controlID="7" controlTypeID="com.balsamiq.mockups::Label" x="167" y="131" w="85" h="-1" measuredW="85" measuredH="21" zOrder="7" locked="false" isInGroup="7">
+              <controlProperties>
+                <text>litres%20/%20100%20km</text>
+              </controlProperties>
+            </control>
+            <control controlID="8" controlTypeID="com.balsamiq.mockups::Label" x="47" y="103" w="46" h="-1" measuredW="46" measuredH="21" zOrder="8" locked="false" isInGroup="7">
+              <controlProperties>
+                <text>Ann%E9e%20%3A</text>
+              </controlProperties>
+            </control>
+            <control controlID="9" controlTypeID="com.balsamiq.mockups::ComboBox" x="130" y="101" w="60" h="-1" measuredW="60" measuredH="24" zOrder="9" locked="false" isInGroup="7">
+              <controlProperties>
+                <text>2012</text>
+              </controlProperties>
+            </control>
+          </groupChildrenDescriptors>
+        </control>
+        <control controlID="8" controlTypeID="com.balsamiq.mockups::TextInput" x="219" y="161" w="177" h="-1" measuredW="79" measuredH="26" zOrder="8" locked="false" isInGroup="122">
+          <controlProperties>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="9" controlTypeID="com.balsamiq.mockups::TextInput" x="219" y="199" w="177" h="-1" measuredW="79" measuredH="26" zOrder="9" locked="false" isInGroup="122">
+          <controlProperties>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="10" controlTypeID="com.balsamiq.mockups::TextInput" x="219" y="233" w="177" h="-1" measuredW="79" measuredH="26" zOrder="10" locked="false" isInGroup="122">
+          <controlProperties>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="11" controlTypeID="com.balsamiq.mockups::TextInput" x="219" y="264" w="177" h="-1" measuredW="79" measuredH="26" zOrder="11" locked="false" isInGroup="122">
+          <controlProperties>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="12" controlTypeID="com.balsamiq.mockups::Button" x="269" y="476" w="77" h="27" measuredW="77" measuredH="27" zOrder="12" locked="false" isInGroup="122">
+          <controlProperties>
+            <text>S%27inscrire</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="138" controlTypeID="__group__" x="778" y="28" w="634" h="687" measuredW="634" measuredH="687" zOrder="5" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="15" controlTypeID="__group__" x="0" y="0" w="634" h="687" measuredW="634" measuredH="687" zOrder="0" locked="false" isInGroup="138">
+          <groupChildrenDescriptors>
+            <control controlID="0" controlTypeID="com.balsamiq.mockups::RoundButton" x="227" y="209" w="114" h="112" measuredW="32" measuredH="32" zOrder="0" locked="false" isInGroup="15">
+              <controlProperties>
+                <text>Accueil</text>
+              </controlProperties>
+            </control>
+            <control controlID="1" controlTypeID="com.balsamiq.mockups::RoundButton" x="97" y="0" w="106" h="106" measuredW="32" measuredH="32" zOrder="1" locked="false" isInGroup="15">
+              <controlProperties>
+                <text>Inscription</text>
+              </controlProperties>
+            </control>
+            <control controlID="2" controlTypeID="com.balsamiq.mockups::RoundButton" x="0" y="187" w="106" h="106" measuredW="32" measuredH="32" zOrder="2" locked="false" isInGroup="15">
+              <controlProperties>
+                <text>Contact</text>
+              </controlProperties>
+            </control>
+            <control controlID="3" controlTypeID="com.balsamiq.mockups::RoundButton" x="205" y="411" w="106" h="106" measuredW="32" measuredH="32" zOrder="3" locked="false" isInGroup="15">
+              <controlProperties>
+                <text>Carte</text>
+              </controlProperties>
+            </control>
+            <control controlID="4" controlTypeID="com.balsamiq.mockups::RoundButton" x="538" y="353" w="96" h="96" measuredW="32" measuredH="32" zOrder="4" locked="false" isInGroup="15">
+              <controlProperties>
+                <text>Mes%20trajets</text>
+              </controlProperties>
+            </control>
+            <control controlID="5" controlTypeID="com.balsamiq.mockups::RoundButton" x="451" y="546" w="107" h="107" measuredW="32" measuredH="32" zOrder="5" locked="false" isInGroup="15">
+              <controlProperties>
+                <text>Informations%20du%20trajet</text>
+              </controlProperties>
+            </control>
+            <control controlID="6" controlTypeID="com.balsamiq.mockups::Arrow" x="203" y="74" w="78" h="135" measuredW="150" measuredH="100" zOrder="6" locked="false" isInGroup="15">
+              <controlProperties>
+                <text/>
+              </controlProperties>
+            </control>
+            <control controlID="7" controlTypeID="com.balsamiq.mockups::Arrow" x="106" y="236" w="121" h="10" measuredW="150" measuredH="100" zOrder="7" locked="false" isInGroup="15">
+              <controlProperties>
+                <text/>
+              </controlProperties>
+            </control>
+            <control controlID="8" controlTypeID="com.balsamiq.mockups::Arrow" x="358" y="253" w="200" h="100" measuredW="150" measuredH="100" zOrder="8" locked="false" isInGroup="15">
+              <controlProperties>
+                <text>Authentification</text>
+              </controlProperties>
+            </control>
+            <control controlID="9" controlTypeID="com.balsamiq.mockups::Arrow" x="227" y="319" w="25" h="92" measuredW="150" measuredH="100" zOrder="9" locked="false" isInGroup="15">
+              <controlProperties>
+                <direction>bottom</direction>
+                <text/>
+              </controlProperties>
+            </control>
+            <control controlID="10" controlTypeID="com.balsamiq.mockups::Arrow" x="311" y="492" w="151" h="54" measuredW="150" measuredH="100" zOrder="10" locked="false" isInGroup="15">
+              <controlProperties>
+                <direction>top</direction>
+                <leftArrow>false</leftArrow>
+                <text>Clique%20sur%20le%20trajet</text>
+              </controlProperties>
+            </control>
+            <control controlID="11" controlTypeID="com.balsamiq.mockups::Arrow" x="523" y="449" w="35" h="95" measuredW="150" measuredH="100" zOrder="11" locked="false" isInGroup="15">
+              <controlProperties>
+                <curvature>1</curvature>
+                <direction>bottom</direction>
+                <leftArrow>true</leftArrow>
+                <rightArrow>false</rightArrow>
+                <text>Clique%20sur%20le%20trajet</text>
+              </controlProperties>
+            </control>
+            <control controlID="12" controlTypeID="com.balsamiq.mockups::RoundButton" x="161" y="581" w="106" h="106" measuredW="32" measuredH="32" zOrder="12" locked="false" isInGroup="15">
+              <controlProperties>
+                <text>Modification%20du%20trajet</text>
+              </controlProperties>
+            </control>
+            <control controlID="13" controlTypeID="com.balsamiq.mockups::Arrow" x="267" y="629" w="193" h="10" measuredW="150" measuredH="100" zOrder="13" locked="false" isInGroup="15">
+              <controlProperties>
+                <leftArrow>true</leftArrow>
+                <rightArrow>false</rightArrow>
+                <text>Propri%E9taire%20du%20trajet</text>
+              </controlProperties>
+            </control>
+            <control controlID="14" controlTypeID="com.balsamiq.mockups::Arrow" x="258" y="594" w="193" h="10" measuredW="150" measuredH="100" zOrder="14" locked="false" isInGroup="15">
+              <controlProperties>
+                <leftArrow>true</leftArrow>
+                <rightArrow>false</rightArrow>
+                <text>Exportation%20du%20trajet</text>
+              </controlProperties>
+            </control>
+          </groupChildrenDescriptors>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+  </controls>
+</mockup>
