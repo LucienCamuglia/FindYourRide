@@ -11,7 +11,8 @@ var oldRoute = [];
 var route = [];
 var highlighted;
 var addedPoints = 1;
-
+var directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
+var directionsService = new google.maps.DirectionsService();
 
 function initMap(modif, traffic) {
     modif = modif || false;
@@ -187,46 +188,71 @@ $(document).ready(function() {
                 var to = [];
                 to["lat"] = oldMarkers[i].position.lat();
                 to["lon"] = oldMarkers[i].position.lng();
-
-                route.push(searchIti(from, to));
+               $.each(searchIti(from, to), function(index, point) {
+                    route.push(point);
+                });
+                /* route.push(searchIti(from, to));*/
 
             }
-
-            oldRoute.shift()
-            oldRoute.unshift(route[0][0], route[0][1]);
-            //  oldRoute[oldRoute.length-1] = route[1];
-            route = oldRoute;
-            DisplayRoute();
-            console.log("new route");
+            console.log("route")
             console.log(route);
+            /*  oldRoute.shift()
+             oldRoute.unshift(route[0][0], route[0][1]);
+             //  oldRoute[oldRoute.length-1] = route[1];
+             route = oldRoute;
+             DisplayRoute();
+             console.log("new route");
+             console.log(route);*/
         }
     });
 });
 
 function searchIti(from, to) {
+
+
+    var routeResp = [];
+    var request = {
+        origin: new google.maps.LatLng(from["lat"], from["lon"]),
+        destination: new google.maps.LatLng(to["lat"], to["lon"]),
+        travelMode: google.maps.TravelMode.DRIVING
+                //WALKING / DRIVING / BICYCLING / TRANSIT / 
+    };
+    directionsDisplay.setMap(this.map);
+    directionsService.route(request, function(result, status) {
+        var distanceM = result.routes[0].legs[0].distance.value;
+        var tempsS = result.routes[0].legs[0].duration.valsue;
+
+        if (status === google.maps.DirectionsStatus.OK) {
+            directionsDisplay.setDirections(result);
+            $.each(result.routes[0].overview_path, function(index, point) {
+                routeResp.push(point);
+            });
+
+        }
+    });
     /*  console.log("from :");
      console.log("   lat : " + from["lat"]);
      console.log("   lon : " + from["lon"]);
      console.log("to :");
      console.log("   lat : " + to["lat"]);
-     console.log("   lon : " + to["lon"]);*/
-    var routeResp = [];
-    $.ajax({
-        url: 'https://maps.googleapis.com/maps/api/directions/json',
-        type: 'GET',
-        crossDomain: true,
-        data: {origin: from["lat"] + "," + from["lon"], destination: to["lat"] + "," + to["lon"], key: "AIzaSyCRxYbU0CGNMpZINbtBJqn72k1UCi0bMo8"},
-        async: false,
-        dataType: 'json',
-        success: function(result) {
-            //  console.log(result);
-            $.each(result.routes[0].legs[0].steps, function(index, value)
-            {
-                routeResp.push(new google.maps.LatLng(value.start_location));
-                routeResp.push(new google.maps.LatLng(value.end_location));
-            });
-        }
-    });
+     console.log("   lon : " + to["lon"]);
+     
+     $.ajax({
+     url: 'https://maps.googleapis.com/maps/api/directions/json',
+     type: 'GET',
+     crossDomain: true,
+     data: {origin: from["lat"] + "," + from["lon"], destination: to["lat"] + "," + to["lon"], key: "AIzaSyCRxYbU0CGNMpZINbtBJqn72k1UCi0bMo8"},
+     async: false,
+     dataType: 'json',
+     success: function(result) {
+     //  console.log(result);
+     $.each(result.routes[0].legs[0].steps, function(index, value)
+     {
+     routeResp.push(new google.maps.LatLng(value.start_location));
+     routeResp.push(new google.maps.LatLng(value.end_location));
+     });
+     }
+     });*/
     return routeResp;
 }
 
