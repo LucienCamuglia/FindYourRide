@@ -179,8 +179,7 @@ $(document).ready(function() {
         console.log("Refresh");
         if (oldMarkers.length == Markers.length) {
             console.log("old route");
-            console.log(route);
-            route = [];
+            console.log(route);           
             for (var i = 0; i < Markers.length; i++) {
                 var from = [];
                 from["lat"] = Markers[i].position.lat();
@@ -188,13 +187,9 @@ $(document).ready(function() {
                 var to = [];
                 to["lat"] = oldMarkers[i].position.lat();
                 to["lon"] = oldMarkers[i].position.lng();
-               $.each(searchIti(from, to), function(index, point) {
-                    route.push(point);
-                });
-                /* route.push(searchIti(from, to));*/
-
+                searchIti(from, to);                                                                   
             }
-            console.log("route")
+            console.log("route");
             console.log(route);
             /*  oldRoute.shift()
              oldRoute.unshift(route[0][0], route[0][1]);
@@ -209,14 +204,13 @@ $(document).ready(function() {
 
 function searchIti(from, to) {
 
-
-    var routeResp = [];
-    var request = {
+     var request = {
         origin: new google.maps.LatLng(from["lat"], from["lon"]),
         destination: new google.maps.LatLng(to["lat"], to["lon"]),
         travelMode: google.maps.TravelMode.DRIVING
                 //WALKING / DRIVING / BICYCLING / TRANSIT / 
     };
+     route = [];
     directionsDisplay.setMap(this.map);
     directionsService.route(request, function(result, status) {
         var distanceM = result.routes[0].legs[0].distance.value;
@@ -225,35 +219,13 @@ function searchIti(from, to) {
         if (status === google.maps.DirectionsStatus.OK) {
             directionsDisplay.setDirections(result);
             $.each(result.routes[0].overview_path, function(index, point) {
-                routeResp.push(point);
+               route.push(point);
             });
+
 
         }
     });
-    /*  console.log("from :");
-     console.log("   lat : " + from["lat"]);
-     console.log("   lon : " + from["lon"]);
-     console.log("to :");
-     console.log("   lat : " + to["lat"]);
-     console.log("   lon : " + to["lon"]);
-     
-     $.ajax({
-     url: 'https://maps.googleapis.com/maps/api/directions/json',
-     type: 'GET',
-     crossDomain: true,
-     data: {origin: from["lat"] + "," + from["lon"], destination: to["lat"] + "," + to["lon"], key: "AIzaSyCRxYbU0CGNMpZINbtBJqn72k1UCi0bMo8"},
-     async: false,
-     dataType: 'json',
-     success: function(result) {
-     //  console.log(result);
-     $.each(result.routes[0].legs[0].steps, function(index, value)
-     {
-     routeResp.push(new google.maps.LatLng(value.start_location));
-     routeResp.push(new google.maps.LatLng(value.end_location));
-     });
-     }
-     });*/
-    return routeResp;
+   
 }
 
 function clear() {

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include_once './functions.php';
 if (isset($_REQUEST["fonction"])) {
     $function = $_REQUEST["fonction"];
@@ -19,6 +19,10 @@ if (isset($_REQUEST["fonction"])) {
             break;
         case "AddMotorcycle" : AddMotorcycle($_GET["Brand"], $_GET["Model"], $_GET["Year"], $_GET["Consumption"], $_GET["Tiredness"]);
             break;
+
+        case "UpdateUserRole" : UpdateUserRole($_GET["idUser"], $_GET["Role"]);
+            break;
+
         default : exit();
             break;
     }
@@ -91,18 +95,36 @@ function SaveNewRoute($idroute, $route) {
 }
 
 function AddMotorcycle($brand, $model, $year, $consumption, $tiredness) {
-    $array_response=[];
+    $array_response = [];
     $array_response["error"]["status"] = false;
     $array_response["error"]["message"] = "";
 
     if (!empty($brand) && !empty($model) && !empty($year) && !empty($consumption) && !empty($tiredness)) {
         $query = "Insert Into moto (Brand, model, year, consumption, Tiredness) values (:brand, :model, :year, :consumption, :tiredness);";
-        $params = array('brand' => $brand, 'model' => $model, 'year' => $year.'-01-01', 'consumption' => $consumption, 'tiredness' => $tiredness);       
-        PrepareExecute($query, $params);        
+        $params = array('brand' => $brand, 'model' => $model, 'year' => $year . '-01-01', 'consumption' => $consumption, 'tiredness' => $tiredness);
+        PrepareExecute($query, $params);
     } else {
         $array_response["error"]["status"] = true;
         $array_response["error"]["message"] = "Please fill all field";
     }
-    
+
+    echo json_encode($array_response);
+}
+
+function UpdateUserRole($idUser, $idRole) {
+    $array_response = [];
+    $array_response["error"]["status"] = false;
+    $array_response["error"]["message"] = "";
+
+    if (isset($_SESSION["role"]) && $_SESSION["role"] == 1) {
+
+        $query = "UPDATE users SET role = :role WHERE idUser=:idUser;";
+        $params = array('role' => $idRole, 'idUser' => $idUser);
+        $st = PrepareExecute($query, $params);
+    }else{
+        $array_response["error"]["status"] = true;
+        $array_response["error"]["message"] = "Rights needed";
+    }
+
     echo json_encode($array_response);
 }

@@ -8,7 +8,7 @@ and open the template in the editor.
 <html>
     <head>
         <?php include './Includes/header.php' ?>
-        <script src="./JS/ManageMoto.js"></script>
+        <script src="./JS/ManageUsers.js"></script>
         <title></title>
     </head>
     <body>         
@@ -53,12 +53,14 @@ and open the template in the editor.
                             break;
                     }
                     echo "</td>";
-                    echo "<td class=\"text-center no-border\" style=\"width: 60px;\"><a ><span class=\" glyphicon glyphicon-chevron-up \" > upgrade</span></a> </td>";
-                    echo "<td class=\"text-center no-border\" style=\"width: 80px;\"><a><span class=\" glyphicon glyphicon-chevron-down \" > downgrade</span></a></td>";
-                    echo "<td class=\"text-center no-border \" style=\"width: 50px;\" ><a><span class=\" glyphicon glyphicon-ban-circle \" > ban</span></a></td>";
+
+                    echo "<td class=\"text-center no-border "; if($rank==1) {echo "disabled"; }echo "\" style=\"width: 60px;\"><a name=\"".$user["idUser"]."\" class=\"UpgradeRole\"><span class=\" glyphicon glyphicon-chevron-up \" > upgrade</span></a> </td>";
+
+                    echo "<td class=\"text-center no-border "; if($rank!=1) {echo "disabled"; }echo "\" style=\"width: 80px;\"><a name=\"".$user["idUser"]."\" class=\"DowngradeRole\"><span class=\" glyphicon glyphicon-chevron-down \" > downgrade</span></a></td>";
+                    echo "<td class=\"text-center no-border "; if($rank==3) {echo "disabled"; }echo " \" style=\"width: 50px;\" ><a name=\"".$user["idUser"]."\" class=\"BanRole\"><span class=\" glyphicon glyphicon-ban-circle \" > ban</span></a></td>";
                     echo "<td>" . $user["Brand"] . "</td>";
                     echo "<td>" . $user["model"] . "</td>";
-                    echo "<td>" . $user["year"] . "</td>";
+                    echo "<td>" . substr( $user["year"],0,4). "</td>";
                     echo "<td></td>";
                 }
                 ?>
