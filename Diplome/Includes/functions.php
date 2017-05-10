@@ -271,4 +271,15 @@ function getUsersNMotorcycle(){
     return $array_response;
 }
 
+function getUserRoleById($id){
+     $query = "Select role from users where idUser=:id;";
+    $params = array(
+        'id' => $id       
+    );
+    $st = PrepareExecute($query, $params);
+    $data = $st->fetch(PDO::FETCH_ASSOC);
+    return $data["role"];
+    
+}
+
 ?>

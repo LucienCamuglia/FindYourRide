@@ -177,9 +177,11 @@ $(document).ready(function() {
     });
     $("#RefreshRoute").click(function() {
         console.log("Refresh");
-        if (oldMarkers.length == Markers.length) {
+        //
+        if (oldMarkers.length === Markers.length) {
             console.log("old route");
-            console.log(route);           
+            console.log(route);
+            var j = 0;
             for (var i = 0; i < Markers.length; i++) {
                 var from = [];
                 from["lat"] = Markers[i].position.lat();
@@ -187,10 +189,22 @@ $(document).ready(function() {
                 var to = [];
                 to["lat"] = oldMarkers[i].position.lat();
                 to["lon"] = oldMarkers[i].position.lng();
-                searchIti(from, to);                                                                   
+                searchIti(from, to);
+                if (i < Markers.length - 1)
+                    while ((oldRoute[j].lat() !== oldMarkers[i + 1].position.lat()) && (oldRoute[j].lng() !== oldMarkers[i + 1].position.lng())) {
+                        route.push(oldRoute[j]);
+                        console.log("push");                        
+                        j++;
+                    }
+                else
+                    while (j<oldRoute.length) {
+                        route.push(oldRoute[j]);
+                        j++;
+                    }
             }
             console.log("route");
             console.log(route);
+
             /*  oldRoute.shift()
              oldRoute.unshift(route[0][0], route[0][1]);
              //  oldRoute[oldRoute.length-1] = route[1];
@@ -204,13 +218,13 @@ $(document).ready(function() {
 
 function searchIti(from, to) {
 
-     var request = {
+    var request = {
         origin: new google.maps.LatLng(from["lat"], from["lon"]),
         destination: new google.maps.LatLng(to["lat"], to["lon"]),
         travelMode: google.maps.TravelMode.DRIVING
                 //WALKING / DRIVING / BICYCLING / TRANSIT / 
     };
-     route = [];
+    route = [];
     directionsDisplay.setMap(this.map);
     directionsService.route(request, function(result, status) {
         var distanceM = result.routes[0].legs[0].distance.value;
@@ -219,13 +233,13 @@ function searchIti(from, to) {
         if (status === google.maps.DirectionsStatus.OK) {
             directionsDisplay.setDirections(result);
             $.each(result.routes[0].overview_path, function(index, point) {
-               route.push(point);
+                route.push(point);
             });
 
-
         }
+
     });
-   
+
 }
 
 function clear() {

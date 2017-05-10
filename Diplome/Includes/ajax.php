@@ -1,6 +1,7 @@
 <?php
+
 session_start();
-include_once './functions.php';
+include './functions.php';
 if (isset($_REQUEST["fonction"])) {
     $function = $_REQUEST["fonction"];
 
@@ -22,7 +23,8 @@ if (isset($_REQUEST["fonction"])) {
 
         case "UpdateUserRole" : UpdateUserRole($_GET["idUser"], $_GET["Role"]);
             break;
-
+        case "GetUserRoleById" : GetUserRole($_GET["idUser"]);
+            break;
         default : exit();
             break;
     }
@@ -121,10 +123,35 @@ function UpdateUserRole($idUser, $idRole) {
         $query = "UPDATE users SET role = :role WHERE idUser=:idUser;";
         $params = array('role' => $idRole, 'idUser' => $idUser);
         $st = PrepareExecute($query, $params);
-    }else{
+        $Newrole;
+        switch (getUserRoleById($idUser)) {
+            case 1: $Newrole = "Administrator";
+                break;
+            case 2: $Newrole = "User";
+                break;
+            case 3: $Newrole = "Ban";
+                break;
+            default : $Newrole = "error";
+                break;
+        }
+        $array_response["datas"]["NewRole"] = $Newrole;
+    } else {
         $array_response["error"]["status"] = true;
         $array_response["error"]["message"] = "Rights needed";
     }
 
     echo json_encode($array_response);
+}
+
+function GetUserRole($idUser) {
+    $result;
+    switch (getUserbRoleById($idUser)) {
+        case 1: $result = "Administrator";
+            break;
+        case 2: $result = "User";
+            break;
+        case 3: $result = "Ban";
+            break;
+    }
+    echo json_encode($result);
 }

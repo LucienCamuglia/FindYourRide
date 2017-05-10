@@ -4,37 +4,35 @@
  * and open the template in the editor.
  */
 
-function banUser(idUser){
-   /*  $.ajax({
+function ModifyUser(idUser, role) {
+    $.ajax({
         url: './Includes/ajax.php',
         type: 'GET',
-        data: {fonction: "UpdateUserRole", idUser: idUser, Role : 3},
+        data: {fonction: "UpdateUserRole", idUser: idUser, Role: role},
         dataType: "json",
-        async: false,
         success: function(result) {
-         
+            $("#" + idUser + "Role").html(result.datas.NewRole);
+            location.reload();
         }
-    });*/
+    });
 }
 
-function UpgradeUser(idUser){
-    
-}
-
-function DowngradeUser(idUser){
-    
-}
 
 $(document).ready(function() {
-    $(".BanRole").click(function(){
-        banUser($(this).attr('name'));
+    $(".BanRole").click(function() {
+        var idUser = $(this).attr('name');
+        ModifyUser(idUser, 3);
     });
-    
-     $(".UpgradeRole").click(function(){
-        UpgradeUser($(this).attr('name'));
+
+    $(".UpgradeRole").click(function() {
+        var idUser = $(this).attr('name');
+        var role = $("#" + idUser + "Role").attr('name');
+        ModifyUser(idUser, --role);
     });
-    
-     $(".DowngradeRole").click(function(){
-        DowngradeUser($(this).attr('name'));
+
+    $(".DowngradeRole").click(function() {
+        var idUser = $(this).attr('name');
+        var role = $("#" + idUser + "Role").attr('name');
+        ModifyUser(idUser,++role);
     });
 });

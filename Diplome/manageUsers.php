@@ -42,8 +42,9 @@ and open the template in the editor.
                     echo"<tr>";
                     echo "<td>" . $user["Username"] . "</td>";
                     echo "<td>" . $user["email"] . "</td>";
-                    echo "<td>";
                     $rank = $user["role"];
+                    echo "<td > <span id=\"" . $user["idUser"] . "Role\" name=\"$rank\">";
+
                     switch ($rank) {
                         case 1 : echo "Administrator";
                             break;
@@ -52,16 +53,25 @@ and open the template in the editor.
                         case 3 : echo "Ban";
                             break;
                     }
-                    echo "</td>";
+                    echo "</span></td>";
 
-                    echo "<td class=\"text-center no-border "; if($rank==1) {echo "disabled"; }echo "\" style=\"width: 60px;\"><a name=\"".$user["idUser"]."\" class=\"UpgradeRole\"><span class=\" glyphicon glyphicon-chevron-up \" > upgrade</span></a> </td>";
+                    echo "<td class=\"text-center no-border ";
+                    if ($rank == 1) {
+                        echo "disabled";
+                    }echo "\" style=\"width: 60px;\"><a name=\"" . $user["idUser"] . "\" class=\"UpgradeRole\"><span class=\" glyphicon glyphicon-chevron-up \" > upgrade</span></a> </td>";
 
-                    echo "<td class=\"text-center no-border "; if($rank!=1) {echo "disabled"; }echo "\" style=\"width: 80px;\"><a name=\"".$user["idUser"]."\" class=\"DowngradeRole\"><span class=\" glyphicon glyphicon-chevron-down \" > downgrade</span></a></td>";
-                    echo "<td class=\"text-center no-border "; if($rank==3) {echo "disabled"; }echo " \" style=\"width: 50px;\" ><a name=\"".$user["idUser"]."\" class=\"BanRole\"><span class=\" glyphicon glyphicon-ban-circle \" > ban</span></a></td>";
+                    echo "<td class=\"text-center no-border ";
+                    if ($rank != 1) {
+                        echo "disabled";
+                    }echo "\" style=\"width: 80px;\"><a name=\"" . $user["idUser"] . "\" class=\"DowngradeRole\"><span class=\" glyphicon glyphicon-chevron-down \" > downgrade</span></a></td>";
+                    echo "<td class=\"text-center no-border ";
+                    if ($rank == 3) {
+                        echo "disabled";
+                    }echo " \" style=\"width: 50px;\" ><a name=\"" . $user["idUser"] . "\" class=\"BanRole\"><span class=\" glyphicon glyphicon-ban-circle \" > ban</span></a></td>";
                     echo "<td>" . $user["Brand"] . "</td>";
                     echo "<td>" . $user["model"] . "</td>";
-                    echo "<td>" . substr( $user["year"],0,4). "</td>";
-                    echo "<td></td>";
+                    echo "<td>" . substr($user["year"], 0, 4) . "</td>";
+                    echo "<td> <span class=\"glyphicon glyphicon-remove red\" ></span></td>";
                 }
                 ?>
                 <!--<tr>
