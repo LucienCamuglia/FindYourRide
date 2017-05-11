@@ -5,6 +5,9 @@
  */
 
 var map;
+var polyline;
+var pointsArray = [];
+var midmarkers = [];
 var oldMarkers = [];
 var Markers = [];
 var oldRoute = [];
@@ -13,6 +16,28 @@ var highlighted;
 var addedPoints = 1;
 var directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
 var directionsService = new google.maps.DirectionsService();
+var parcoursPolyline;
+
+
+var imageNormal = new google.maps.MarkerImage(
+        "./images/lines/square.png",
+        new google.maps.Size(11, 11),
+        new google.maps.Point(0, 0),
+        new google.maps.Point(6, 6)
+        );
+var imageHover = new google.maps.MarkerImage(
+        "./images/lines/square_over.png",
+        new google.maps.Size(11, 11),
+        new google.maps.Point(0, 0),
+        new google.maps.Point(6, 6)
+        );
+var imageNormalMidpoint = new google.maps.MarkerImage(
+        "./images/lines/square_transparent.png",
+        new google.maps.Size(11, 11),
+        new google.maps.Point(0, 0),
+        new google.maps.Point(6, 6)
+        );
+
 
 function initMap(modif, traffic) {
     modif = modif || false;
@@ -58,6 +83,7 @@ function initMap(modif, traffic) {
         trafficLayer.setMap(map);
     }
 }
+
 
 function ImporterGpx(file) {
     $.ajax({
@@ -193,11 +219,11 @@ $(document).ready(function() {
                 if (i < Markers.length - 1)
                     while ((oldRoute[j].lat() !== oldMarkers[i + 1].position.lat()) && (oldRoute[j].lng() !== oldMarkers[i + 1].position.lng())) {
                         route.push(oldRoute[j]);
-                        console.log("push");                        
+                        console.log("push");
                         j++;
                     }
                 else
-                    while (j<oldRoute.length) {
+                    while (j < oldRoute.length) {
                         route.push(oldRoute[j]);
                         j++;
                     }
@@ -282,7 +308,7 @@ function ShowParcours(tableauPoints, parcoursModif, color) {
 
 function DisplayRoute(color) {
     color = color || "#ff1ece";
-    var parcoursPolyline = new google.maps.Polyline({
+    parcoursPolyline = new google.maps.Polyline({
         path: route,
         strokeColor: color,
         strokeOpacity: 1.0,
@@ -340,4 +366,158 @@ function refreshValues(index) {
     $("#inpLatPoint" + index).val(Markers[index].position.lat());
     $("#inpLonPoint" + index).val(Markers[index].position.lng());
 
+}
+
+function editlines() {
+    Markers = [];
+    route = parcoursPolyline.getPath();
+    if (route.length > 0) {       
+        for (var i = 0; i < route.length; i++) {
+            var marker = setmarkers(route.getAt(i));
+            Markers.push(marker);
+            if (i > 0) {
+                var midmarker = setmidmarkers(route.getAt(i));
+                midmarkers.push(midmarker);
+            }
+        }
+    }
+}
+
+function setmarkers(point) {
+    var marker = new google.maps.Marker({
+    	position: point,
+    	map: map,
+    	icon: imageNormal,
+        raiseOnDrag: false,
+    	draggable: true
+    });
+    google.maps.event.addListener(marker, "mouseover", function() {
+    	marker.setIcon(imageHover);
+    });
+    google.maps.event.addListener(marker, "mouseout", function() {
+    	marker.setIcon(imageNormal);
+    });
+    google.maps.event.addListener(marker, "drag", function() {
+        for (var i = 0; i < Markers.length; i++) {
+            if (Markers[i] == marker) {
+                parcoursPolyline.getPath().setAt(i, marker.getPosition());
+                movemidmarker(i);
+                break;
+            }
+        }
+        route = parcoursPolyline.getPath();
+        var stringtobesaved = marker.getPosition().lat().toFixed(6) + ',' + marker.getPosition().lng().toFixed(6);
+        pointsArray.splice(i,1,stringtobesaved);       
+    });
+    google.maps.event.addListener(marker, "click", function() {
+        for (var i = 0; i < Markers.length; i++) {
+            if (Markers[i] == marker && Markers.length != 1) {
+                marker.setMap(null);
+                Markers.splice(i, 1);
+                parcoursPolyline.getPath().removeAt(i);
+             //   removemidmarker(i);
+                break;
+            }
+        }
+        polyPoints = parcoursPolyline.getPath();
+        if(Markers.length > 0) {
+            pointsArray.splice(i,1);
+            logCode1();
+        }
+    });
+    return marker;
+}
+
+/************************************************************************/
+/************************************************************************/
+
+
+function setmidmarkers(point) {
+    var prevpoint = Markers[Markers.length-2].getPosition();
+    var marker = new google.maps.Marker({
+    	position: new google.maps.LatLng(
+    		point.lat() - (0.5 * (point.lat() - prevpoint.lat())),
+    		point.lng() - (0.5 * (point.lng() - prevpoint.lng()))
+    	),
+    	map: map,
+    	icon: imageNormalMidpoint,
+        raiseOnDrag: false,
+    	draggable: true
+    });
+    google.maps.event.addListener(marker, "mouseover", function() {
+    	marker.setIcon(imageNormal);
+    });
+    google.maps.event.addListener(marker, "mouseout", function() {
+    	marker.setIcon(imageNormalMidpoint);
+    });
+   
+    google.maps.event.addListener(marker, "dragend", function() {
+    	for (var i = 0; i < midmarkers.length; i++) {
+    		if (midmarkers[i] == marker) {
+    			var newpos = marker.getPosition();
+    			var startMarkerPos = Markers[i].getPosition();-
+    			var firstVPos = new google.maps.LatLng(
+    				newpos.lat() - (0.5 * (newpos.lat() - startMarkerPos.lat())),
+    				newpos.lng() - (0.5 * (newpos.lng() - startMarkerPos.lng()))
+    			);
+    			var endMarkerPos = Markers[i+1].getPosition();
+    			var secondVPos = new google.maps.LatLng(
+    				newpos.lat() - (0.5 * (newpos.lat() - endMarkerPos.lat())),
+    				newpos.lng() - (0.5 * (newpos.lng() - endMarkerPos.lng()))
+    			);
+    			var newVMarker = setmidmarkers(secondVPos);
+    			newVMarker.setPosition(secondVPos);//apply the correct position to the midmarker
+    			var newMarker = setmarkers(newpos);
+    			Markers.splice(i+1, 0, newMarker);
+    			parcoursPolyline.getPath().insertAt(i+1, newpos);
+    			marker.setPosition(firstVPos);
+    			midmarkers.splice(i+1, 0, newVMarker);
+    			/*tmpPolyLine.getPath().removeAt(2);
+    			tmpPolyLine.getPath().removeAt(1);
+    			tmpPolyLine.getPath().removeAt(0);*/
+    			break;
+    		}
+    	}
+        polyPoints = parcoursPolyline.getPath();
+        var stringtobesaved = newpos.lat().toFixed(6) + ',' + newpos.lng().toFixed(6);
+        pointsArray.splice(i+1,0,stringtobesaved);
+        logCode1();
+    });
+    return marker;
+}
+function movemidmarker(index) {
+    var newpos = Markers[index].getPosition();
+    if (index != 0) {
+    	var prevpos = Markers[index-1].getPosition();
+    	midmarkers[index-1].setPosition(new google.maps.LatLng(
+    		newpos.lat() - (0.5 * (newpos.lat() - prevpos.lat())),
+    		newpos.lng() - (0.5 * (newpos.lng() - prevpos.lng()))
+    	));
+    }
+    if (index != Markers.length - 1) {
+    	var nextpos = Markers[index+1].getPosition();
+    	midmarkers[index].setPosition(new google.maps.LatLng(
+    		newpos.lat() - (0.5 * (newpos.lat() - nextpos.lat())),
+    		newpos.lng() - (0.5 * (newpos.lng() - nextpos.lng()))
+    	));
+    }
+}
+function removemidmarker(index) {
+    if (Markers.length > 0) {//clicked marker has already been deleted
+    	if (index != Markers.length) {
+    		midmarkers[index].setMap(null);
+    		midmarkers.splice(index, 1);
+    	} else {
+    		midmarkers[index-1].setMap(null);
+    		midmarkers.splice(index-1, 1);
+    	}
+    }
+    if (index != 0 && index != Markers.length) {
+    	var prevpos = Markers[index-1].getPosition();
+    	var newpos = Markers[index].getPosition();
+    	midmarkers[index-1].setPosition(new google.maps.LatLng(
+    		newpos.lat() - (0.5 * (newpos.lat() - prevpos.lat())),
+    		newpos.lng() - (0.5 * (newpos.lng() - prevpos.lng()))
+    	));
+    }
 }
