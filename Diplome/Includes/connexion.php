@@ -12,7 +12,13 @@ if (!empty($_POST['username'])) {
             $reponse_array['status'] = 'error';
             $reponse_array['message'] = 'wrong username or password';
         } else {
-            $reponse_array['status'] = 'success';            
+            if ($_SESSION["role"] == 3) {
+                session_destroy();
+                $reponse_array['status'] = 'error';
+                $reponse_array['message'] = 'You are banned';
+            } else {
+                $reponse_array['status'] = 'success';
+            }
         }
     } else {
         $reponse_array['status'] = 'error';

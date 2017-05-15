@@ -174,6 +174,8 @@ function signin($values) {
         return false;
     }
 
+
+
     $query = "SELECT idMoto FROM moto WHERE Brand=:brand AND model=:model AND year=:year";
     $params = array(
         'brand' => $values->brand,
@@ -215,12 +217,12 @@ function CreateRoute($name, $iduser) {
     return $pdo->lastInsertId();
 }
 
-function deleatePlaces($idRoute){
+function deleatePlaces($idRoute) {
     $query = "DELETE FROM `place` WHERE idRoute = :idRoute";
     $params = array(
         'idRoute' => $idRoute
     );
-     $st = PrepareExecute($query, $params);    
+    $st = PrepareExecute($query, $params);
 }
 
 function addPlaceToRoute($lat, $lon, $position, $idRoute) {
@@ -240,7 +242,7 @@ function Gpx2Sql($file, $iduser) {
     $names = $dom->getElementsByTagName("name");
     $name = $names->item(0)->nodeValue;
     $trackpoint = $dom->getElementsByTagName("trkpt");
-    if($trackpoint == NULL){
+    if ($trackpoint == NULL) {
         $trackpoint = $dom->getElementsByTagName("rtept");
     }
     $idRoute = CreateRoute($name, $iduser);
@@ -253,33 +255,53 @@ function Gpx2Sql($file, $iduser) {
     return $idRoute;
 }
 
-function deleteMotorcycle($id){
-     $query = "Delete from moto where idMoto=:id";
+function Path2Gpx($name, $path) {
+    $file = $name . ".gpx";
+    $handle = fopen($file, "w");
+    $string = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
+    fwrite($handle, $string);
+    $string = "<gpx version=\"1.0\" creator=\"FindYourRide.org\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.topografix.com/GPX/1/0\" xsi:schemaLocation=\"http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd\">";
+    fwrite($handle, $string);
+    $string = "<trk> <name>$name</name> <trkseg>";
+    fwrite($handle, $string);
+    /* foreach ($path as $point) {
+      $string = "<trkpt lat=\"$path->lat\" lon=\"$path->lng\"> </trkpt>";
+      fwrite($handle, $string);
+      } */
+
+    $string = "</trkseg> </trk> </gpx>";
+    fwrite($handle, $string);
+    fclose($handle);
+    header('location: ./Includes/download.php?file='.$file);
+
+}
+
+function deleteMotorcycle($id) {
+    $query = "Delete from moto where idMoto=:id";
     $params = array(
-        'id' => $id       
+        'id' => $id
     );
     $st = PrepareExecute($query, $params);
 }
 
-function getUsersNMotorcycle(){
-    $array_response=[];
-     $query = "Select * from users natural join moto;";
-     $st = PrepareExecute($query);
-      while ($data = $st->fetch(PDO::FETCH_ASSOC)) {
+function getUsersNMotorcycle() {
+    $array_response = [];
+    $query = "Select * from users natural join moto;";
+    $st = PrepareExecute($query);
+    while ($data = $st->fetch(PDO::FETCH_ASSOC)) {
         $array_response[] = $data;
     }
     return $array_response;
 }
 
-function getUserRoleById($id){
-     $query = "Select role from users where idUser=:id;";
+function getUserRoleById($id) {
+    $query = "Select role from users where idUser=:id;";
     $params = array(
-        'id' => $id       
+        'id' => $id
     );
     $st = PrepareExecute($query, $params);
     $data = $st->fetch(PDO::FETCH_ASSOC);
     return $data["role"];
-    
 }
 
 ?>
