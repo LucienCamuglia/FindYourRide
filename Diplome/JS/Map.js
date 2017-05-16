@@ -322,7 +322,6 @@ function DisplayRoute(color) {
         strokeWeight: 5,
         map: map
     });
-console.log(parcoursPolyline.getPath().length)
 }
 
 function CreateMarker(value, parcoursModif, parcoursDelete, pinColor, texte, position) {
@@ -375,6 +374,19 @@ function refreshValues(index) {
 
 }
 
+
+function DownloadRoute(){    
+   $.ajax({
+        url: './Includes/ajax.php',
+        type: 'POST',
+        data: {fonction: "Download", name: $(highlighted).html(), path : route},
+        dataType: "json",
+        success: function(result) {
+         
+        }
+    }); 
+
+}
 
 
 /************************************************************************/

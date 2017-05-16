@@ -28,5 +28,6 @@ and open the template in the editor.
 
         </div>
         <div id="map" class="col-lg-8" style="height: 80%;"></div>
+        <div><button class="btn btn-primary" onclick="DownloadRoute();" >Download route</button></div>
     </body>
 </html>

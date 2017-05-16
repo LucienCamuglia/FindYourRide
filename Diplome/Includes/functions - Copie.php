@@ -15,9 +15,10 @@ function connexionDb() {
 
     try {
         //variables contenant les informations de connexion ainsi que la DB
-        $serveur = '127.0.0.1';
-        $pseudo = 'root';
-        $pwd = '';
+        $serveur = '10.134.99.169';
+        $port = '12322';
+        $pseudo = 'findyourride';
+        $pwd = 'Super2017';
         $db = 'findyourride';
 
         static $pdo = null;
@@ -25,7 +26,7 @@ function connexionDb() {
         if ($pdo === NULL) {
             // Connexion à la base.
             $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-            $pdo = new PDO("mysql:host=$serveur;dbname=$db", $pseudo, $pwd, $pdo_options);
+            $pdo = new PDO("mysql:host=$serveur;port=$port;dbname=$db", $pseudo, $pwd, $pdo_options);
             $pdo->exec("Set Character set UTF8");
         }
         return $pdo;
@@ -256,7 +257,6 @@ function Gpx2Sql($file, $iduser) {
 }
 
 function Path2Gpx($name, $path) {
-    
     $file = $name . ".gpx";
     $handle = fopen($file, "w");
     $string = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
@@ -265,16 +265,15 @@ function Path2Gpx($name, $path) {
     fwrite($handle, $string);
     $string = "<trk> <name>$name</name> <trkseg>";
     fwrite($handle, $string);
-     foreach ($path as $point) {
-      $string = "<trkpt lat=\"$path->lat\" lon=\"$path->lng\"> </trkpt>";
-      fwrite($handle, $string);
-      }
+    foreach ($path as $point) {
+        $string = "<trkpt lat=\"$path->lat\" lon=\"$path->lng\"> </trkpt>";
+        fwrite($handle, $string);
+    }
 
     $string = "</trkseg> </trk> </gpx>";
     fwrite($handle, $string);
     fclose($handle);
-    header('location: ./download.php?file='.$file);
-
+    header('location: ./Includes/download.php?file=' . $file);
 }
 
 function deleteMotorcycle($id) {

@@ -25,6 +25,8 @@ if (isset($_REQUEST["fonction"])) {
             break;
         case "GetUserRoleById" : GetUserRole($_GET["idUser"]);
             break;
+        case "Download" : downloadRoute($_REQUEST["name"], $_REQUEST["path"]);
+            break;
         default : exit();
             break;
     }
@@ -154,4 +156,8 @@ function GetUserRole($idUser) {
             break;
     }
     echo json_encode($result);
+}
+
+function downloadRoute($name, $path){
+    Path2Gpx($name, $path);
 }
