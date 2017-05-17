@@ -35,7 +35,7 @@ var imageNormalMidpoint = new google.maps.MarkerImage(
         new google.maps.Point(0, 0),
         new google.maps.Point(6, 6)
         );
-
+var total = 0;
 
 function initMap(modif, traffic) {
     modif = modif || false;
@@ -82,7 +82,6 @@ function initMap(modif, traffic) {
     }
 }
 
-
 function ImporterGpx(file) {
     $.ajax({
         url: './Includes/ajax.php',
@@ -97,7 +96,7 @@ function ImporterGpx(file) {
 
 }
 
-function AskGoogle(Path) {
+function AskGoogle(Path) {      
     var snapped = [];
     $.ajax({
         url: 'https://roads.googleapis.com/v1/snapToRoads',
@@ -109,8 +108,7 @@ function AskGoogle(Path) {
 
             $.each(r2["snappedPoints"], function(index, value)
             {
-                snapped[index] = value.location;
-                console.log(value.location);
+                snapped[index] = value.location;                
 
             });
             console.log("exit");
@@ -129,6 +127,7 @@ function LoadPoints(idRoute) {
         dataType: "json",
         async: false,
         success: function(result) {
+            console.log(result);
             $.each(result, function(index, value)
             {
                 resultArray[index] = value;
@@ -138,7 +137,7 @@ function LoadPoints(idRoute) {
     return resultArray;
 }
 
-function SnappPoints2Road(route) {
+function SnappPoints2Road(route) {   
     var Path = "";
     var tmpSnapped = [];
     var Snapped = [];
@@ -164,18 +163,18 @@ function SaveNewLocation(idroute, route) {
     {
         geoRoute.push(new google.maps.LatLng(value.latitude, value.longitude));
     });
-    length = google.maps.geometry.spherical.computeLength(geoRoute);    
+    length = google.maps.geometry.spherical.computeLength(geoRoute);
     sinuosity = route.length / length;
     console.log(sinuosity);
-     $.ajax({
-     url: './Includes/ajax.php',
-     type: 'POST',
-     data: {fonction: "SaveNewRoute", idRoute: idroute, route: route},
-     async: false,
-     success: function(result) {
-     
-     }
-     });
+    $.ajax({
+        url: './Includes/ajax.php',
+        type: 'POST',
+        data: {fonction: "SaveNewRoute", idRoute: idroute, route: route},
+        async: false,
+        success: function(result) {
+
+        }
+    });
 }
 
 $(document).ready(function() {
@@ -374,18 +373,32 @@ function refreshValues(index) {
 
 }
 
+function DownloadRoute() {
+    if (highlighted == null) {
+        alert("Please select a trip");
+    }else
+    {
+        $.ajax({
+            url: './Includes/ajax.php',
+            type: 'POST',
+            data: {fonction: "Download", name: $(highlighted).html(), path: JSON.stringify(route)},
+            dataType: "html",
+            async: false,
+            success: function(result) {
+                console.log("ICI");
+                document.location.href = "./Includes/download.php?file=" + result;
+            },
+            error: function(result, status, error) {
+                console.log(result);
+                console.log(status);
+                console.log(error);
+            }
+        });
+    }
+}
 
-function DownloadRoute(){    
-   $.ajax({
-        url: './Includes/ajax.php',
-        type: 'POST',
-        data: {fonction: "Download", name: $(highlighted).html(), path : route},
-        dataType: "json",
-        success: function(result) {
-         
-        }
-    }); 
-
+function DisplayInfo(){
+    
 }
 
 

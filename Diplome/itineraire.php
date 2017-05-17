@@ -23,6 +23,7 @@ and open the template in the editor.
 if (isset($idRoute)) {
     ?>
                 var Points = LoadPoints(<?php echo $idRoute ?>);
+                console.log(Points);
                 Points = SnappPoints2Road(Points);
                 SaveNewLocation(<?php echo $idRoute ?>, Points);
     <?php

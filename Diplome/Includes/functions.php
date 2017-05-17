@@ -256,8 +256,11 @@ function Gpx2Sql($file, $iduser) {
 }
 
 function Path2Gpx($name, $path) {
-    
+    $path = json_decode($path);
     $file = $name . ".gpx";
+    if (file_exists($file)) {
+        unlink($file);
+    }
     $handle = fopen($file, "w");
     $string = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
     fwrite($handle, $string);
@@ -265,16 +268,15 @@ function Path2Gpx($name, $path) {
     fwrite($handle, $string);
     $string = "<trk> <name>$name</name> <trkseg>";
     fwrite($handle, $string);
-     foreach ($path as $point) {
-      $string = "<trkpt lat=\"$path->lat\" lon=\"$path->lng\"> </trkpt>";
-      fwrite($handle, $string);
-      }
+    foreach ($path as $point) {
+        $string = "<trkpt lat=\"" . $point->lat . "\" lon=\"" . $point->lng . "\"> </trkpt>";
+        fwrite($handle, $string);
+    }
 
     $string = "</trkseg> </trk> </gpx>";
     fwrite($handle, $string);
     fclose($handle);
-    header('location: ./download.php?file='.$file);
-
+    return $file;
 }
 
 function deleteMotorcycle($id) {

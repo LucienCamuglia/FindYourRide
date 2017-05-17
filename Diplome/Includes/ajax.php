@@ -158,6 +158,7 @@ function GetUserRole($idUser) {
     echo json_encode($result);
 }
 
-function downloadRoute($name, $path){
-    Path2Gpx($name, $path);
+function downloadRoute($name, $path) {
+    $file = Path2Gpx($name, $path);
+    echo $file;
 }
