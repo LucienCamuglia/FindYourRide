@@ -15,19 +15,30 @@ and open the template in the editor.
         ?>
         <script src="./JS/Map.js"></script>
         <script>
-          
-        </script>
 
-        <div class="routes col-lg-2 col-lg-offset-1 " style="">          
-                <?php
-                $routes = GetRoutes();
-                foreach ($routes as $route) {
-                    echo"<div class=\"route\" name=\"".$route["idRoute"]."\">".$route["RouteName"]."</div>";
-                }
-                ?>            
+        </script>
+        <div class="col-sm-1 "><h2>Filters  :</h2> 
+            <h6 class="col-xs-9">Enabled</h6> <input class="col-sm-3 checkbox-inline" type="checkbox" onclick="EnabledDisabledFilters(this)"/>
+            <div id="filters" hidden="true">
+                <p><label>Sinuosity</label><input type="range"  min="0" max="100" /></p>
+                <p><label>Slope</label><input type="range"  min="0" max="100" /></p>
+                <p><label>Highway </label><input class="col-sm-3 checkbox-inline"  type="checkbox"  /></p>
+
+            </div>
+        </div>
+        <div class="routes col-lg-2 " style="">          
+            <?php
+            $routes = GetRoutes();
+            foreach ($routes as $route) {
+                echo"<div class=\"route\" name=\"" . $route["idRoute"] . "\">" . $route["RouteName"] . "</div>";
+            }
+            ?>            
 
         </div>
         <div id="map" class="col-lg-8" style="height: 80%;"></div>
         <div><button class="btn btn-primary" onclick="DownloadRoute();" >Download route</button></div>
+        <div class="col-lg-8 col-lg-offset-2" >
+
+        </div>
     </body>
 </html>

@@ -124,6 +124,7 @@ function importerTrajetModal() {
                             <div class="col-4">
                                 <input class="form-control" type="file"  id="GpxFile" name="GpxFile" required>
                             </div>
+                            <label class="col-2 col-form-label" >This route contains highways </label> <input class="col-lg-offset-1" type="checkbox" name="highway">
                         </div>
 
                         <div class="modal-footer">

@@ -96,7 +96,7 @@ function ImporterGpx(file) {
 
 }
 
-function AskGoogle(Path) {      
+function AskGoogle(Path) {
     var snapped = [];
     $.ajax({
         url: 'https://roads.googleapis.com/v1/snapToRoads',
@@ -108,7 +108,7 @@ function AskGoogle(Path) {
 
             $.each(r2["snappedPoints"], function(index, value)
             {
-                snapped[index] = value.location;                
+                snapped[index] = value.location;
 
             });
             console.log("exit");
@@ -137,7 +137,7 @@ function LoadPoints(idRoute) {
     return resultArray;
 }
 
-function SnappPoints2Road(route) {   
+function SnappPoints2Road(route) {
     var Path = "";
     var tmpSnapped = [];
     var Snapped = [];
@@ -169,7 +169,7 @@ function SaveNewLocation(idroute, route) {
     $.ajax({
         url: './Includes/ajax.php',
         type: 'POST',
-        data: {fonction: "SaveNewRoute", idRoute: idroute, route: route},
+        data: {fonction: "SaveNewRoute", idRoute: idroute, route: route, sinuosite: sinuosity},
         async: false,
         success: function(result) {
 
@@ -289,22 +289,24 @@ function ShowParcours(tableauPoints, parcoursModif, color) {
     var liste_des_points = tableauPoints;
 
 
-    $.each(liste_des_points, function(index, value)
+   if (parcoursModif === true) {
+        //crée les marqueurs de début et fin de route
+        CreateMarker(liste_des_points[0], parcoursModif, false, "36af2d", "%E2%80%A2", 0);
+        CreateMarker(liste_des_points[liste_des_points.length - 1], parcoursModif, false, "a52424", "%E2%80%A2", 1);
+   }
+    var bounds     $.each(liste_des_points, function(index, value)
     {
         route.push(new google.maps.LatLng(value.Latitude, value.Longitude));
     });
 
-    //crée les marqueurs de début et fin de route
-    CreateMarker(liste_des_points[0], parcoursModif, false, "36af2d", "%E2%80%A2", 0);
-    CreateMarker(liste_des_points[liste_des_points.length - 1], parcoursModif, false, "a52424", "%E2%80%A2", 1);
-
-    var bounds = new google.maps.LatLngBounds();
+= new google.maps.LatLngBounds();
 
     if (Markers.length == 0) {
         //Genève
         bounds.extend({lat: 46.2, lng: 6.1667});
         bounds.extend({lat: 46.2, lng: 6.12});
     }
+
     for (var i = 0; i < Markers.length; i++) {
         bounds.extend(Markers[i].getPosition());
     }
@@ -376,7 +378,7 @@ function refreshValues(index) {
 function DownloadRoute() {
     if (highlighted == null) {
         alert("Please select a trip");
-    }else
+    } else
     {
         $.ajax({
             url: './Includes/ajax.php',
@@ -397,8 +399,16 @@ function DownloadRoute() {
     }
 }
 
-function DisplayInfo(){
-    
+function DisplayInfo() {
+
+}
+
+function EnabledDisabledFilters(caller) {
+    if (caller.checked) {
+        $("#filters").removeAttr("hidden");
+    } else {
+        $("#filters").attr("hidden", true);
+    }
 }
 
 

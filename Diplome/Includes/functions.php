@@ -197,20 +197,28 @@ function signin($values) {
     return $pdo->lastInsertId();
 }
 
-function GetRoutes() {
-    $query = "select * from route order by RouteName";
-    $st = PrepareExecute($query);
+function GetRoutes($idUser = NULL) {
+    if ($idUser == NULL) {
+        $query = "select * from route order by RouteName";        
+        $st = PrepareExecute($query);
+    } else {
+        $query = "select * from route where idUser = :iduser order by RouteName";
+        $params = array(':iduser' => $idUser);
+        $st = PrepareExecute($query, $params);
+    }
+    $array_response = [];
     while ($data = $st->fetch(PDO::FETCH_ASSOC)) {
         $array_response[] = $data;
     }
     return $array_response;
 }
 
-function CreateRoute($name, $iduser) {
-    $query = "INSERT INTO route(RouteName, idUser) VALUES (:name,:user)";
+function CreateRoute($name, $iduser, $containsHighway) {
+    $query = "INSERT INTO route(RouteName, idUser, highway) VALUES (:name,:user, :highway)";
     $params = array(
         'name' => $name,
-        'user' => $iduser
+        'user' => $iduser,
+        'highway' => $containsHighway
     );
     $st = PrepareExecute($query, $params);
     global $pdo;
@@ -236,7 +244,7 @@ function addPlaceToRoute($lat, $lon, $position, $idRoute) {
     $st = PrepareExecute($query, $params);
 }
 
-function Gpx2Sql($file, $iduser) {
+function Gpx2Sql($file, $iduser, $containsHighway) {
     $dom = new DOMDocument();
     $dom->load($file);
     $names = $dom->getElementsByTagName("name");
@@ -245,7 +253,7 @@ function Gpx2Sql($file, $iduser) {
     if ($trackpoint == NULL) {
         $trackpoint = $dom->getElementsByTagName("rtept");
     }
-    $idRoute = CreateRoute($name, $iduser);
+    $idRoute = CreateRoute($name, $iduser, $containsHighway);
     $position = 0;
     foreach ($trackpoint as $point) {
         $lat = $point->getAttribute("lat");
@@ -305,6 +313,15 @@ function getUserRoleById($id) {
     $st = PrepareExecute($query, $params);
     $data = $st->fetch(PDO::FETCH_ASSOC);
     return $data["role"];
+}
+
+function AddSinuosity($idRoute, $sinueusite) {
+    $query = "Update route SET Sinuosity=:sinuosity where idRoute=:idRoute;";
+    $params = array(
+        'sinuosity' => $sinueusite,
+        'idRoute' => $idRoute
+    );
+    PrepareExecute($query, $params);
 }
 
 ?>

@@ -33,7 +33,7 @@ if (isset($idRoute)) {
         <div class=" routes col-lg-offset-1 col-lg-2">
 
             <?php
-            $routes = GetRoutes();
+            $routes = GetRoutes($_SESSION["id"]);
             foreach ($routes as $route) {
                 echo"<div class=\"route\" name=\"" . $route["idRoute"] . "\">" . $route["RouteName"] . "</div>";
             }

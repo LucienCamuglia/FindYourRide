@@ -16,7 +16,7 @@ if (isset($_REQUEST["fonction"])) {
             break;
         case"GetRoutePoints":GetRoutePoints($_GET["idRoute"]);
             break;
-        case "SaveNewRoute" : SaveNewRoute($_POST["idRoute"], $_POST["route"]);
+        case "SaveNewRoute" : SaveNewRoute($_POST["idRoute"], $_POST["route"], $_POST["sinuosite"]);
             break;
         case "AddMotorcycle" : AddMotorcycle($_GET["Brand"], $_GET["Model"], $_GET["Year"], $_GET["Consumption"], $_GET["Tiredness"]);
             break;
@@ -88,8 +88,9 @@ function GetRoutePoints($idRoute) {
     echo json_encode($array_response);
 }
 
-function SaveNewRoute($idroute, $route) {
+function SaveNewRoute($idroute, $route, $sinueusite) {
     deleatePlaces($idroute);
+    AddSinuosity($idroute, $sinueusite);
     $position = 0;
     foreach ($route as $point) {
         $lat = $point["latitude"];
