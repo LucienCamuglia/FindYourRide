@@ -164,6 +164,7 @@ function GetAllMotorcycles() {
 }
 
 function signin($values) {
+
     $values = json_decode($values);
 
     $query = "Select Username FROM users where Username=:username;";
@@ -172,7 +173,9 @@ function signin($values) {
     while ($data = $st->fetch(PDO::FETCH_ASSOC)) {
         return false;
     }
-	
+
+
+
     $query = "SELECT idMoto FROM moto WHERE Brand=:brand AND model=:model AND year=:year";
     $params = array(
         'brand' => $values->brand,

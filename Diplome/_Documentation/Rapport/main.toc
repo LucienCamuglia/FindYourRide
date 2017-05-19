@@ -1,0 +1,44 @@
+\select@language {french}
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}R\IeC {\'e}sum\IeC {\'e}}{3}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Abstract}{3}{subsection.1.2}
+\contentsline {section}{\numberline {2}Cahier des charges}{4}{section.2}
+\contentsline {section}{\numberline {3}Analyse de l'existant}{5}{section.3}
+\contentsline {subsection}{\numberline {3.1}Garmin BaseCamp}{5}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}http://www.calculitineraires.fr/}{5}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}http://www.bestbikingroads.com}{5}{subsection.3.3}
+\contentsline {section}{\numberline {4}Analyse fonctionnelle}{6}{section.4}
+\contentsline {subsection}{\numberline {4.1}G\IeC {\'e}n\IeC {\'e}ralit\IeC {\'e}s}{6}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Description des fonctionnalit\IeC {\'e}s globales}{7}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {4.2.1}Connexion}{7}{subsubsection.4.2.1}
+\contentsline {subsubsection}{\numberline {4.2.2}Inscription}{7}{subsubsection.4.2.2}
+\contentsline {subsubsection}{\numberline {4.2.3}Cr\IeC {\'e}ation de trajet}{7}{subsubsection.4.2.3}
+\contentsline {subsubsection}{\numberline {4.2.4}Exportation}{7}{subsubsection.4.2.4}
+\contentsline {subsubsection}{\numberline {4.2.5}Suppression d'un trajet}{7}{subsubsection.4.2.5}
+\contentsline {subsubsection}{\numberline {4.2.6}Visualiser le trajet}{7}{subsubsection.4.2.6}
+\contentsline {subsection}{\numberline {4.3}Description de l'interface}{8}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}Inscription}{8}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.2}Map}{8}{subsubsection.4.3.2}
+\contentsline {subsubsection}{\numberline {4.3.3}Detail trajet}{9}{subsubsection.4.3.3}
+\contentsline {subsubsection}{\numberline {4.3.4}Connexion}{9}{subsubsection.4.3.4}
+\contentsline {subsubsection}{\numberline {4.3.5}Vos trajets}{10}{subsubsection.4.3.5}
+\contentsline {subsection}{\numberline {4.4}Description des \IeC {\'e}l\IeC {\'e}ments de s\IeC {\'e}curit\IeC {\'e}}{10}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}Fichier .htaccess}{10}{subsubsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.2}Utilisateur de la base de donn\IeC {\'e}es}{10}{subsubsection.4.4.2}
+\contentsline {subsubsection}{\numberline {4.4.3}Requ\IeC {\^e}tes}{10}{subsubsection.4.4.3}
+\contentsline {section}{\numberline {5}Analyse organique}{11}{section.5}
+\contentsline {subsection}{\numberline {5.1}R\IeC {\'e}sum\IeC {\'e}}{11}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Google API}{11}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}Google Maps Javascipt}{11}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}Google Direction}{11}{subsubsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.3}Google Elevation}{11}{subsubsection.5.2.3}
+\contentsline {subsubsection}{\numberline {5.2.4}Google Roads}{11}{subsubsection.5.2.4}
+\contentsline {subsection}{\numberline {5.3}Fonction PHP pour la base de donn\IeC {\'e}es}{12}{subsection.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1}connexion \IeC {\`a} la base de donn\IeC {\'e}es}{12}{subsubsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.2}Requ\IeC {\^e}te pr\IeC {\'e}par\IeC {\'e}e}{12}{subsubsection.5.3.2}
+\contentsline {subsection}{\numberline {5.4}Inscription sur le site}{13}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.5}Connexion au site}{14}{subsection.5.5}
+\contentsline {section}{\numberline {6}Probl\IeC {\`e}mes rencontr\IeC {\'e}}{16}{section.6}
+\contentsline {subsection}{\numberline {6.1}Google Api}{16}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Async}{16}{subsection.6.2}
+\contentsline {section}{\numberline {7}Conclusion}{16}{section.7}
