@@ -16,7 +16,7 @@ if (isset($_REQUEST["fonction"])) {
             break;
         case"GetRoutePoints":GetRoutePoints($_GET["idRoute"]);
             break;
-        case "SaveNewRoute" : SaveNewRoute($_POST["idRoute"], $_POST["route"], $_POST["sinuosite"]);
+        case "SaveNewRoute" : SaveNewRoute($_POST["idRoute"], $_POST["route"], $_POST["sinuosite"], $_POST["elevation"]);
             break;
         case "AddMotorcycle" : AddMotorcycle($_GET["Brand"], $_GET["Model"], $_GET["Year"], $_GET["Consumption"], $_GET["Tiredness"]);
             break;
@@ -27,6 +27,7 @@ if (isset($_REQUEST["fonction"])) {
             break;
         case "Download" : downloadRoute($_REQUEST["name"], $_REQUEST["path"]);
             break;
+        case "FilterRoad" : FilterRoad($_GET["sinuosity"], $_GET["slope"], $_GET["highway"], $_GET["time"]);
         default : exit();
             break;
     }
@@ -88,9 +89,10 @@ function GetRoutePoints($idRoute) {
     echo json_encode($array_response);
 }
 
-function SaveNewRoute($idroute, $route, $sinueusite) {
+function SaveNewRoute($idroute, $route, $sinueusite, $elevation) {
     deleatePlaces($idroute);
     AddSinuosity($idroute, $sinueusite);
+    AddElevation($idroute, $elevation);
     $position = 0;
     foreach ($route as $point) {
         $lat = $point["latitude"];
@@ -162,4 +164,24 @@ function GetUserRole($idUser) {
 function downloadRoute($name, $path) {
     $file = Path2Gpx($name, $path);
     echo $file;
+}
+
+function FilterRoad($sinuosity, $slope, $highway, $time) {
+    $query = "Select * from route natural join users where Sinuosity <= :sinuosity AND Slope <= :slope AND Time <= :time AND highway = :highway ORDER BY RouteName;";
+    // $query  = "Select * from route where Sinuosity <= 135 AND Slope <= 0 AND Time <= 1 AND highway = 0;";
+    $params = array(
+        "sinuosity" => $sinuosity / 10000,
+        "slope" => $slope,
+        "time" => $time,
+        "highway" => ($highway == "true") ? '1' : '0');
+    $st = PrepareExecute($query, $params);
+    $array_response = [];
+    while ($data = $st->fetch(PDO::FETCH_ASSOC)) {
+        $array["RouteName"] = $data["RouteName"];
+        $array["idRoute"] = $data["idRoute"];
+        $array["Username"] = $data["Username"];
+        $array_response[] = $array;
+    }
+
+    echo json_encode($array_response);
 }

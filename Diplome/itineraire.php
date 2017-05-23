@@ -41,12 +41,13 @@ if (isset($idRoute)) {
 
 
         </div>
+        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
         <div id="map" class="col-lg-8" style="height: 80%;"></div>
         
         <div class="btnZone col-lg-offset-5 top-buffer"  >
             <button id="btnModif"  class="hidden btn btn-primary" name="none">Modifier le trajet</button>
 
-            <button class="btn">Créer un nouveau trajet</button>
+            <button class="btn" id="StartCreation">Créer un nouveau trajet</button>
             <button class="btn"data-toggle="modal" data-target="#modalimport" onclick='$("#msgCont").attr("Hidden", "true")' >Importer un nouveau trajet</button>
                     
             <button id="RefreshRoute" class=" btn btn-primary  hidden modifRoute">Refresh the route</button>
@@ -85,6 +86,6 @@ if (isset($idRoute)) {
             </div>                               
 
         </div>
-        
+        <div class="modalLoad"></div>
     </body>
 </html>

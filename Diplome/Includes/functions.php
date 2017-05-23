@@ -172,7 +172,7 @@ function signin($values) {
     while ($data = $st->fetch(PDO::FETCH_ASSOC)) {
         return false;
     }
-	
+
     $query = "SELECT idMoto FROM moto WHERE Brand=:brand AND model=:model AND year=:year";
     $params = array(
         'brand' => $values->brand,
@@ -196,7 +196,7 @@ function signin($values) {
 
 function GetRoutes($idUser = NULL) {
     if ($idUser == NULL) {
-        $query = "select * from route order by RouteName";        
+        $query = "select * from route natural join users  order by RouteName ";
         $st = PrepareExecute($query);
     } else {
         $query = "select * from route where idUser = :iduser order by RouteName";
@@ -319,6 +319,36 @@ function AddSinuosity($idRoute, $sinueusite) {
         'idRoute' => $idRoute
     );
     PrepareExecute($query, $params);
+}
+
+function AddElevation($idRoute,$elevation) {
+    $query = "Update route SET Slope=:elevation where idRoute=:idRoute;";
+    $params = array(
+        'elevation' => $elevation,
+        'idRoute' => $idRoute
+    );
+    PrepareExecute($query, $params);
+}
+
+function GetMostSinuousRoad() {
+    $query = "SELECT max(Sinuosity)*10000 AS Road FROM route;";
+    $st = PrepareExecute($query);
+    $val = $st->fetchAll(PDO::FETCH_ASSOC);
+    return (int) $val[0]["Road"];
+}
+
+function GetMostSteepestRoad() {
+    $query = "SELECT max(Slope) AS Road FROM route;";
+    $st = PrepareExecute($query);
+    $val = $st->fetchAll(PDO::FETCH_ASSOC);
+    return (int) $val[0]["Road"];
+}
+
+function GetLessSteepestRoad() {
+    $query = "SELECT min(Slope) AS Road FROM route;";
+    $st = PrepareExecute($query);
+    $val = $st->fetchAll(PDO::FETCH_ASSOC);
+    return (int) $val[0]["Road"];
 }
 
 ?>

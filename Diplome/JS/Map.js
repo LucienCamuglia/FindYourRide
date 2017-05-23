@@ -4,7 +4,21 @@
  * and open the template in the editor.
  */
 
+
+//Google API KEYS, DEFAULT is my default key for this project ans RESCUE is used only if DEFAULT'S quotas has been reached
+var KEY = (function() {
+     var private = {
+         'DEFAULT': 'AIzaSyCRxYbU0CGNMpZINbtBJqn72k1UCi0bMo8',
+         'RESCUE': 'AIzaSyAe7EU4muOht_cbrvH88JTd2FTrvbsYZ_E'
+     };
+     return {
+        get: function(name) { return private[name]; }
+    };
+})();
+
+
 var map;
+var mapkey = KEY.get('RESCUE');
 var polyline;
 var pointsArray = [];
 var midmarkers = [];
@@ -16,6 +30,7 @@ var highlighted;
 var addedPoints = 1;
 var directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
 var directionsService = new google.maps.DirectionsService();
+var elevator = new google.maps.ElevationService;
 var parcoursPolyline;
 var imageNormal = new google.maps.MarkerImage(
         "./images/lines/square.png",
@@ -101,7 +116,7 @@ function AskGoogle(Path) {
     $.ajax({
         url: 'https://roads.googleapis.com/v1/snapToRoads',
         type: 'GET',
-        data: {path: Path, interpolate: true, key: "AIzaSyCRxYbU0CGNMpZINbtBJqn72k1UCi0bMo8"},
+        data: {path: Path, interpolate: true, key: mapkey},
         dataType: "json",
         async: false,
         success: function(r2) {
@@ -111,7 +126,7 @@ function AskGoogle(Path) {
                 snapped[index] = value.location;
 
             });
-            console.log("exit");
+           
 
         }
     });
@@ -158,40 +173,57 @@ function SnappPoints2Road(route) {
 }
 
 function SaveNewLocation(idroute, route) {
-    var geoRoute = [];
+    var  geoRoute = [];
+    var echantRoute = [];
     $.each(route, function(index, value)
     {
         geoRoute.push(new google.maps.LatLng(value.latitude, value.longitude));
     });
     length = google.maps.geometry.spherical.computeLength(geoRoute);
     sinuosity = route.length / length;
-    console.log(sinuosity);
-    $.ajax({
-        url: './Includes/ajax.php',
-        type: 'POST',
-        data: {fonction: "SaveNewRoute", idRoute: idroute, route: route, sinuosite: sinuosity},
-        async: false,
-        success: function(result) {
+    var counter= 10;
+    if(geoRoute.length > 4000){
+        counter =20;
+    }
+   if(geoRoute.length > 8000){
+        counter =30;
+    }
+    if(geoRoute.length > 12000){
+        counter =50;
+    }
+     for (var i = 0; i < geoRoute.length-counter; i+=counter) {
+         echantRoute.push(geoRoute[i]);
+     }     
+    elevator.getElevationAlongPath({
+        'path': echantRoute,
+        'samples' : 256
+    }, function(elevations, status) {
+        if (status !== 'OK') {
+            console.log(status);
+        } else {
+            var elevationAverage=0;            
+            for (var i = 1; i < elevations.length; i++) {
+               elevationAverage += Math.abs(elevations[i-1].elevation- elevations[i].elevation);
+            }
+            console.log(elevationAverage);
+            $.ajax({
+                url: './Includes/ajax.php',
+                type: 'POST',
+                data: {fonction: "SaveNewRoute", idRoute: idroute, route: route, sinuosite: sinuosity,elevation:elevationAverage},
+                async: false,
+                success: function(result) {
 
+                }
+            });
         }
     });
+
 }
 
 $(document).ready(function() {
     initMap();
     clear();
-    $(".route").click(function() {
-        clear();
-        initMap();
-        $("#btnModif").removeClass("hidden");
-        $("#btnModif").attr('name', $(this).attr('name'));
-        if (highlighted != null)
-            $(highlighted).removeClass("highlight");
-        $(this).addClass("highlight");
-        highlighted = this;
-
-        ShowParcours(LoadPoints($(this).attr('name')), false);
-    });
+    RouteClick();   
     $("#btnModif").click(function() {
         if (highlighted != null) {
             oldRoute = route;
@@ -246,7 +278,39 @@ $(document).ready(function() {
              console.log(route);*/
         }
     });
+    $("#sinuosity").change(function() {
+        RefreshhRoutesWithFilters();
+    });
+    $("#slope").change(function() {
+        RefreshhRoutesWithFilters();
+    });
+    $("#highway").change(function() {
+        RefreshhRoutesWithFilters();
+    });
+    $("#StartCreation").click(function(){
+        StartCreation();
+    })
 });
+
+$(document).bind({
+    ajaxStart: function() { $("body").addClass("loading"); },
+     ajaxStop: function() { $("body").removeClass("loading"); }    
+});
+
+function RouteClick() {
+    $(".route").click(function() {
+        clear();
+        initMap();
+        $("#btnModif").removeClass("hidden");
+        $("#btnModif").attr('name', $(this).attr('name'));
+        if (highlighted != null)
+            $(highlighted).removeClass("highlight");
+        $(this).addClass("highlight");
+        highlighted = this;
+
+        ShowParcours(LoadPoints($(this).attr('name')), false);
+    });
+}
 
 function searchIti(from, to) {
 
@@ -289,26 +353,21 @@ function ShowParcours(tableauPoints, parcoursModif, color) {
     var liste_des_points = tableauPoints;
 
 
-   if (parcoursModif === true) {
+    if (parcoursModif === true) {
         //crée les marqueurs de début et fin de route
         CreateMarker(liste_des_points[0], parcoursModif, false, "36af2d", "%E2%80%A2", 0);
         CreateMarker(liste_des_points[liste_des_points.length - 1], parcoursModif, false, "a52424", "%E2%80%A2", 1);
-   }
-    var bounds     $.each(liste_des_points, function(index, value)
+    }
+
+    $.each(liste_des_points, function(index, value)
     {
         route.push(new google.maps.LatLng(value.Latitude, value.Longitude));
     });
 
-= new google.maps.LatLngBounds();
+    var bounds = new google.maps.LatLngBounds();
 
-    if (Markers.length == 0) {
-        //Genève
-        bounds.extend({lat: 46.2, lng: 6.1667});
-        bounds.extend({lat: 46.2, lng: 6.12});
-    }
-
-    for (var i = 0; i < Markers.length; i++) {
-        bounds.extend(Markers[i].getPosition());
+    for (var i = 0; i < liste_des_points.length; i++) {
+        bounds.extend(new google.maps.LatLng(liste_des_points[i].Latitude, liste_des_points[i].Longitude));
     }
     map.fitBounds(bounds);
     DisplayRoute(color);
@@ -406,11 +465,41 @@ function DisplayInfo() {
 function EnabledDisabledFilters(caller) {
     if (caller.checked) {
         $("#filters").removeAttr("hidden");
+        RefreshhRoutesWithFilters();
     } else {
         $("#filters").attr("hidden", true);
     }
 }
 
+function RefreshhRoutesWithFilters() {
+    var sinuosity = $("#sinuosity").val();
+    var slope = $("#slope").val();
+    var highway = $("#highway").prop("checked");
+    console.log(sinuosity);
+    console.log(slope);
+    console.log(highway);
+    $.ajax({
+        url: './Includes/ajax.php',
+        type: 'GET',
+        data: {fonction: "FilterRoad", sinuosity: sinuosity, slope: slope, highway: highway, time: 1},
+        dataType: "json",
+        success: function(result) {
+            console.log(result);
+            $(".routes").empty();
+            $.each(result, function(index, value)
+            {
+                $(".routes").append("<div class=\"route\" name=\"" + value.idRoute + "\">" + value.RouteName + "<span class=\"by\"> by "+ value.Username +"</span></div>");
+            });
+            RouteClick();
+        }
+
+    });
+
+}
+
+function StartCreation(){
+    initMap(true);
+}
 
 /************************************************************************/
 /*              http://www.birdtheme.org/useful/v3tool.html             */
@@ -563,3 +652,4 @@ function removemidmarker(index) {
                 ));
     }
 }
+

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.19)  19 MAY 2017 15:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.19)  23 MAY 2017 16:35
 entering extended mode
 **./main.tex
 (main.tex
@@ -979,12 +979,22 @@ LaTeX Info: Redefining \nameref on input line 138.
 File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
 ) [1
 
-{C:/Users/CAMUGLIAL_INFO/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] (I
-ntro.tex
+{C:/Users/CAMUGLIAL_INFO/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] (m
+ain.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 5.
+(Font)              <7> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 5.
+(Font)              <5> on input line 3.
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.34 ...Google Elevation}{11}{subsubsection.5.2.3}
+                                                   [1])
+\tf@toc=\write5
+\openout5 = `main.toc'.
+
+ [2] (Intro.tex
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 5.
 
 ("C:\Users\CAMUGLIAL_INFO\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\t1cm
@@ -999,49 +1009,176 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ("C:\Users\CAMUGLIAL_INFO\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ucs\uni-3
 2.def"
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
-)pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.41 }{}
-         [1]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 41.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 41.
+)) [3] [4]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 195.
+
+
+("C:\Users\CAMUGLIAL_INFO\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omsc
+mr.fd"
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 195.
+ [5] <./Images/ShemaSite.png, id=143, 636.3775pt x 689.57625pt>
+File: ./Images/ShemaSite.png Graphic file (type png)
+
+<use ./Images/ShemaSite.png>
+Package pdftex.def Info: ./Images/ShemaSite.png used on input line 247.
+(pdftex.def)             Requested size: 426.79135pt x 462.46613pt.
+ [6 <./Images/ShemaSite.png (PNG copy)>] [7]
+<./Images/Interfaces/inscription.png, id=155, 631.35875pt x 544.0325pt>
+File: ./Images/Interfaces/inscription.png Graphic file (type png)
+
+<use ./Images/Interfaces/inscription.png>
+Package pdftex.def Info: ./Images/Interfaces/inscription.png used on input line
+ 281.
+(pdftex.def)             Requested size: 213.39568pt x 183.88113pt.
+
+<./Images/Interfaces/Map.png, id=156, 631.35875pt x 526.96875pt>
+File: ./Images/Interfaces/Map.png Graphic file (type png)
+
+<use ./Images/Interfaces/Map.png>
+Package pdftex.def Info: ./Images/Interfaces/Map.png used on input line 296.
+(pdftex.def)             Requested size: 213.39568pt x 178.11365pt.
+ [8 <./Images/Interfaces/inscription.png (PNG copy)> <./Images/Interfaces/Map.p
+ng (PNG copy)>]
+<./Images/Interfaces/DetailTrajet.png, id=163, 631.35875pt x 526.96875pt>
+File: ./Images/Interfaces/DetailTrajet.png Graphic file (type png)
+
+<use ./Images/Interfaces/DetailTrajet.png>
+Package pdftex.def Info: ./Images/Interfaces/DetailTrajet.png used on input lin
+e 315.
+(pdftex.def)             Requested size: 213.39568pt x 178.11365pt.
+
+<./Images/Interfaces/Connexin.png, id=164, 631.35875pt x 526.96875pt>
+File: ./Images/Interfaces/Connexin.png Graphic file (type png)
+
+<use ./Images/Interfaces/Connexin.png>
+Package pdftex.def Info: ./Images/Interfaces/Connexin.png used on input line 33
+5.
+(pdftex.def)             Requested size: 213.39568pt x 178.11365pt.
+ [9 <./Images/Interfaces/DetailTrajet.png (PNG copy)> <./Images/Interfaces/Conn
+exin.png (PNG copy)>]
+<./Images/Interfaces/VosTrajets.png, id=171, 631.35875pt x 526.96875pt>
+File: ./Images/Interfaces/VosTrajets.png Graphic file (type png)
+
+<use ./Images/Interfaces/VosTrajets.png>
+Package pdftex.def Info: ./Images/Interfaces/VosTrajets.png used on input line 
+349.
+(pdftex.def)             Requested size: 213.39568pt x 178.11365pt.
+ [10 <./Images/Interfaces/VosTrajets.png (PNG copy)>] [11]
+("C:\Users\CAMUGLIAL_INFO\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\
+lstlang1.sty"
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+("C:\Users\CAMUGLIAL_INFO\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\
+lstlang2.sty"
+File: lstlang2.sty 2015/06/04 1.6 listings language file
+)
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 434.
+
+("C:\Users\CAMUGLIAL_INFO\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\lati
+n1.def"
+File: latin1.def 2015/03/17 v1.2c Input encoding file
+)
+("C:\Users\CAMUGLIAL_INFO\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdie
+k\se-utf8.def"
+File: se-utf8.def 2016/05/16 v1.11 stringenc: UTF-8
+)
+("C:\Users\CAMUGLIAL_INFO\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdie
+k\se-iso-8859-1.def"
+File: se-iso-8859-1.def 2016/05/16 v1.11 stringenc: ISO-8859-1
+)
+("C:\Users\CAMUGLIAL_INFO\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\lati
+n1.def"
+File: latin1.def 2015/03/17 v1.2c Input encoding file
+) [12] [13]
+("C:\Users\CAMUGLIAL_INFO\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\lati
+n1.def"
+File: latin1.def 2015/03/17 v1.2c Input encoding file
+)
+("C:\Users\CAMUGLIAL_INFO\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\lati
+n1.def"
+File: latin1.def 2015/03/17 v1.2c Input encoding file
+)
+("C:\Users\CAMUGLIAL_INFO\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\lati
+n1.def"
+File: latin1.def 2015/03/17 v1.2c Input encoding file
+) [14]
+("C:\Users\CAMUGLIAL_INFO\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\lati
+n1.def"
+File: latin1.def 2015/03/17 v1.2c Input encoding file
+) [15]
+("C:\Users\CAMUGLIAL_INFO\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\lati
+n1.def"
+File: latin1.def 2015/03/17 v1.2c Input encoding file
+) [16] [17] (main.lof)
+\tf@lof=\write6
+\openout6 = `main.lof'.
+
+ [18]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 515.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 515.
  (main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 41.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 41.
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 387533EC09004387EB23B39E0B302CDA;168.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 41.
- ) ) 
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 515.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 515.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 387533EC09004387EB23B39E0B302CDA;168
+(rerunfilecheck)             After:  117D19B7F96955813D994E94DE7F0E37;3092.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 515.
+ ) 
 Here is how much of TeX's memory you used:
- 29852 strings out of 493328
- 697013 string characters out of 3126167
- 884935 words of memory out of 3000000
- 32897 multiletter control sequences out of 15000+200000
- 13981 words of font info for 32 fonts, out of 3000000 for 9000
+ 32594 strings out of 493328
+ 741768 string characters out of 3126167
+ 1318464 words of memory out of 3000000
+ 35356 multiletter control sequences out of 15000+200000
+ 16824 words of font info for 37 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,11n,120p,887b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not e
-xist, replaced by a fixed one
+ 69i,12n,120p,887b,3416s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
+, replaced by a fixed one
 
  <C:\Users\CAMUGLIAL_INFO\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\
-dpi600\ectt0800.pk> <C:\Users\CAMUGLIAL_INFO\AppData\Local\MiKTeX\2.9\fonts\pk\
-ljfour\jknappen\ec\dpi600\ecti0800.pk> <C:\Users\CAMUGLIAL_INFO\AppData\Local\M
-iKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0800.pk> <C:\Users\CAMUGLIAL_I
-NFO\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0700.pk> <C
+dpi600\ecit1000.pk> <C:\Users\CAMUGLIAL_INFO\AppData\Local\MiKTeX\2.9\fonts\pk\
+ljfour\jknappen\ec\dpi600\ectt1000.pk> <C:\Users\CAMUGLIAL_INFO\AppData\Local\M
+iKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0500.pk> <C:\Users\CAMUGLIAL_I
+NFO\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1000.pk> <C
 :\Users\CAMUGLIAL_INFO\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi
-600\ecbx1200.pk> <C:\Users\CAMUGLIAL_INFO\AppData\Local\MiKTeX\2.9\fonts\pk\ljf
-our\jknappen\ec\dpi600\ecbx1440.pk> <C:\Users\CAMUGLIAL_INFO\AppData\Local\MiKT
-eX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1000.pk> <C:\Users\CAMUGLIAL_INFO
-\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1000.pk> <C:\U
+600\ectt0800.pk> <C:\Users\CAMUGLIAL_INFO\AppData\Local\MiKTeX\2.9\fonts\pk\ljf
+our\jknappen\ec\dpi600\ecti0800.pk> <C:\Users\CAMUGLIAL_INFO\AppData\Local\MiKT
+eX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0800.pk> <C:\Users\CAMUGLIAL_INFO
+\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0700.pk> <C:\U
 sers\CAMUGLIAL_INFO\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
-\ecrm1200.pk> <C:\Users\CAMUGLIAL_INFO\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
-\jknappen\ec\dpi600\ecrm1440.pk> <C:\Users\CAMUGLIAL_INFO\AppData\Local\MiKTeX\
-2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1728.pk>
-Output written on main.pdf (2 pages, 81540 bytes).
+\ecbx1200.pk> <C:\Users\CAMUGLIAL_INFO\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
+\jknappen\ec\dpi600\ecbx1000.pk> <C:\Users\CAMUGLIAL_INFO\AppData\Local\MiKTeX\
+2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk> <C:\Users\CAMUGLIAL_INFO\Ap
+pData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1000.pk> <C:\User
+s\CAMUGLIAL_INFO\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ec
+rm1000.pk> <C:\Users\CAMUGLIAL_INFO\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jk
+nappen\ec\dpi600\ecrm1200.pk> <C:\Users\CAMUGLIAL_INFO\AppData\Local\MiKTeX\2.9
+\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1440.pk> <C:\Users\CAMUGLIAL_INFO\AppDa
+ta\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1728.pk><C:/Users/CA
+MUGLIAL_INFO/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+msy10.pfb>
+Output written on main.pdf (19 pages, 448745 bytes).
 PDF statistics:
- 295 PDF objects out of 1000 (max. 8388607)
- 6 named destinations out of 1000 (max. 500000)
- 37 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1013 PDF objects out of 1200 (max. 8388607)
+ 233 named destinations out of 1000 (max. 500000)
+ 67 words of extra memory for PDF output out of 10000 (max. 10000000)
 

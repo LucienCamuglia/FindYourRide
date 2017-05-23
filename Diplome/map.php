@@ -20,9 +20,9 @@ and open the template in the editor.
         <div class="col-sm-1 "><h2>Filters  :</h2> 
             <h6 class="col-xs-9">Enabled</h6> <input class="col-sm-3 checkbox-inline" type="checkbox" onclick="EnabledDisabledFilters(this)"/>
             <div id="filters" hidden="true">
-                <p><label>Sinuosity</label><input type="range"  min="0" max="100" /></p>
-                <p><label>Slope</label><input type="range"  min="0" max="100" /></p>
-                <p><label>Highway </label><input class="col-sm-3 checkbox-inline"  type="checkbox"  /></p>
+                <p><label>Sinuosity</label><input id="sinuosity" type="range"  min="0" max="<?php echo GetMostSinuousRoad()+1; ?>" /></p>
+                <p><label>Slope</label><input id="slope" type="range"  min="<?php echo GetLessSteepestRoad(); ?>" max="<?php echo GetMostSteepestRoad();?>" /></p>
+                <p><label>Highway </label><input id="highway" class="col-sm-3 checkbox-inline"  type="checkbox"  /></p>
 
             </div>
         </div>
@@ -30,7 +30,7 @@ and open the template in the editor.
             <?php
             $routes = GetRoutes();
             foreach ($routes as $route) {
-                echo"<div class=\"route\" name=\"" . $route["idRoute"] . "\">" . $route["RouteName"] . "</div>";
+                echo"<div class=\"route\" name=\"" . $route["idRoute"] . "\">" . $route["RouteName"] . "<span class=\"by\"> by ". $route["Username"] ."</span></div>";
             }
             ?>            
 

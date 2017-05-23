@@ -85,8 +85,8 @@
 
 
 \newtoggle{AbstractOnly}
-\toggletrue{AbstractOnly}
-%\togglefalse{AbstractOnly}
+%\toggletrue{AbstractOnly}
+\togglefalse{AbstractOnly}
 
 
 \newcommand{\fyr}{\emph{Find your ride}}
@@ -431,12 +431,12 @@ Je lui précise aussi le mode d'erreur qui est \emph{PDO::ERRMODE\_EXCEPTION} ce
 
 Afin d'avoir un partage d'informations dans le bon format, on défini l'encodage de caractères en UTF-8
 
-%\lstinputlisting[language=php,firstline=14,lastline=35]{../../Includes/functions.php}
+\lstinputlisting[language=php,firstline=14,lastline=35]{../../Includes/functions.php}
 \subsubsection{Requête préparée}
 Afin de sécuriser le site et éviter les injections SQL j'utilise des requête préparée.
 
 On commence par préparer la requête, PDO va substituer les marqueurs (\emph{:marqueur}) pour les valeur fournie dans le tableau de paramètres fourni au moment de l'exécution. Ensuite, il faut exécuter la requête avec les parametres.
-%\lstinputlisting[language=php,firstline=45,lastline=52]{../../Includes/functions.php}
+\lstinputlisting[language=php,firstline=45,lastline=52]{../../Includes/functions.php}
 
 
 \newpage
@@ -460,6 +460,21 @@ Finalement, les données sont ajoutée à la base de données.
 
 
 \subsection{Connexion au site}
+Une fois l'inscirption effectuée, l'utilisateur a la possibilité de se connecter au site.
+
+Pour ce faire, l'utilisateur saisi ses informations dans le formulaire et se connecte.
+Une première vérification en HTML5 vérifie que les champs soient remplis(\emph{required}).
+Une fois cette vérification éffectuée, les informations sont envoyée à la page PHP \emph{connexion.php} qui vérifie encore une fois que les champs soient rempli. Puis, envoie les données à la fonction PHP de connexion qui va récupérer :
+\begin{itemize}
+	\item Les ids utilisateur
+	\item Les mots de passe
+	\item Les roles
+\end{itemize}
+
+Une fois ces informations récupérée, on tous les parcourir pour être sûr que le nom d'utilisateur et le mot de passe fourni correspondent bien à un utilisateur existant.
+Si c'est le cas, on enregistre l'id, le role et le nom d'utilisateur dans des \emph{Sessions} et on retourne \emph{true} pour dire que les informations sont correcte.
+
+
 \lstinputlisting[language=php,firstline=8,lastline=33]{../../Includes/connexion.php}
 \lstinputlisting[language=php,firstline=60,lastline=86]{../../Includes/functions.php}
 
