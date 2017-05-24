@@ -7,18 +7,20 @@
 
 //Google API KEYS, DEFAULT is my default key for this project ans RESCUE is used only if DEFAULT'S quotas has been reached
 var KEY = (function() {
-     var private = {
-         'DEFAULT': 'AIzaSyCRxYbU0CGNMpZINbtBJqn72k1UCi0bMo8',
-         'RESCUE': 'AIzaSyAe7EU4muOht_cbrvH88JTd2FTrvbsYZ_E'
-     };
-     return {
-        get: function(name) { return private[name]; }
+    var private = {
+        'DEFAULT': 'AIzaSyCRxYbU0CGNMpZINbtBJqn72k1UCi0bMo8',
+        'RESCUE': 'AIzaSyAe7EU4muOht_cbrvH88JTd2FTrvbsYZ_E'
+    };
+    return {
+        get: function(name) {
+            return private[name];
+        }
     };
 })();
 
 
 var map;
-var mapkey = KEY.get('RESCUE');
+var mapkey = KEY.get('DEFAULT');
 var polyline;
 var pointsArray = [];
 var midmarkers = [];
@@ -126,7 +128,7 @@ function AskGoogle(Path) {
                 snapped[index] = value.location;
 
             });
-           
+
 
         }
     });
@@ -173,43 +175,47 @@ function SnappPoints2Road(route) {
 }
 
 function SaveNewLocation(idroute, route) {
-    var  geoRoute = [];
+    var geoRoute = [];
     var echantRoute = [];
     $.each(route, function(index, value)
     {
         geoRoute.push(new google.maps.LatLng(value.latitude, value.longitude));
     });
-    length = google.maps.geometry.spherical.computeLength(geoRoute);
-    sinuosity = route.length / length;
-    var counter= 10;
-    if(geoRoute.length > 4000){
-        counter =20;
+    var length = google.maps.geometry.spherical.computeLength(geoRoute);
+    var sinuosity = route.length / length;
+    var counter = 10;
+    if (geoRoute.length <= 10) {
+        counter = 1;
     }
-   if(geoRoute.length > 8000){
-        counter =30;
+    if (geoRoute.length > 4000) {
+        counter = 20;
     }
-    if(geoRoute.length > 12000){
-        counter =50;
+    if (geoRoute.length > 8000) {
+        counter = 30;
     }
-     for (var i = 0; i < geoRoute.length-counter; i+=counter) {
-         echantRoute.push(geoRoute[i]);
-     }     
+    if (geoRoute.length > 12000) {
+        counter = 50;
+    }
+    for (var i = 0; i < geoRoute.length - counter; i += counter) {
+        echantRoute.push(geoRoute[i]);
+    }
     elevator.getElevationAlongPath({
         'path': echantRoute,
-        'samples' : 256
+        'samples': 256
     }, function(elevations, status) {
+        console.log(elevations);
         if (status !== 'OK') {
-            console.log(status);
+            console.log("Error elevaton : " + status);
         } else {
-            var elevationAverage=0;            
+            var elevationAverage = 0;
             for (var i = 1; i < elevations.length; i++) {
-               elevationAverage += Math.abs(elevations[i-1].elevation- elevations[i].elevation);
+                elevationAverage += Math.abs(elevations[i - 1].elevation - elevations[i].elevation);
             }
-            console.log(elevationAverage);
+            console.log("sinuosite : " + sinuosity);
             $.ajax({
                 url: './Includes/ajax.php',
                 type: 'POST',
-                data: {fonction: "SaveNewRoute", idRoute: idroute, route: route, sinuosite: sinuosity,elevation:elevationAverage},
+                data: {fonction: "SaveNewRoute", idRoute: idroute, route: route, sinuosite: sinuosity, elevation: elevationAverage},
                 async: false,
                 success: function(result) {
 
@@ -223,7 +229,7 @@ function SaveNewLocation(idroute, route) {
 $(document).ready(function() {
     initMap();
     clear();
-    RouteClick();   
+    RouteClick();
     $("#btnModif").click(function() {
         if (highlighted != null) {
             oldRoute = route;
@@ -287,14 +293,18 @@ $(document).ready(function() {
     $("#highway").change(function() {
         RefreshhRoutesWithFilters();
     });
-    $("#StartCreation").click(function(){
+    $("#StartCreation").click(function() {
         StartCreation();
     })
 });
 
 $(document).bind({
-    ajaxStart: function() { $("body").addClass("loading"); },
-     ajaxStop: function() { $("body").removeClass("loading"); }    
+    ajaxStart: function() {
+        $("body").addClass("loading");
+    },
+    ajaxStop: function() {
+        $("body").removeClass("loading");
+    }
 });
 
 function RouteClick() {
@@ -468,6 +478,8 @@ function EnabledDisabledFilters(caller) {
         RefreshhRoutesWithFilters();
     } else {
         $("#filters").attr("hidden", true);
+        RefreshhRoutesWithoutFilters();
+
     }
 }
 
@@ -475,20 +487,16 @@ function RefreshhRoutesWithFilters() {
     var sinuosity = $("#sinuosity").val();
     var slope = $("#slope").val();
     var highway = $("#highway").prop("checked");
-    console.log(sinuosity);
-    console.log(slope);
-    console.log(highway);
     $.ajax({
         url: './Includes/ajax.php',
         type: 'GET',
         data: {fonction: "FilterRoad", sinuosity: sinuosity, slope: slope, highway: highway, time: 1},
         dataType: "json",
         success: function(result) {
-            console.log(result);
             $(".routes").empty();
             $.each(result, function(index, value)
             {
-                $(".routes").append("<div class=\"route\" name=\"" + value.idRoute + "\">" + value.RouteName + "<span class=\"by\"> by "+ value.Username +"</span></div>");
+                $(".routes").append("<div class=\"route\" name=\"" + value.idRoute + "\">" + value.RouteName + "<span class=\"by\"> by " + value.Username + "</span></div>");
             });
             RouteClick();
         }
@@ -497,7 +505,32 @@ function RefreshhRoutesWithFilters() {
 
 }
 
-function StartCreation(){
+function RefreshhRoutesWithoutFilters() {
+    console.log("no filters");
+    $.ajax({
+        url: './Includes/ajax.php',
+        type: 'GET',
+        data: {fonction: "GetRoutes"},
+        dataType: "json",
+        async: false,
+        success: function(result) {
+            console.log(result);
+            $(".routes").empty();
+            $.each(result, function(index, value)
+            {
+                $(".routes").append("<div class=\"route\" name=\"" + value.idRoute + "\">" + value.RouteName + "<span class=\"by\"> by " + value.Username + "</span></div>");
+            });
+            RouteClick();
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            alert("Status: " + textStatus);
+            alert("Error: " + errorThrown);
+        }
+    });
+
+}
+
+function StartCreation() {
     initMap(true);
 }
 

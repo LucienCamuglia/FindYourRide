@@ -28,6 +28,9 @@ if (isset($_REQUEST["fonction"])) {
         case "Download" : downloadRoute($_REQUEST["name"], $_REQUEST["path"]);
             break;
         case "FilterRoad" : FilterRoad($_GET["sinuosity"], $_GET["slope"], $_GET["highway"], $_GET["time"]);
+            break;
+        case "GetRoutes" : GetRoutesJSON();
+            break;
         default : exit();
             break;
     }
@@ -184,4 +187,9 @@ function FilterRoad($sinuosity, $slope, $highway, $time) {
     }
 
     echo json_encode($array_response);
+}
+
+function GetRoutesJSON(){
+    $routes = GetRoutes();
+    echo json_encode($routes);
 }
