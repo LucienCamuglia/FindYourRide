@@ -37,7 +37,11 @@
 \BOOKMARK [3][-]{subsubsection.5.3.2}{Requ\352te pr\351par\351e}{subsection.5.3}% 37
 \BOOKMARK [2][-]{subsection.5.4}{Inscription sur le site}{section.5}% 38
 \BOOKMARK [2][-]{subsection.5.5}{Connexion au site}{section.5}% 39
-\BOOKMARK [1][-]{section.6}{Probl\350mes rencontr\351}{}% 40
-\BOOKMARK [2][-]{subsection.6.1}{Google Api}{section.6}% 41
-\BOOKMARK [2][-]{subsection.6.2}{Async}{section.6}% 42
-\BOOKMARK [1][-]{section.7}{Conclusion}{}% 43
+\BOOKMARK [2][-]{subsection.5.6}{Upload d'un itin\351raire}{section.5}% 40
+\BOOKMARK [2][-]{subsection.5.7}{T\351l\351chargement d'un itin\351raire}{section.5}% 41
+\BOOKMARK [2][-]{subsection.5.8}{Fonction javascript de gestion de la carte}{section.5}% 42
+\BOOKMARK [3][-]{subsubsection.5.8.1}{Initialisation de la carte}{subsection.5.8}% 43
+\BOOKMARK [1][-]{section.6}{Probl\350mes rencontr\351}{}% 44
+\BOOKMARK [2][-]{subsection.6.1}{Google Api}{section.6}% 45
+\BOOKMARK [2][-]{subsection.6.2}{Async}{section.6}% 46
+\BOOKMARK [1][-]{section.7}{Conclusion}{}% 47

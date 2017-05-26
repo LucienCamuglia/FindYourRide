@@ -14,6 +14,7 @@
 \usepackage{verbatim}
 \usepackage[bottom]{footmisc}
 \usepackage{etoolbox}
+%\usepackage{pstricks}
 
 \usetikzlibrary{patterns}
 \pgfplotsset{compat=newest}
@@ -112,6 +113,9 @@
 \newcommand{\bdd}{base de données}
 \newcommand{\phpFolder}{../../Includes}
 \newcommand{\tabitem}{~~\llap{\textbullet}~~}
+
+
+\newcommand{\diag}[1]{\input{../Diagrammes/#1.tex}}
 % Save the values
 \makeatletter
 
@@ -431,12 +435,10 @@ Je lui précise aussi le mode d'erreur qui est \emph{PDO::ERRMODE\_EXCEPTION} ce
 
 Afin d'avoir un partage d'informations dans le bon format, on défini l'encodage de caractères en UTF-8
 
-\lstinputlisting[language=php,firstline=14,lastline=35]{../../Includes/functions.php}
 \subsubsection{Requête préparée}
 Afin de sécuriser le site et éviter les injections SQL j'utilise des requête préparée.
 
 On commence par préparer la requête, PDO va substituer les marqueurs (\emph{:marqueur}) pour les valeur fournie dans le tableau de paramètres fourni au moment de l'exécution. Ensuite, il faut exécuter la requête avec les parametres.
-\lstinputlisting[language=php,firstline=45,lastline=52]{../../Includes/functions.php}
 
 
 \newpage
@@ -452,11 +454,14 @@ La création d'un utilisateur se fait en plusieurs étapes :
 \end{itemize}
 
 La vérification Ajax est assez simple, lorsque l'utilisateur appuye sur une touche, on affiche une croix rouge puis on envoie une requete à la page PHP qu va nous retourner un booléen a \emph{true} si l'utilisateur exite. S'il est vrai, on laisse la croix rouge sinon on affiche un vu vers.
-\lstinputlisting[firstline=124,lastline=141]{../../JS/Signin.js}
-\lstinputlisting[firstline=62,lastline=79]{../../JS/Signin.js}
+
 Une fois la verification faite en javascript/ajax, les données sont envoyées a une fonction PHP qui revérifie si l'utilisateur est déjà présent dans la base, puis, récupère l'identifiant de la moto daprès la marque, le model et l'année.
 Finalement, les données sont ajoutée à la base de données.
-\lstinputlisting[language=php,firstline=166,lastline=198]{../../Includes/functions.php}
+\begin{center}
+	 \diag{Inscription}
+\end{center}
+
+
 
 
 \subsection{Connexion au site}
@@ -474,9 +479,70 @@ Une fois cette vérification éffectuée, les informations sont envoyée à la p
 Une fois ces informations récupérée, on tous les parcourir pour être sûr que le nom d'utilisateur et le mot de passe fourni correspondent bien à un utilisateur existant.
 Si c'est le cas, on enregistre l'id, le role et le nom d'utilisateur dans des \emph{Sessions} et on retourne \emph{true} pour dire que les informations sont correcte.
 
+\begin{center}
+	\diag{Connexion}
+\end{center}
 
-\lstinputlisting[language=php,firstline=8,lastline=33]{../../Includes/connexion.php}
-\lstinputlisting[language=php,firstline=60,lastline=86]{../../Includes/functions.php}
+\subsection{\emph{Upload} d'un itinéraire}
+L'utilisateur à la possibilité de mettre en ligne ses itinéraire depuis un fichier \emph{.GPX}.
+
+Premierement, un script vérifie l'extension du fichier. Une fois l'extension vérifiée, une fonction enregistre chaque point du fichier dans la \bdd. Finalement, une fonction javascript envoie a google les point et récupère la position sur la route (API Google Roads) et enregistre les nouvelles coordonées.
+
+\begin{center}
+	\diag{Gpx2Sql}
+\end{center}
+
+
+\subsection{\emph{Téléchargement} d'un itinéraire}
+Un itinéraire disponnible sur le site est téléchargable.
+Pour ce faire, l'utilisateur choisi l'itinéraire et clique sur \emph{Download route}.
+
+Le traitement se fait en PHP.
+
+Le trajet et le nom sont transmit à la fonction qui va  vérifier si un fichier du même nom existe déja. Si c'est le cas, le fichier est supprimé et un autre est créé. 
+
+On ajoute ensuite l'entête du fichier XML et GPX.
+
+\lstset{language=XML}
+\begin{lstlisting}[frame=single] 
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.0" creator="FindYourRide.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/0" xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd">
+\end{lstlisting}
+
+Une fois ces informations insérée dans le fichier il faut ajouter le nom, chaque point et fermer les balises.
+
+\begin{center}
+	\diag{PathToGpx}
+\end{center}
+
+
+\subsection{Fonction javascript de gestion de la carte}
+Ci-dessous sont toutes les fontions utilisée pour créer et gérer la carte Google.
+
+\subsubsection{Initialisation de la carte}
+L'initialisation de la carte se fait à plusieurs moment : 
+\begin{itemize}
+	\item Chargement de la page
+	\item Chargement d'un itinéraire
+	\item Modification d'un intinéraire
+\end{itemize}
+
+Lors de l'appel de l'initalisation il faut définir deux choses :
+\begin{itemize}
+	\item Si le trajet peut être modifié
+	\item Si le trafic doit être affiché
+\end{itemize}
+
+Par défaut la carte est centrée sur Genève. Si La géolocalisation est disponible et activée sur le navigateur, la carte se centre sur le lieu de l'utilisateur.
+
+Si la variable de modification est vrai, un évenemment \emph{click} sera ajouté à la carte.
+
+De plus, si l'utilisateur choisi de visualiser le traffique en temps réel, un calque avec le traffique sera rejouté a \gmap
+
+
+\begin{center}
+	\diag{initMap}
+\end{center}
 
 \begin{comment}
 

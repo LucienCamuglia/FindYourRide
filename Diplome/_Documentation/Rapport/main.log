@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.19)  23 MAY 2017 16:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.19)  26 MAY 2017 16:55
 entering extended mode
 **./main.tex
 (main.tex
@@ -861,28 +861,28 @@ Package: fancyhdr 2016/09/06 3.8 Extensive control of page headers and footers
 ) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
 
 ("C:\Users\CAMUGLIAL_INFO\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ucs\ucsen
 cs.def"
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
-LaTeX Info: Redefining \degres on input line 138.
-LaTeX Info: Redefining \dots on input line 138.
-LaTeX Info: Redefining \up on input line 138.
+LaTeX Info: Redefining \degres on input line 142.
+LaTeX Info: Redefining \dots on input line 142.
+LaTeX Info: Redefining \up on input line 142.
 
 ("C:\Users\CAMUGLIAL_INFO\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\su
 pp-pdf.mkii"
@@ -953,7 +953,7 @@ Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.14}).
 
 \AtBeginShipoutBox=\box42
-Package hyperref Info: Link coloring OFF on input line 138.
+Package hyperref Info: Link coloring OFF on input line 142.
 
 ("C:\Users\CAMUGLIAL_INFO\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\
 nameref.sty"
@@ -965,9 +965,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count155
 )
-LaTeX Info: Redefining \ref on input line 138.
-LaTeX Info: Redefining \pageref on input line 138.
-LaTeX Info: Redefining \nameref on input line 138.
+LaTeX Info: Redefining \ref on input line 142.
+LaTeX Info: Redefining \pageref on input line 142.
+LaTeX Info: Redefining \nameref on input line 142.
  (main.out) (main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
@@ -1010,7 +1010,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 2.def"
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
 )) [3] [4]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 195.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 199.
 
 
 ("C:\Users\CAMUGLIAL_INFO\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omsc
@@ -1018,130 +1018,97 @@ mr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 195.
- [5] <./Images/ShemaSite.png, id=143, 636.3775pt x 689.57625pt>
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 199.
+ [5] <./Images/ShemaSite.png, id=283, 636.3775pt x 689.57625pt>
 File: ./Images/ShemaSite.png Graphic file (type png)
 
 <use ./Images/ShemaSite.png>
-Package pdftex.def Info: ./Images/ShemaSite.png used on input line 247.
+Package pdftex.def Info: ./Images/ShemaSite.png used on input line 251.
 (pdftex.def)             Requested size: 426.79135pt x 462.46613pt.
  [6 <./Images/ShemaSite.png (PNG copy)>] [7]
-<./Images/Interfaces/inscription.png, id=155, 631.35875pt x 544.0325pt>
+<./Images/Interfaces/inscription.png, id=295, 631.35875pt x 544.0325pt>
 File: ./Images/Interfaces/inscription.png Graphic file (type png)
 
 <use ./Images/Interfaces/inscription.png>
 Package pdftex.def Info: ./Images/Interfaces/inscription.png used on input line
- 281.
+ 285.
 (pdftex.def)             Requested size: 213.39568pt x 183.88113pt.
 
-<./Images/Interfaces/Map.png, id=156, 631.35875pt x 526.96875pt>
+<./Images/Interfaces/Map.png, id=296, 631.35875pt x 526.96875pt>
 File: ./Images/Interfaces/Map.png Graphic file (type png)
 
 <use ./Images/Interfaces/Map.png>
-Package pdftex.def Info: ./Images/Interfaces/Map.png used on input line 296.
+Package pdftex.def Info: ./Images/Interfaces/Map.png used on input line 300.
 (pdftex.def)             Requested size: 213.39568pt x 178.11365pt.
  [8 <./Images/Interfaces/inscription.png (PNG copy)> <./Images/Interfaces/Map.p
 ng (PNG copy)>]
-<./Images/Interfaces/DetailTrajet.png, id=163, 631.35875pt x 526.96875pt>
+<./Images/Interfaces/DetailTrajet.png, id=303, 631.35875pt x 526.96875pt>
 File: ./Images/Interfaces/DetailTrajet.png Graphic file (type png)
 
 <use ./Images/Interfaces/DetailTrajet.png>
 Package pdftex.def Info: ./Images/Interfaces/DetailTrajet.png used on input lin
-e 315.
+e 319.
 (pdftex.def)             Requested size: 213.39568pt x 178.11365pt.
 
-<./Images/Interfaces/Connexin.png, id=164, 631.35875pt x 526.96875pt>
+<./Images/Interfaces/Connexin.png, id=304, 631.35875pt x 526.96875pt>
 File: ./Images/Interfaces/Connexin.png Graphic file (type png)
 
 <use ./Images/Interfaces/Connexin.png>
 Package pdftex.def Info: ./Images/Interfaces/Connexin.png used on input line 33
-5.
+9.
 (pdftex.def)             Requested size: 213.39568pt x 178.11365pt.
  [9 <./Images/Interfaces/DetailTrajet.png (PNG copy)> <./Images/Interfaces/Conn
 exin.png (PNG copy)>]
-<./Images/Interfaces/VosTrajets.png, id=171, 631.35875pt x 526.96875pt>
+<./Images/Interfaces/VosTrajets.png, id=311, 631.35875pt x 526.96875pt>
 File: ./Images/Interfaces/VosTrajets.png Graphic file (type png)
 
 <use ./Images/Interfaces/VosTrajets.png>
 Package pdftex.def Info: ./Images/Interfaces/VosTrajets.png used on input line 
-349.
+353.
 (pdftex.def)             Requested size: 213.39568pt x 178.11365pt.
- [10 <./Images/Interfaces/VosTrajets.png (PNG copy)>] [11]
+ [10 <./Images/Interfaces/VosTrajets.png (PNG copy)>] [11] [12] (../Diagrammes/
+Inscription.tex
+\du=\skip63
+) [13]
+(../Diagrammes/Connexion.tex) [14]
+Overfull \vbox (11.61078pt too high) has occurred while \output is active []
+
+
+[15] (../Diagrammes/Gpx2Sql.tex) [16]
 ("C:\Users\CAMUGLIAL_INFO\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\
 lstlang1.sty"
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 ("C:\Users\CAMUGLIAL_INFO\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\
-lstlang2.sty"
-File: lstlang2.sty 2015/06/04 1.6 listings language file
-)
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 434.
-
-("C:\Users\CAMUGLIAL_INFO\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\lati
-n1.def"
-File: latin1.def 2015/03/17 v1.2c Input encoding file
-)
-("C:\Users\CAMUGLIAL_INFO\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdie
-k\se-utf8.def"
-File: se-utf8.def 2016/05/16 v1.11 stringenc: UTF-8
-)
-("C:\Users\CAMUGLIAL_INFO\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdie
-k\se-iso-8859-1.def"
-File: se-iso-8859-1.def 2016/05/16 v1.11 stringenc: ISO-8859-1
+lstmisc.sty"
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 )
 ("C:\Users\CAMUGLIAL_INFO\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\lati
 n1.def"
 File: latin1.def 2015/03/17 v1.2c Input encoding file
-) [12] [13]
-("C:\Users\CAMUGLIAL_INFO\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\lati
-n1.def"
-File: latin1.def 2015/03/17 v1.2c Input encoding file
-)
-("C:\Users\CAMUGLIAL_INFO\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\lati
-n1.def"
-File: latin1.def 2015/03/17 v1.2c Input encoding file
-)
-("C:\Users\CAMUGLIAL_INFO\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\lati
-n1.def"
-File: latin1.def 2015/03/17 v1.2c Input encoding file
-) [14]
-("C:\Users\CAMUGLIAL_INFO\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\lati
-n1.def"
-File: latin1.def 2015/03/17 v1.2c Input encoding file
-) [15]
-("C:\Users\CAMUGLIAL_INFO\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\lati
-n1.def"
-File: latin1.def 2015/03/17 v1.2c Input encoding file
-) [16] [17] (main.lof)
+) (../Diagrammes/PathToGpx.tex) [17] [18] (../Diagrammes/initMap.tex)
+[19] [20] [21] (main.lof)
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
- [18]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 515.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 515.
+ [22]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 581.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 581.
  (main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 515.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 515.
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 387533EC09004387EB23B39E0B302CDA;168
-(rerunfilecheck)             After:  117D19B7F96955813D994E94DE7F0E37;3092.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 515.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 581.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 581.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 9C796A76D17ACE52F2E2FD19720A2C73;3438.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 581.
  ) 
 Here is how much of TeX's memory you used:
- 32594 strings out of 493328
- 741768 string characters out of 3126167
- 1318464 words of memory out of 3000000
- 35356 multiletter control sequences out of 15000+200000
- 16824 words of font info for 37 fonts, out of 3000000 for 9000
+ 30466 strings out of 493328
+ 705408 string characters out of 3126167
+ 922382 words of memory out of 3000000
+ 33386 multiletter control sequences out of 15000+200000
+ 17208 words of font info for 37 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,12n,120p,887b,3416s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 69i,12n,120p,887b,1538s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exi
 st, replaced by a fixed one
 
@@ -1155,9 +1122,9 @@ pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
 
  <C:\Users\CAMUGLIAL_INFO\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\
-dpi600\ecit1000.pk> <C:\Users\CAMUGLIAL_INFO\AppData\Local\MiKTeX\2.9\fonts\pk\
-ljfour\jknappen\ec\dpi600\ectt1000.pk> <C:\Users\CAMUGLIAL_INFO\AppData\Local\M
-iKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0500.pk> <C:\Users\CAMUGLIAL_I
+dpi600\ectt1000.pk> <C:\Users\CAMUGLIAL_INFO\AppData\Local\MiKTeX\2.9\fonts\pk\
+ljfour\jknappen\ec\dpi600\ecrm0500.pk> <C:\Users\CAMUGLIAL_INFO\AppData\Local\M
+iKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbi1200.pk> <C:\Users\CAMUGLIAL_I
 NFO\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1000.pk> <C
 :\Users\CAMUGLIAL_INFO\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi
 600\ectt0800.pk> <C:\Users\CAMUGLIAL_INFO\AppData\Local\MiKTeX\2.9\fonts\pk\ljf
@@ -1176,9 +1143,9 @@ nappen\ec\dpi600\ecrm1200.pk> <C:\Users\CAMUGLIAL_INFO\AppData\Local\MiKTeX\2.9
 ta\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1728.pk><C:/Users/CA
 MUGLIAL_INFO/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
 msy10.pfb>
-Output written on main.pdf (19 pages, 448745 bytes).
+Output written on main.pdf (23 pages, 430741 bytes).
 PDF statistics:
- 1013 PDF objects out of 1200 (max. 8388607)
- 233 named destinations out of 1000 (max. 500000)
- 67 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 931 PDF objects out of 1000 (max. 8388607)
+ 85 named destinations out of 1000 (max. 500000)
+ 419 words of extra memory for PDF output out of 10000 (max. 10000000)
 
