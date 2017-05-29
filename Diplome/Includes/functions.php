@@ -330,6 +330,17 @@ function AddElevation($idRoute,$elevation) {
     PrepareExecute($query, $params);
 }
 
+function AddLength($idRoute,$length) {
+    $query = "Update route SET Length=:length where idRoute=:idRoute;";
+    $params = array(
+        'length' => $length,
+        'idRoute' => $idRoute
+    );
+    PrepareExecute($query, $params);
+}
+
+
+
 function GetMostSinuousRoad() {
     $query = "SELECT max(Sinuosity)*10000 AS Road FROM route;";
     $st = PrepareExecute($query);

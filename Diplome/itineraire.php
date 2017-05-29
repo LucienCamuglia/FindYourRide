@@ -41,7 +41,7 @@ if (isset($idRoute)) {
 
 
         </div>
-        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+        <input id="pac-input" class="controls" type="text" placeholder="Search Box" hidden/>
         <div id="map" class="col-lg-8" style="height: 80%;"></div>
         
         <div class="btnZone col-lg-offset-5 top-buffer"  >

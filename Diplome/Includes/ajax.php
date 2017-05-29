@@ -16,7 +16,7 @@ if (isset($_REQUEST["fonction"])) {
             break;
         case"GetRoutePoints":GetRoutePoints($_GET["idRoute"]);
             break;
-        case "SaveNewRoute" : SaveNewRoute($_POST["idRoute"], $_POST["route"], $_POST["sinuosite"], $_POST["elevation"]);
+        case "SaveNewRoute" : SaveNewRoute($_POST["idRoute"], $_POST["route"], $_POST["sinuosite"], $_POST["elevation"],$_POST["length"]);
             break;
         case "AddMotorcycle" : AddMotorcycle($_GET["Brand"], $_GET["Model"], $_GET["Year"], $_GET["Consumption"], $_GET["Tiredness"]);
             break;
@@ -30,6 +30,8 @@ if (isset($_REQUEST["fonction"])) {
         case "FilterRoad" : FilterRoad($_GET["sinuosity"], $_GET["slope"], $_GET["highway"], $_GET["time"]);
             break;
         case "GetRoutes" : GetRoutesJSON();
+            break;
+        case "GetRoadsInfos" : GetRoadsInfos($_GET["idRoute"]);
             break;
         default : exit();
             break;
@@ -92,10 +94,11 @@ function GetRoutePoints($idRoute) {
     echo json_encode($array_response);
 }
 
-function SaveNewRoute($idroute, $route, $sinueusite, $elevation) {
+function SaveNewRoute($idroute, $route, $sinueusite, $elevation,$length) {
     deleatePlaces($idroute);
     AddSinuosity($idroute, $sinueusite);
     AddElevation($idroute, $elevation);
+    AddLength($idroute, $length);
     $position = 0;
     foreach ($route as $point) {
         $lat = $point["latitude"];
@@ -189,7 +192,33 @@ function FilterRoad($sinuosity, $slope, $highway, $time) {
     echo json_encode($array_response);
 }
 
-function GetRoutesJSON(){
+function GetRoutesJSON() {
     $routes = GetRoutes();
     echo json_encode($routes);
+}
+
+function GetRoadsInfos($idRoute) {
+    $query = "Select * from route where idRoute = :idRoute";
+    $params = Array("idRoute" => $idRoute);
+    $st = PrepareExecute($query, $params);
+    $datas = $st->fetch(PDO::FETCH_ASSOC);   
+    $array_response["Length"] = $datas["Length"]/1000;
+    $array_response["Highway"] = $datas["highway"];
+    $array_response["Time"] = $datas["Time"];
+    $array_response["Sinuosity"] = ($datas["Sinuosity"]*10 / GetMostSinuousRoad()) ;
+    $array_response["Slope"] = ($datas["Slope"]*10 / GetMostSteepestRoad()) ;
+
+    if ($_SESSION["id"]) {
+        $query = "select * from moto natural join users where idUser = :idUser ";
+        $params = Array("idUser" => $_SESSION["id"]);
+        $st = PrepareExecute($query, $params);
+        $datas = $st->fetch(PDO::FETCH_ASSOC);
+        $motorcycleConsumption = $datas["consumption"];
+    } else {
+        $motorcycleConsumption = 0;
+    }
+
+    $array_response["MotorcycleConsumption"] = (int)$motorcycleConsumption;
+
+    echo json_encode($array_response);
 }

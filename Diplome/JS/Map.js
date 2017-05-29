@@ -29,7 +29,7 @@ var Markers = [];
 var oldRoute = [];
 var route = [];
 var highlighted;
-var addedPoints = 1;
+var addedPoints = 0;
 var directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
 var directionsService = new google.maps.DirectionsService();
 var elevator = new google.maps.ElevationService;
@@ -53,10 +53,16 @@ var imageNormalMidpoint = new google.maps.MarkerImage(
         new google.maps.Point(6, 6)
         );
 var total = 0;
+var DisplayTraffic = false;
+
 
 function initMap(modif, traffic) {
     modif = modif || false;
     traffic = traffic || false;
+
+    var Searchinput = document.getElementById('pac-input');
+    var searchBox = new google.maps.places.SearchBox(Searchinput);
+
     var pos = {
         lat: 46.203545,
         lng: 6.145150
@@ -80,7 +86,6 @@ function initMap(modif, traffic) {
             mapTypeId: google.maps.MapTypeId.TERRAIN
         }
     });
-
     if (modif) {
         google.maps.event.addListener(map, 'click', function(event) {
             CreateMarker(event.latLng, true, true, "FE7569", ++addedPoints, addedPoints);
@@ -91,6 +96,39 @@ function initMap(modif, traffic) {
                                     <div> <label class=\"col-sm-3\">Latitude : </label> <input id='inpLatPoint" + addedPoints + "' type=\"text\" value=" + event.latLng.lat() + "> </div>\n\
                                     <div> <label class=\"col-sm-3\">Longitude : </label> <input id='inpLonPoint" + addedPoints + "' type=\"text\" value=" + event.latLng.lng() + ">\n\
                                        </div></div><div></div>   ");
+        });
+        Searchinput.removeAttribute('hidden');
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(Searchinput);
+        map.addListener('bounds_changed', function() {
+            searchBox.setBounds(map.getBounds());
+        });
+        searchBox.addListener('places_changed', function() {
+            var places = searchBox.getPlaces();
+            if (places.length == 0) {
+                return;
+            }
+            var bounds = new google.maps.LatLngBounds();
+            places.forEach(function(place) {
+                if (!place.geometry) {
+                    console.log("Returned place contains no geometry");
+                    return;
+                }
+                var icon = {
+                    url: place.icon,
+                    size: new google.maps.Size(71, 71),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(17, 34),
+                    scaledSize: new google.maps.Size(25, 25)
+                };
+                if (place.geometry.viewport) {
+                    // Only geocodes have viewport.
+                    bounds.union(place.geometry.viewport);
+                } else {
+                    bounds.extend(place.geometry.location);
+                }
+
+            });
+            map.fitBounds(bounds);
         });
     }
     if (traffic) {
@@ -109,8 +147,6 @@ function ImporterGpx(file) {
 
         }
     });
-
-
 }
 
 function AskGoogle(Path) {
@@ -126,10 +162,7 @@ function AskGoogle(Path) {
             $.each(r2["snappedPoints"], function(index, value)
             {
                 snapped[index] = value.location;
-
             });
-
-
         }
     });
     return snapped;
@@ -165,7 +198,6 @@ function SnappPoints2Road(route) {
             tmpSnapped = AskGoogle(Path);
             Path = "";
             Snapped = Snapped.concat(tmpSnapped);
-
         }
         Path += point.Latitude + "," + point.Longitude + "|";
     });
@@ -184,6 +216,7 @@ function SaveNewLocation(idroute, route) {
     var length = google.maps.geometry.spherical.computeLength(geoRoute);
     var sinuosity = route.length / length;
     var counter = 10;
+    
     if (geoRoute.length <= 10) {
         counter = 1;
     }
@@ -196,6 +229,7 @@ function SaveNewLocation(idroute, route) {
     if (geoRoute.length > 12000) {
         counter = 50;
     }
+    
     for (var i = 0; i < geoRoute.length - counter; i += counter) {
         echantRoute.push(geoRoute[i]);
     }
@@ -215,7 +249,7 @@ function SaveNewLocation(idroute, route) {
             $.ajax({
                 url: './Includes/ajax.php',
                 type: 'POST',
-                data: {fonction: "SaveNewRoute", idRoute: idroute, route: route, sinuosite: sinuosity, elevation: elevationAverage},
+                data: {fonction: "SaveNewRoute", idRoute: idroute, route: route, sinuosite: sinuosity, elevation: elevationAverage, length:length},
                 async: false,
                 success: function(result) {
 
@@ -223,7 +257,6 @@ function SaveNewLocation(idroute, route) {
             });
         }
     });
-
 }
 
 $(document).ready(function() {
@@ -274,7 +307,6 @@ $(document).ready(function() {
             }
             console.log("route");
             console.log(route);
-
             /*  oldRoute.shift()
              oldRoute.unshift(route[0][0], route[0][1]);
              //  oldRoute[oldRoute.length-1] = route[1];
@@ -297,7 +329,6 @@ $(document).ready(function() {
         StartCreation();
     })
 });
-
 $(document).bind({
     ajaxStart: function() {
         $("body").addClass("loading");
@@ -306,19 +337,18 @@ $(document).bind({
         $("body").removeClass("loading");
     }
 });
-
 function RouteClick() {
     $(".route").click(function() {
         clear();
-        initMap();
+        initMap(false, DisplayTraffic);
         $("#btnModif").removeClass("hidden");
         $("#btnModif").attr('name', $(this).attr('name'));
         if (highlighted != null)
             $(highlighted).removeClass("highlight");
         $(this).addClass("highlight");
         highlighted = this;
-
         ShowParcours(LoadPoints($(this).attr('name')), false);
+        DisplayRouteInfo($(this).attr('name'));
     });
 }
 
@@ -335,17 +365,14 @@ function searchIti(from, to) {
     directionsService.route(request, function(result, status) {
         var distanceM = result.routes[0].legs[0].distance.value;
         var tempsS = result.routes[0].legs[0].duration.valsue;
-
         if (status === google.maps.DirectionsStatus.OK) {
             directionsDisplay.setDirections(result);
             $.each(result.routes[0].overview_path, function(index, point) {
                 route.push(point);
             });
-
         }
 
     });
-
 }
 
 function clear() {
@@ -361,8 +388,6 @@ function clear() {
 function ShowParcours(tableauPoints, parcoursModif, color) {
     color = color || "#ff1ece";
     var liste_des_points = tableauPoints;
-
-
     if (parcoursModif === true) {
         //crée les marqueurs de début et fin de route
         CreateMarker(liste_des_points[0], parcoursModif, false, "36af2d", "%E2%80%A2", 0);
@@ -373,9 +398,7 @@ function ShowParcours(tableauPoints, parcoursModif, color) {
     {
         route.push(new google.maps.LatLng(value.Latitude, value.Longitude));
     });
-
     var bounds = new google.maps.LatLngBounds();
-
     for (var i = 0; i < liste_des_points.length; i++) {
         bounds.extend(new google.maps.LatLng(liste_des_points[i].Latitude, liste_des_points[i].Longitude));
     }
@@ -399,9 +422,7 @@ function CreateMarker(value, parcoursModif, parcoursDelete, pinColor, texte, pos
             new google.maps.Size(21, 34),
             new google.maps.Point(0, 0),
             new google.maps.Point(10, 34));
-
     var pos;
-
     if (value.Latitude) {
         pos = new google.maps.LatLng(value.Latitude, value.Longitude);
     } else {
@@ -415,7 +436,6 @@ function CreateMarker(value, parcoursModif, parcoursDelete, pinColor, texte, pos
         map: map,
         icon: pinImage
     });
-
     if (parcoursDelete) {
         parcoursMarker.addListener('click', function() {
             this.setMap(null);
@@ -441,7 +461,6 @@ function refreshValues(index) {
     console.log("Display values");
     $("#inpLatPoint" + index).val(Markers[index].position.lat());
     $("#inpLonPoint" + index).val(Markers[index].position.lng());
-
 }
 
 function DownloadRoute() {
@@ -468,9 +487,6 @@ function DownloadRoute() {
     }
 }
 
-function DisplayInfo() {
-
-}
 
 function EnabledDisabledFilters(caller) {
     if (caller.checked) {
@@ -479,7 +495,6 @@ function EnabledDisabledFilters(caller) {
     } else {
         $("#filters").attr("hidden", true);
         RefreshhRoutesWithoutFilters();
-
     }
 }
 
@@ -502,7 +517,6 @@ function RefreshhRoutesWithFilters() {
         }
 
     });
-
 }
 
 function RefreshhRoutesWithoutFilters() {
@@ -527,12 +541,42 @@ function RefreshhRoutesWithoutFilters() {
             alert("Error: " + errorThrown);
         }
     });
-
 }
 
 function StartCreation() {
-    initMap(true);
+    initMap(true, DisplayTraffic);
 }
+
+function DisplayRouteInfo(idroute) {
+    $.ajax({
+        url: './Includes/ajax.php',
+        type: 'GET',
+        data: {fonction: "GetRoadsInfos", idRoute: idroute},
+        dataType: "json",
+        async: false,
+        success: function(result) {
+            $('#InfoHighway').html((result.Highway==1)?'This road includes highways':'This road does not include highways');
+            $('#InfoLength').html("Length " + result.Length+"km");
+            $('#InfoSinuosity').html("Sinuosity "+result.Sinuosity);
+            $('#InfoSlope').html(result.Slope);
+            $('#InfoDuration').html(result.Time);       
+            $('#InfoConsumption').html("Consumption: " + result.Length*result.MotorcycleConsumption/100 + " liters");
+          
+            
+            
+            
+        },
+        error: function(result, status, error) {
+            console.log(result);
+            console.log(status);
+            console.log(error);
+        }
+    });
+
+}
+
+
+
 
 /************************************************************************/
 /*              http://www.birdtheme.org/useful/v3tool.html             */
@@ -614,7 +658,6 @@ function setmidmarkers(point) {
     google.maps.event.addListener(marker, "mouseout", function() {
         marker.setIcon(imageNormalMidpoint);
     });
-
     google.maps.event.addListener(marker, "dragend", function() {
         for (var i = 0; i < midmarkers.length; i++) {
             if (midmarkers[i] == marker) {
@@ -630,7 +673,7 @@ function setmidmarkers(point) {
                         newpos.lng() - (0.5 * (newpos.lng() - endMarkerPos.lng()))
                         );
                 var newVMarker = setmidmarkers(secondVPos);
-                newVMarker.setPosition(secondVPos);//apply the correct position to the midmarker
+                newVMarker.setPosition(secondVPos); //apply the correct position to the midmarker
                 var newMarker = setmarkers(newpos);
                 Markers.splice(i + 1, 0, newMarker);
                 parcoursPolyline.getPath().insertAt(i + 1, newpos);

@@ -14,7 +14,7 @@ include './Includes/functions.php';
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./Includes/bootstrap/css/bootstrap.min.css"/>
 <link rel="stylesheet" href="./CSS/main.css"/>
- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRxYbU0CGNMpZINbtBJqn72k1UCi0bMo8&libraries=geometry&v=3&sensor=false"></script>
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRxYbU0CGNMpZINbtBJqn72k1UCi0bMo8&libraries=geometry,places&v=3&sensor=false"></script>
 <script src="./JS/jquery.min.js"></script>
 <script src="./JS/Signin.js"></script>
 
