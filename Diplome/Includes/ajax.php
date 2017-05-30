@@ -204,11 +204,11 @@ function GetRoadsInfos($idRoute) {
     $datas = $st->fetch(PDO::FETCH_ASSOC);   
     $array_response["Length"] = $datas["Length"]/1000;
     $array_response["Highway"] = $datas["highway"];
-    $array_response["Time"] = $datas["Time"];
-    $array_response["Sinuosity"] = ($datas["Sinuosity"]*10 / GetMostSinuousRoad()) ;
-    $array_response["Slope"] = ($datas["Slope"]*10 / GetMostSteepestRoad()) ;
+    $array_response["Time"] = $datas["Time"];   
+    $array_response["Sinuosity"] = (int)(($datas["Sinuosity"]*10000/  GetMostSinuousRoad())*10) ;
+    $array_response["Slope"] = round($datas["Slope"] / GetMostSteepestRoad()*10) ;
 
-    if ($_SESSION["id"]) {
+    if (isset($_SESSION["id"])) {
         $query = "select * from moto natural join users where idUser = :idUser ";
         $params = Array("idUser" => $_SESSION["id"]);
         $st = PrepareExecute($query, $params);

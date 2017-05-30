@@ -339,10 +339,15 @@ function AddLength($idRoute,$length) {
     PrepareExecute($query, $params);
 }
 
-
-
 function GetMostSinuousRoad() {
     $query = "SELECT max(Sinuosity)*10000 AS Road FROM route;";
+    $st = PrepareExecute($query);
+    $val = $st->fetchAll(PDO::FETCH_ASSOC);
+    return (int) $val[0]["Road"];
+}
+
+function GetLessSinuousRoad() {
+    $query = "SELECT min(Sinuosity)*10000 AS Road FROM route;";
     $st = PrepareExecute($query);
     $val = $st->fetchAll(PDO::FETCH_ASSOC);
     return (int) $val[0]["Road"];

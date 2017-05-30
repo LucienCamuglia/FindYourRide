@@ -96,6 +96,9 @@ function initMap(modif, traffic) {
                                     <div> <label class=\"col-sm-3\">Latitude : </label> <input id='inpLatPoint" + addedPoints + "' type=\"text\" value=" + event.latLng.lat() + "> </div>\n\
                                     <div> <label class=\"col-sm-3\">Longitude : </label> <input id='inpLonPoint" + addedPoints + "' type=\"text\" value=" + event.latLng.lng() + ">\n\
                                        </div></div><div></div>   ");
+            if (addedPoints > 1) {
+                searchIti(Markers[addedPoints - 2].position, Markers[addedPoints - 1].position);
+            }
         });
         Searchinput.removeAttribute('hidden');
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(Searchinput);
@@ -130,6 +133,7 @@ function initMap(modif, traffic) {
             });
             map.fitBounds(bounds);
         });
+
     }
     if (traffic) {
         var trafficLayer = new google.maps.TrafficLayer();
@@ -216,7 +220,7 @@ function SaveNewLocation(idroute, route) {
     var length = google.maps.geometry.spherical.computeLength(geoRoute);
     var sinuosity = route.length / length;
     var counter = 10;
-    
+
     if (geoRoute.length <= 10) {
         counter = 1;
     }
@@ -229,7 +233,7 @@ function SaveNewLocation(idroute, route) {
     if (geoRoute.length > 12000) {
         counter = 50;
     }
-    
+
     for (var i = 0; i < geoRoute.length - counter; i += counter) {
         echantRoute.push(geoRoute[i]);
     }
@@ -249,7 +253,7 @@ function SaveNewLocation(idroute, route) {
             $.ajax({
                 url: './Includes/ajax.php',
                 type: 'POST',
-                data: {fonction: "SaveNewRoute", idRoute: idroute, route: route, sinuosite: sinuosity, elevation: elevationAverage, length:length},
+                data: {fonction: "SaveNewRoute", idRoute: idroute, route: route, sinuosite: sinuosity, elevation: elevationAverage, length: length},
                 async: false,
                 success: function(result) {
 
@@ -355,21 +359,25 @@ function RouteClick() {
 function searchIti(from, to) {
 
     var request = {
-        origin: new google.maps.LatLng(from["lat"], from["lon"]),
-        destination: new google.maps.LatLng(to["lat"], to["lon"]),
+        origin:from, //new google.maps.LatLng(from.lat(), from.lng()),
+        destination: to, //new google.maps.LatLng(to.lat(), to.lng()),
         travelMode: google.maps.TravelMode.DRIVING
                 //WALKING / DRIVING / BICYCLING / TRANSIT / 
     };
-    route = [];
+    //route = [];
     directionsDisplay.setMap(this.map);
     directionsService.route(request, function(result, status) {
-        var distanceM = result.routes[0].legs[0].distance.value;
-        var tempsS = result.routes[0].legs[0].duration.valsue;
+
         if (status === google.maps.DirectionsStatus.OK) {
-            directionsDisplay.setDirections(result);
+            var distanceM = result.routes[0].legs[0].distance.value;
+            var tempsS = result.routes[0].legs[0].duration.value;
+            //directionsDisplay.setDirections(result);
             $.each(result.routes[0].overview_path, function(index, point) {
                 route.push(point);
             });
+            DisplayRoute();
+        }else{
+            console.log(status);
         }
 
     });
@@ -442,6 +450,7 @@ function CreateMarker(value, parcoursModif, parcoursDelete, pinColor, texte, pos
             Markers.splice(Markers.indexOf(this), 1);
             $("#point" + this.zIndex).remove();
             length--;
+            addedPoints--;
         });
     }
 
@@ -486,7 +495,6 @@ function DownloadRoute() {
         });
     }
 }
-
 
 function EnabledDisabledFilters(caller) {
     if (caller.checked) {
@@ -555,16 +563,19 @@ function DisplayRouteInfo(idroute) {
         dataType: "json",
         async: false,
         success: function(result) {
-            $('#InfoHighway').html((result.Highway==1)?'This road includes highways':'This road does not include highways');
-            $('#InfoLength').html("Length " + result.Length+"km");
-            $('#InfoSinuosity').html("Sinuosity "+result.Sinuosity);
-            $('#InfoSlope').html(result.Slope);
-            $('#InfoDuration').html(result.Time);       
-            $('#InfoConsumption').html("Consumption: " + result.Length*result.MotorcycleConsumption/100 + " liters");
-          
-            
-            
-            
+            $('#InfoHighway').html((result.Highway == 1) ? 'This road includes highways' : 'This road does not include highways');
+            $('#InfoLength').html("Length : " + result.Length + "km");
+            $('#InfoSinuosity').html("Sinuosity : " + result.Sinuosity + "/10");
+            $('#InfoSlope').html("Slope : " + result.Slope + "/10");
+            $('#InfoDuration').html("Travel time : " + result.Time);
+            if (result.MotorcycleConsumption == 0) {
+                $('#InfoConsumption').html("Consumption : Please login for more informations");
+            } else {
+                $('#InfoConsumption').html("Théorical consumption : " + Math.round(result.Length * result.MotorcycleConsumption / 100) + " liters");
+            }
+
+
+
         },
         error: function(result, status, error) {
             console.log(result);
