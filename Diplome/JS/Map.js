@@ -54,6 +54,7 @@ var imageNormalMidpoint = new google.maps.MarkerImage(
         );
 var total = 0;
 var DisplayTraffic = false;
+var avoidHighways = false;
 
 
 function initMap(modif, traffic) {
@@ -210,12 +211,18 @@ function SnappPoints2Road(route) {
     return Snapped;
 }
 
-function SaveNewLocation(idroute, route) {
+function SaveNewLocation(idroute, route, fromweb) {
+    fromweb = fromweb || false;
     var geoRoute = [];
     var echantRoute = [];
     $.each(route, function(index, value)
     {
-        geoRoute.push(new google.maps.LatLng(value.latitude, value.longitude));
+        if (fromweb) {
+            geoRoute.push(new google.maps.LatLng(value.lat(), value.lng()));
+        } else {
+            geoRoute.push(new google.maps.LatLng(value.latitude, value.longitude));
+
+        }
     });
     var length = google.maps.geometry.spherical.computeLength(geoRoute);
     var sinuosity = route.length / length;
@@ -261,6 +268,23 @@ function SaveNewLocation(idroute, route) {
             });
         }
     });
+}
+
+function CreateRoute(name, containsHighway) {
+    if (name != "") {
+        console.log("create : " + name);
+        console.log("Highways ? " + containsHighway);
+        $.ajax({
+            url: './Includes/ajax.php',
+            type: 'GET',
+            data: {fonction: "CreateRoute", name: name, containsHighway: containsHighway},
+            dataType: 'json',
+            async: false,
+            success: function(result) {
+                SaveNewLocation(result, route, true);
+            }
+        });
+    }
 }
 
 $(document).ready(function() {
@@ -331,7 +355,19 @@ $(document).ready(function() {
     });
     $("#StartCreation").click(function() {
         StartCreation();
-    })
+
+    });
+
+
+    $("#chkHighway").change(function() {
+        if ($("#chkHighway").is(':checked')) {
+            avoidHighways = false;
+        } else {
+            avoidHighways = true;
+        }
+
+        console.log(avoidHighways);
+    });
 });
 $(document).bind({
     ajaxStart: function() {
@@ -359,11 +395,13 @@ function RouteClick() {
 function searchIti(from, to) {
 
     var request = {
-        origin:from, //new google.maps.LatLng(from.lat(), from.lng()),
+        origin: from, //new google.maps.LatLng(from.lat(), from.lng()),
         destination: to, //new google.maps.LatLng(to.lat(), to.lng()),
-        travelMode: google.maps.TravelMode.DRIVING
+        travelMode: google.maps.TravelMode.DRIVING,
+        avoidHighways: avoidHighways
                 //WALKING / DRIVING / BICYCLING / TRANSIT / 
     };
+
     //route = [];
     directionsDisplay.setMap(this.map);
     directionsService.route(request, function(result, status) {
@@ -376,7 +414,7 @@ function searchIti(from, to) {
                 route.push(point);
             });
             DisplayRoute();
-        }else{
+        } else {
             console.log(status);
         }
 
@@ -553,6 +591,7 @@ function RefreshhRoutesWithoutFilters() {
 
 function StartCreation() {
     initMap(true, DisplayTraffic);
+    $(".SaveRouteControls").removeClass('hidden');
 }
 
 function DisplayRouteInfo(idroute) {
@@ -585,6 +624,7 @@ function DisplayRouteInfo(idroute) {
     });
 
 }
+
 
 
 

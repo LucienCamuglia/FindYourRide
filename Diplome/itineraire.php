@@ -13,6 +13,7 @@ and open the template in the editor.
         <?php
         DisplayMenu(basename($_SERVER['PHP_SELF']));
         importerTrajetModal();
+        newRouteModal();
         if (isset($_GET["NewIti"])) {
             $idRoute = $_GET["id"];
         }
@@ -42,16 +43,23 @@ if (isset($idRoute)) {
 
         </div>
         <input id="pac-input" class="controls" type="text" placeholder="Search Box" hidden/>
-        <div id="map" class="col-lg-8" style="height: 80%;"></div>
-        
-        <div class="btnZone col-lg-offset-5 top-buffer"  >
-            <button id="btnModif"  class="hidden btn btn-primary" name="none">Modifier le trajet</button>
+        <div id="map" class="col-lg-7" style="height: 80%;"></div>
 
-            <button class="btn" id="StartCreation">Créer un nouveau trajet</button>
-            <button class="btn"data-toggle="modal" data-target="#modalimport" onclick='$("#msgCont").attr("Hidden", "true")' >Importer un nouveau trajet</button>
-                    
+        <div class="btnZone col-lg-2 top-buffer"  >
+           <!-- <button id="btnModif"  class="hidden btn btn-primary btn-block" name="none">Modifier le trajet</button>-->
+
+            <label class="checkbox-inline SaveRouteControls hidden">
+                <input id="chkHighway" type="checkbox" checked data-toggle="toggle"> Highways
+            </label>
+           
+            <button id="SaveRoute" class=" btn btn-primary btn-block SaveRouteControls hidden" data-target="#newRoutemodal" data-toggle="modal">Save the route</button>
+            <button id="ClearRoute" class=" btn btn-primary btn-block SaveRouteControls hidden">Clear the route</button>
+
+            <button class="btn btn-block" id="StartCreation">Créer un nouveau trajet</button>
+            <button class="btn  btn-block" data-toggle="modal" data-target="#modalimport" onclick='$("#msgCont").attr("Hidden", "true")' >Importer un nouveau trajet</button>
+
             <button id="RefreshRoute" class=" btn btn-primary  hidden modifRoute">Refresh the route</button>
-      
+
         </div>
 
         <div id="pointsInfo" class="col-lg-6 col-lg-offset-3 hidden modifRoute"  >

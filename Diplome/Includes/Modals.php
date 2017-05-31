@@ -141,12 +141,12 @@ function importerTrajetModal() {
 
 function confirmationDeleteMotorcycleModal($id, $brand, $model, $year) {
     ?>
-    <div class="modal fade" id="modaldelete<?php echo $id?>" tabindex="-1" role="dialog" aria-labelledby="modaldelete<?php echo $id?>" aria-hidden="true">
+    <div class="modal fade" id="modaldelete<?php echo $id ?>" tabindex="-1" role="dialog" aria-labelledby="modaldelete<?php echo $id ?>" aria-hidden="true">
         <form method="post" action="./Includes/deleteMotorcycle.php" >
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                       
+
                         <h5 class="modal-title" >Delete a motorcycle</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -155,8 +155,8 @@ function confirmationDeleteMotorcycleModal($id, $brand, $model, $year) {
                     <div class="modal-body">
                         <div class="form-group row">
                             <label  class="col-2 col-form-label">Are you sure to delete :</label>
-                            <label  class="col-2 col-form-label"><?php echo "$brand, $model, $year"?></label>  
-                            <input hidden value="<?php echo $id?>" name="toDelete"/>
+                            <label  class="col-2 col-form-label"><?php echo "$brand, $model, $year" ?></label>  
+                            <input hidden value="<?php echo $id ?>" name="toDelete"/>
                         </div>
 
                         <div class="modal-footer">
@@ -169,5 +169,38 @@ function confirmationDeleteMotorcycleModal($id, $brand, $model, $year) {
         </form>
     </div>
     <?php
-    }
-    
+}
+
+function newRouteModal() {
+    ?>
+    <div class="modal fade" id="newRoutemodal" tabindex="-1" role="dialog" aria-labelledby="newRoutemodal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="alert alert-danger" id='msgCont' hidden="true">
+                            <strong>Erreur !</strong> <label id='msg'></label>
+                        </div>
+                        <h5 class="modal-title" > New route</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <label  class="col-2 col-form-label">Route name : </label>
+                            <div class="col-4">
+                                <input class="form-control" type="text"  id="newRouteName" name="newRouteName" required>
+                            </div>
+                            <label class="col-2 col-form-label" >This route contains highways </label> <input class="col-lg-offset-1" type="checkbox" name="highway">
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <input type="submit" class="btn btn-primary" value="Importer" name="import" onclick="CreateRoute($('#newRouteName').val(),$('#chkHighway').is(':checked'));">
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <?php
+}

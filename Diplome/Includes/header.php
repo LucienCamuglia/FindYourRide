@@ -17,6 +17,8 @@ include './Includes/functions.php';
  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRxYbU0CGNMpZINbtBJqn72k1UCi0bMo8&libraries=geometry,places&v=3&sensor=false"></script>
 <script src="./JS/jquery.min.js"></script>
 <script src="./JS/Signin.js"></script>
+<link href="./Includes/bootstrap/bootstrap-toggle/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="./Includes/bootstrap/bootstrap-toggle/js/bootstrap-toggle.min.js"></script>
 
 
 <script src="./Includes/bootstrap/js/bootstrap.min.js"></script>
