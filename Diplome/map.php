@@ -38,7 +38,8 @@ and open the template in the editor.
         <input id="pac-input" class="controls" type="text" placeholder="Search Box" hidden>
         <div id="map" class="col-lg-8" style="height: 110%;"></div>
         <div><button class="btn btn-primary" onclick="DownloadRoute();" >Download route</button></div>
-        <div class="col-lg-5 col-lg-offset-4" >
+        
+        <div class="col-lg-5 col-lg-offset-4 routeControl hidden " >
             <center><h2>Road Infos</h2></center>
             <h4 class="col-lg-12" id="InfoHighway">This road does not includes highways</h4>
             <p><span style="text-align: left;" class="col-lg-6" id="InfoLength">Length : 12km</span><span style="text-align: right;" class="col-lg-6" id="InfoDuration">Duration : 0h30min</span></p>

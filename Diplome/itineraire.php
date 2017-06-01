@@ -46,19 +46,20 @@ if (isset($idRoute)) {
         <div id="map" class="col-lg-7" style="height: 80%;"></div>
 
         <div class="btnZone col-lg-2 top-buffer"  >
-           <!-- <button id="btnModif"  class="hidden btn btn-primary btn-block" name="none">Modifier le trajet</button>-->
+            <!-- <button id="btnModif"  class="hidden btn btn-primary btn-block" name="none">Modifier le trajet</button>-->
 
             <label class="checkbox-inline SaveRouteControls hidden">
                 <input id="chkHighway" type="checkbox" checked data-toggle="toggle"> Highways
             </label>
-           
+
             <button id="SaveRoute" class=" btn btn-primary btn-block SaveRouteControls hidden" data-target="#newRoutemodal" data-toggle="modal">Save the route</button>
             <button id="ClearRoute" class=" btn btn-primary btn-block SaveRouteControls hidden">Clear the route</button>
 
             <button class="btn btn-block" id="StartCreation">Créer un nouveau trajet</button>
             <button class="btn  btn-block" data-toggle="modal" data-target="#modalimport" onclick='$("#msgCont").attr("Hidden", "true")' >Importer un nouveau trajet</button>
 
-            <button id="RefreshRoute" class=" btn btn-primary  hidden modifRoute">Refresh the route</button>
+            <button id="RefreshRoute" class=" btn btn-primary btn-block  hidden modifRoute">Refresh the route</button>
+            <button id="RefreshRoute" class=" btn btn-danger btn-block  route hidden routeControl">Delete the route</button>
 
         </div>
 
@@ -95,5 +96,14 @@ if (isset($idRoute)) {
 
         </div>
         <div class="modalLoad"></div>
+        
+        <div class="col-lg-5 col-lg-offset-4 routeControl hidden" >
+            <center><h2>Road Infos</h2></center>
+            <h4 class="col-lg-12" id="InfoHighway">This road does not includes highways</h4>
+            <p><span style="text-align: left;" class="col-lg-6" id="InfoLength">Length : 12km</span><span style="text-align: right;" class="col-lg-6" id="InfoDuration">Duration : 0h30min</span></p>
+            <p><span style="text-align: left;" class="col-lg-6" id="InfoSinuosity">Sinuosity : 0/10</span><span style="text-align: right;" class="col-lg-6" id="InfoSlope">Slope : 0/10</span></p>
+            <p><span style="text-align: left;" class="col-lg-8" id="InfoConsumption">Consumption : 52 liters</span><span style="text-align: right;" class="col-lg-6"></span></p>
+
+        </div>
     </body>
 </html>

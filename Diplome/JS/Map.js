@@ -215,15 +215,18 @@ function SaveNewLocation(idroute, route, fromweb) {
     fromweb = fromweb || false;
     var geoRoute = [];
     var echantRoute = [];
+    var tmpRoute = route;
     $.each(route, function(index, value)
     {
         if (fromweb) {
             geoRoute.push(new google.maps.LatLng(value.lat(), value.lng()));
+
         } else {
             geoRoute.push(new google.maps.LatLng(value.latitude, value.longitude));
 
         }
     });
+
     var length = google.maps.geometry.spherical.computeLength(geoRoute);
     var sinuosity = route.length / length;
     var counter = 10;
@@ -257,13 +260,18 @@ function SaveNewLocation(idroute, route, fromweb) {
                 elevationAverage += Math.abs(elevations[i - 1].elevation - elevations[i].elevation);
             }
             console.log("sinuosite : " + sinuosity);
+            if (fromweb) {
+                route = JSON.stringify(route);
+            }
             $.ajax({
                 url: './Includes/ajax.php',
                 type: 'POST',
                 data: {fonction: "SaveNewRoute", idRoute: idroute, route: route, sinuosite: sinuosity, elevation: elevationAverage, length: length},
                 async: false,
                 success: function(result) {
-
+                    if(fromweb){
+                        location.reload();
+                    }
                 }
             });
         }
@@ -281,7 +289,7 @@ function CreateRoute(name, containsHighway) {
             dataType: 'json',
             async: false,
             success: function(result) {
-                SaveNewLocation(result, route, true);
+                SaveNewLocation(result, route, true);                
             }
         });
     }
@@ -382,6 +390,7 @@ function RouteClick() {
         clear();
         initMap(false, DisplayTraffic);
         $("#btnModif").removeClass("hidden");
+        $(".routeControl").removeClass("hidden");
         $("#btnModif").attr('name', $(this).attr('name'));
         if (highlighted != null)
             $(highlighted).removeClass("highlight");
@@ -389,6 +398,7 @@ function RouteClick() {
         highlighted = this;
         ShowParcours(LoadPoints($(this).attr('name')), false);
         DisplayRouteInfo($(this).attr('name'));
+        
     });
 }
 

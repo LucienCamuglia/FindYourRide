@@ -16,7 +16,7 @@ if (isset($_REQUEST["fonction"])) {
             break;
         case"GetRoutePoints":GetRoutePoints($_GET["idRoute"]);
             break;
-        case "SaveNewRoute" : SaveNewRoute($_POST["idRoute"], $_POST["route"], $_POST["sinuosite"], $_POST["elevation"], $_POST["length"]);
+        case "SaveNewRoute" : SaveNewRoute($_REQUEST["idRoute"], $_REQUEST["route"], $_REQUEST["sinuosite"], $_REQUEST["elevation"], $_REQUEST["length"]);
             break;
         case "AddMotorcycle" : AddMotorcycle($_GET["Brand"], $_GET["Model"], $_GET["Year"], $_GET["Consumption"], $_GET["Tiredness"]);
             break;
@@ -33,7 +33,7 @@ if (isset($_REQUEST["fonction"])) {
             break;
         case "GetRoadsInfos" : GetRoadsInfos($_GET["idRoute"]);
             break;
-        case "CreateRoute" : CreateNewRoute($_GET["name"],$_GET["containsHighway"]);
+        case "CreateRoute" : CreateNewRoute($_GET["name"], $_GET["containsHighway"]);
             break;
         default : exit();
             break;
@@ -102,9 +102,19 @@ function SaveNewRoute($idroute, $route, $sinueusite, $elevation, $length) {
     AddElevation($idroute, $elevation);
     AddLength($idroute, $length);
     $position = 0;
+    $fromweb = false;
+    if (is_string($route)) {
+        $route = json_decode($route);
+        $fromweb = true;
+    }
     foreach ($route as $point) {
-        $lat = $point["latitude"];
-        $lon = $point["longitude"];
+        if ($fromweb) {
+            $lat = $point->lat;
+            $lon = $point->lng;
+        } else {
+            $lat = $point["latitude"];
+            $lon = $point["longitude"];
+        }
         addPlaceToRoute($lat, $lon, $position++, $idroute);
     }
 }
@@ -225,7 +235,7 @@ function GetRoadsInfos($idRoute) {
     echo json_encode($array_response);
 }
 
-function CreateNewRoute($name,$containsHighway) {
+function CreateNewRoute($name, $containsHighway) {
     $id = CreateRoute($name, $_SESSION["id"], $containsHighway);
     echo json_encode($id);
 }

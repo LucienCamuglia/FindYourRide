@@ -19,6 +19,7 @@ include './Includes/functions.php';
 <script src="./JS/Signin.js"></script>
 <link href="./Includes/bootstrap/bootstrap-toggle/css/bootstrap-toggle.min.css" rel="stylesheet">
 <script src="./Includes/bootstrap/bootstrap-toggle/js/bootstrap-toggle.min.js"></script>
+<script src="https://github.com/douglascrockford/JSON-js/blob/master/json2.js"></script>
 
 
 <script src="./Includes/bootstrap/js/bootstrap.min.js"></script>
