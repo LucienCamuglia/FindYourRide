@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * Author : Lucien Camuglia
+ * Description : Ajax request
+ * Date : April-june 2017
+ * Version : 1.0 LC BaseVersion
+ */
+
 session_start();
 include './functions.php';
 if (isset($_REQUEST["fonction"])) {
@@ -168,7 +175,7 @@ function UpdateUserRole($idUser, $idRole) {
 
 function GetUserRole($idUser) {
     $result;
-    switch (getUserbRoleById($idUser)) {
+    switch (getUserRoleById($idUser)) {
         case 1: $result = "Administrator";
             break;
         case 2: $result = "User";

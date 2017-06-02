@@ -1,8 +1,12 @@
 <?php
+/*
+ * Author : Lucien Camuglia
+ * Description : Connexion file
+ * Date : April-june 2017
+ * Version : 1.0 LC BaseVersion
+ */
 
-//démarre les sessions
 session_start();
-
 include_once './functions.php';
 
 if (!empty($_POST['username'])) {

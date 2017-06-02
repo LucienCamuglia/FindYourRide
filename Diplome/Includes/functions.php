@@ -1,9 +1,10 @@
 <?php
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author : Lucien Camuglia
+ * Description : Import a GPX file 
+ * Date : April-june 2017
+ * Version : 1.0 LC BaseVersion
  */
 
 /**
@@ -14,7 +15,7 @@
 function connexionDb() {
 
     try {
-        //variables contenant les informations de connexion ainsi que la DB
+        //database login infos
         $serveur = '127.0.0.1';
         $pseudo = 'root';
         $pwd = '';
@@ -23,7 +24,7 @@ function connexionDb() {
         static $pdo = null;
 
         if ($pdo === NULL) {
-            // Connexion à la base.
+            // Conection to database.
             $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
             $pdo = new PDO("mysql:host=$serveur;dbname=$db", $pseudo, $pwd, $pdo_options);
             $pdo->exec("Set Character set UTF8");
@@ -86,29 +87,9 @@ function ConnexionUser($User, $Password) {
 }
 
 /**
- * 
- * @param String $Username nom d'utilisateur
- * @param String $password mot de passe crypté en sha1
- * @return boolean true si ajouté et false si il existe déjà
+ * Return all brand
+ * @return array all motorcycle brand
  */
-function InscriptionUser($Username, $password) {
-    global $pdo;
-    $query = "Select Username FROM users where Username=:username;";
-    $params = array('username' => $Username);
-    $st = PrepareExecute($query, $params);
-    while ($data = $st->fetch(PDO::FETCH_ASSOC)) {
-        return false;
-    }
-
-    $query = "Insert Into Users (Username,Password) values (:username,:password);";
-    $params = array(
-        'username' => $Username,
-        'password' => $password
-    );
-    $st = PrepareExecute($query, $params);
-    return true;
-}
-
 function GetMotorcycleBrand() {
     $query = "select distinct Brand from moto";
     $st = PrepareExecute($query);
@@ -118,6 +99,10 @@ function GetMotorcycleBrand() {
     return $array_response;
 }
 
+/**
+ * Return all motorcycle model
+ * @return array with all motorcycle model
+ */
 function GetAllMotorcycleModel() {
     $query = "select distinct model from moto order by model";
     $st = PrepareExecute($query);
@@ -127,6 +112,10 @@ function GetAllMotorcycleModel() {
     return $array_response;
 }
 
+/**
+ * return all years of motorcycle
+ * @return array with all years
+ */
 function GetAllMotorcycleYear() {
     $query = "select distinct year from moto order by year";
     $st = PrepareExecute($query);
@@ -136,6 +125,10 @@ function GetAllMotorcycleYear() {
     return $array_response;
 }
 
+/**
+ * return all consumptions of motorcycle
+ * @return array with all consumptions
+ */
 function GetAllMotorcycleConsumption() {
     $query = "select distinct consumption from moto order by consumption";
     $st = PrepareExecute($query);
@@ -145,6 +138,10 @@ function GetAllMotorcycleConsumption() {
     return $array_response;
 }
 
+/**
+ * return all Tiredness of motorcycle
+ * @return array with all Tiredness
+ */
 function GetAllMotorcycleTiredness() {
     $query = "select distinct Tiredness from moto order by Tiredness";
     $st = PrepareExecute($query);
@@ -154,6 +151,10 @@ function GetAllMotorcycleTiredness() {
     return $array_response;
 }
 
+/**
+ * Return all motorcycle
+ * @return array with all motorcycle ordered by brand
+ */
 function GetAllMotorcycles() {
     $query = "select * from moto order by Brand";
     $st = PrepareExecute($query);
@@ -163,16 +164,22 @@ function GetAllMotorcycles() {
     return $array_response;
 }
 
+/**
+ * Sign in a user
+ * @param array $values
+ * @return int as boolean  false if the user exists and the id if not
+ */
 function signin($values) {
     $values = json_decode($values);
-
+    //get the user in the bd who have the same username
     $query = "Select Username FROM users where Username=:username;";
     $params = array('username' => $values->username);
     $st = PrepareExecute($query, $params);
+    //if something is returned, the user already exists
     while ($data = $st->fetch(PDO::FETCH_ASSOC)) {
         return false;
     }
-
+    //get the id moto of the selected motorcycle 
     $query = "SELECT idMoto FROM moto WHERE Brand=:brand AND model=:model AND year=:year";
     $params = array(
         'brand' => $values->brand,
@@ -181,6 +188,7 @@ function signin($values) {
     );
     $st = PrepareExecute($query, $params);
     $idMoto = $st->fetch(PDO::FETCH_ASSOC)["idMoto"];
+    //insert in the db the new user
     $query = "INSERT INTO users(Username, Password, email, idMoto, role) VALUES (:username,:password,:email,:idmoto,2)";
     $params = array(
         'username' => $values->username,
@@ -191,8 +199,10 @@ function signin($values) {
     $st = PrepareExecute($query, $params);
 
     global $pdo;
+    //return the last inserted id
     return $pdo->lastInsertId();
 }
+
 
 function GetRoutes($idUser = NULL) {
     if ($idUser == NULL) {

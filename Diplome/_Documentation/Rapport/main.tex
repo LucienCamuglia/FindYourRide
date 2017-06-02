@@ -428,6 +428,40 @@ J'utilise deux fonctionnalitées de cette API, \emph{Snap to raod} et \emph{Near
 
 \emph{Nearest road} permet de donner la position d'un point GPS sur la route la plus proche.
 
+\subsection{Fichier GPX}
+GPX est un format de fichier ouvert permettant l'échange de coordonée GPS. Il peut contenir trois types d'informations : 
+
+\begin{itemize}
+	\item Point de cheminement (\emph{waypoint})
+	\item Route
+	\item Trace
+\end{itemize}
+
+Le fichier suit la même structure que le XML.
+
+Ci dessous, un exemple de fichier GPX
+
+\begin{lstlisting}[frame=single] 
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.0" creator="FindYourRide.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/0" xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd">
+
+<trk>
+<name>Journal actif: 2016-06-28 15:47</name>
+<trkseg>
+<trkpt lat="46.188097" lon="6.196411">
+<ele>397.64</ele>
+<time>2016-06-28T14:47:33Z</time>
+<extensions>
+<gpxtpx:TrackPointExtension>
+<gpxtpx:course>0.00</gpxtpx:course>
+</gpxtpx:TrackPointExtension>
+</extensions>
+</trkpt>
+</trk>
+
+\end{lstlisting}
+
+
 \subsection{Fonction PHP pour la \bdd}
 \subsubsection{connexion à la \bdd}
 La connexion à la \bdd se fait à l'aide de PDO\footnote{\emph{PHP Data Object}, \url{http://php.net/manual/fr/intro.pdo.php}}. PDO a besoin de l'utilisateur de la \bdd et du mot de passe ainsi que le nom de la base.
@@ -440,6 +474,140 @@ Afin de sécuriser le site et éviter les injections SQL j'utilise des requête 
 
 On commence par préparer la requête, PDO va substituer les marqueurs (\emph{:marqueur}) pour les valeur fournie dans le tableau de paramètres fourni au moment de l'exécution. Ensuite, il faut exécuter la requête avec les parametres.
 
+\subsubsection{GetMotorcycleBrand}
+Ne prend pas de paramètre d'entrée.
+
+Récupère dans la base de données toutes les marque de moto.
+
+Retourne un tableau contenant les marques.
+\subsubsection{GetMotorcycleModel}
+Ne prend pas de paramètre d'entrée.
+
+Récupère dans la base de donées tout les models de moto.
+
+Retourne un tableau contenant les models trié par ordre alphabétique.
+\subsubsection{GetAllMotorcycleYear}
+Ne prend pas de paramètre d'entrée.
+
+Récupère dans la base de données toutes les années.
+
+Retourne un tableau contenant les années dans l'ordre croissant.
+\subsubsection{GetAllMotorcycleConsumption}
+Ne prend pas de paramètre d'entrée.
+
+Récupère dans la base de données toutes les consommations.
+
+Retourne un tableau contenant les consommations dans l'ordre croissant.
+\subsubsection{GetAllMotorcycleTiredness}
+Ne prend pas de paramètre d'entrée.
+
+Récupère dans la base de données touts les indices de fatigue.
+
+Retourne un tableau contenant les indices de fatigue dans l'ordre croissant.
+\subsubsection{GetAllMotorcycles}
+Ne prend pas de paramètre d'entrée.
+
+Récupère dans la base de données toutes les motos.
+
+Retourne un tableau contenant toutes les motos et leurs informations trié par marque. 
+\subsubsection{GetRoutes}
+Prend un paramètre facultatif qui est l'identifiant de l'utilisateur.
+
+Récupère dans la base de données les routes. Soit toutes les routes, soit les route de l'utilisateur.
+
+Retourne un tableau contenant les routes.
+
+\subsubsection{CreateRoute}
+Prend 3 données en entré, le nom de la route, l'identifiant de l'utilisateur et si la route contient des autoroutes.
+
+Insère les données dans la base de données
+
+Retourne l'identifiant de la route créée.
+
+\subsubsection{deletePlaces}
+Prend entrée l'identifiant de la route.
+
+Supprime touts les points GPS de la route dans la base de données.
+
+Ne retourne rien
+
+\subsubsection{addPlaceToRoute}
+Prend en entrée 4 paramètres, la latitude, la longitude, la position du point dans le tracé et l'identifiant de la route.
+
+Insère les informations dans la base de données.
+
+Ne retourne rien
+
+\subsubsection{deleteMotorcycle}
+Prend en entrée l'identifiant de la moto
+
+Supprime la moto
+
+Ne retourne rien.
+
+\subsubsection{getUserNMotorcycle}
+Ne prend pas de paramètre d'entrée.
+
+Récupère toutes les infomrations d'un utilisateur et de sa moto.
+
+Retourne un tableau avec toutes les informations.
+
+
+\subsubsection{getUserRoleById}
+Prend en entrée l'identifiant de l'utilisateur.
+
+Selectionne dans la \bdd le role de l'utilisateur.
+
+Retourne le rôle.
+
+\subsubsection{AddSinuosity}
+Prend en entrée l'identifiant de la route et la sinueusité.
+
+Ajoute la sinueusité dans la \bdd
+
+Ne retourne rien.
+
+\subsubsection{AddElevation}
+Prend en entrée l'identifiant de la route et l'altitude.
+
+Ajoute l'altitude dans la \bdd
+
+Ne retourne rien.
+
+\subsubsection{AddLength}
+Prend en entrée l'identifiant de la route et la longueure.
+
+Ajoute la longueure dans la \bdd
+
+Ne retourne rien
+
+\subsubsection{GetmostSinuousRoad}
+Ne prend rien en entrée.
+
+Sélectionne dans la \bdd  la route la plus sinueuse.
+
+Retourne la valeur de la route la plus sinueuse.
+
+\subsubsection{GetLessSinuousRoad}
+Ne prend rien en entrée.
+
+Sélectionne dans la \bdd la route la moins sinueuse.
+
+Retourne la valeur de la route la moins sinueuse.
+
+\subsubsection{GetMostSteepestRoad}
+Ne prend rien en entrée.
+
+Sélectionne dans la \bdd la route la plus "pentue".
+
+Retourne la valeur de la route la plus "pentue".
+
+\subsubsection{GetLessSteepestRoad}
+Ne prend rien en entrée.
+
+Sélectionne dans la \bdd la route la moins "pentue".
+
+Retourne la valeur de la route la moins "pentue".
 
 \newpage
 \subsection{Inscription sur le site}
@@ -542,7 +710,98 @@ De plus, si l'utilisateur choisi de visualiser le traffique en temps réel, un c
 
 \begin{center}
 	\diag{initMap}
+	\caption{initmap}
 \end{center}
+
+
+\subsection{Fonction ajax}
+\subsubsection{GetModel}
+Prend en entrée la marque.
+
+Sélectionne dans la \bdd touts les model correspondant à la marque.
+
+Retourne un tableau JSON contenant touts les models.
+
+\subsubsection{GetYear}	
+Prend en entrée la marque et le model.
+
+Sélectionne dans la \bdd toutes les années d'un véhicule.
+
+Retourne un tableau JSON contenant toutes les années.
+
+\subsubsection{UserExists}
+Prend en entrée le nom d'utilisateur.
+
+Sélectionne dans la \bdd l'utilisateur contenant ce nom d'utilisateur.
+
+Si la \bdd retourne quelquechose, retourne vrai sinon retourne faux
+
+
+\subsubsection{GetMotorcycles}
+Prend en entrée marque, model, année, consomation et indice de fatigue.
+
+Sélectionne dans la \bdd les motos correspondant aux critères saisis.
+
+Retourne un tableau contenant toutes les informations des motos.
+
+\subsubsection{GetRoutePoints}
+Prend en entrée l'identifiant de la route.
+
+Sélectionne dans la \bdd tout les points GPS correspondant à l'identifiant de la route.
+
+retourne un tableau contenant touts les points
+
+\subsubsection{SaveNewRoute}
+Prend en entrée l'identifiant de la route, la route, la sinueusité, l'altitude et la longugeure.
+
+Supprime les points enregistré pour cette route.
+
+Ajoute la sinueusité.
+
+Ajoute l'altitude.
+
+Ajoute la longueure.
+
+Vérifie le format d'entrée de la route, si c'est un string, le convertit en tableau.
+
+Pour chaque points de la route, appel la méthode d'ajout du point.
+
+Ne retourne rien.
+
+\subsubsection{AddMotorcycle}
+Prend en entrée, la marque, le model, l'année, la consomation et l'indice de fatigue.
+
+Vérifie que les champs ne soient pas nul.
+
+Ajoute la moto dans la \bdd.
+
+Retourne un tableau conteant soit un message d'erreur soit rien du tout.
+
+\subsubsection{UpdateUserRole}
+Prend en entrée, l'identifiant d'utilisateur et l'identifiant du futur rôle.
+
+Vérifie que l'utilisateur connecté est administrateur.
+
+Met à jours le rôle de l'utilisateur.
+
+Retourne un tableau contenant soit une erreur soit le nouveau rôle de l'utilisateur.
+
+\subsubsection{GetUserRole}
+Prend en entrée, l'identifiant de l'utilisateur.
+
+Appel la méthode GetUserRoleById.
+
+Retourne le nom du rôle.
+
+\subsubsection{downloadRoute}
+Prend en entrée, le nom de la route et sont parcour.
+
+Appel la fonction "Path2Gpx".
+
+Retourne le nom du fichier.
+
+
+
 
 \begin{comment}
 

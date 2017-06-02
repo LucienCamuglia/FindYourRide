@@ -1,4 +1,10 @@
 <?php
+/*
+ * Author : Lucien Camuglia
+ * Description : Delete a motorcycle 
+ * Date : April-june 2017
+ * Version : 1.0 LC BaseVersion
+ */
 
 session_start();
 include_once './functions.php';

@@ -1,4 +1,10 @@
 <?php
+/*
+ * Author : Lucien Camuglia
+ * Description : contains all modal  
+ * Date : April-june 2017
+ * Version : 1.0 LC BaseVersion
+ */
 
 function includeConnexionModal() {
     ?>
