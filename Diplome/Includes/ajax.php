@@ -42,6 +42,8 @@ if (isset($_REQUEST["fonction"])) {
             break;
         case "CreateRoute" : CreateNewRoute($_GET["name"], $_GET["containsHighway"]);
             break;
+        case "DeleteRoute" : DeleteRoute($_GET["idRoute"]);
+            break;
         default : exit();
             break;
     }
@@ -245,4 +247,15 @@ function GetRoadsInfos($idRoute) {
 function CreateNewRoute($name, $containsHighway) {
     $id = CreateRoute($name, $_SESSION["id"], $containsHighway);
     echo json_encode($id);
+}
+
+function DeleteRoute($idRoute) {
+    $query = "Delete from place where idRoute=:idRoute;";
+    $params = array("idRoute" => $idRoute);
+    PrepareExecute($query, $params);
+
+    $query = "Delete from route where idRoute=:idRoute;";    
+    PrepareExecute($query, $params);
+    
+    echo json_encode("Succes");
 }

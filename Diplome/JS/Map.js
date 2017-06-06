@@ -269,7 +269,7 @@ function SaveNewLocation(idroute, route, fromweb) {
                 data: {fonction: "SaveNewRoute", idRoute: idroute, route: route, sinuosite: sinuosity, elevation: elevationAverage, length: length},
                 async: false,
                 success: function(result) {
-                    if(fromweb){
+                    if (fromweb) {
                         location.reload();
                     }
                 }
@@ -289,7 +289,7 @@ function CreateRoute(name, containsHighway) {
             dataType: 'json',
             async: false,
             success: function(result) {
-                SaveNewLocation(result, route, true);                
+                SaveNewLocation(result, route, true);
             }
         });
     }
@@ -365,7 +365,9 @@ $(document).ready(function() {
         StartCreation();
 
     });
-
+    $("#ClearRoute").click(function() {
+        ClearRoute();
+    });
 
     $("#chkHighway").change(function() {
         if ($("#chkHighway").is(':checked')) {
@@ -389,6 +391,11 @@ function RouteClick() {
     $(".route").click(function() {
         clear();
         initMap(false, DisplayTraffic);
+        $("#DeleteRoute").click(function() {
+            console.log("Delete");
+            DeleteRoute($(highlighted).attr('name'));
+
+        });
         $("#btnModif").removeClass("hidden");
         $(".routeControl").removeClass("hidden");
         $("#btnModif").attr('name', $(this).attr('name'));
@@ -398,7 +405,7 @@ function RouteClick() {
         highlighted = this;
         ShowParcours(LoadPoints($(this).attr('name')), false);
         DisplayRouteInfo($(this).attr('name'));
-        
+
     });
 }
 
@@ -525,10 +532,13 @@ function DownloadRoute() {
         alert("Please select a trip");
     } else
     {
+        name = $(highlighted).html();
+        name = name.substr(0, name.indexOf("<span"));
+        console.log(name);
         $.ajax({
             url: './Includes/ajax.php',
             type: 'POST',
-            data: {fonction: "Download", name: $(highlighted).html(), path: JSON.stringify(route)},
+            data: {fonction: "Download", name: name, path: JSON.stringify(route)},
             dataType: "html",
             async: false,
             success: function(result) {
@@ -600,7 +610,7 @@ function RefreshhRoutesWithoutFilters() {
 }
 
 function StartCreation() {
-    initMap(true, DisplayTraffic);
+    ClearRoute();
     $(".SaveRouteControls").removeClass('hidden');
 }
 
@@ -635,7 +645,30 @@ function DisplayRouteInfo(idroute) {
 
 }
 
+function DeleteRoute(idRoute) {
+    console.log("id = " + idRoute);
+    $.ajax({
+        url: './Includes/ajax.php',
+        type: 'GET',
+        data: {fonction: "DeleteRoute", idRoute: idRoute},
+        dataType: 'json',
+        async: false,
+        success: function(result) {
+            location.reload();
+        }
+    });
+}
 
+function ClearRoute() {
+    initMap(true, DisplayTraffic);
+    pointsArray = [];
+    midmarkers = [];
+    oldMarkers = [];
+    Markers = [];
+    oldRoute = [];
+    route = [];
+    addedPoints = 0;
+}
 
 
 

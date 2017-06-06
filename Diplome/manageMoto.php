@@ -90,5 +90,6 @@ and open the template in the editor.
             </tfoot>
 
         </table>
+          <?php include './Includes/footer.php'; ?>
     </body>
 </html>

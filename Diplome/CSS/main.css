@@ -7,6 +7,14 @@ and open the template in the editor.
     Created on : 11 avr. 2017, 11:12:35
     Author     : CAMUGLIAL_INFO
 */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
 
 .red{
     color:red;
@@ -134,3 +142,17 @@ body.loading .modalLoad {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+.footer span {
+  width: auto;
+  max-width: 680px;
+  padding: 0 15px;
+}

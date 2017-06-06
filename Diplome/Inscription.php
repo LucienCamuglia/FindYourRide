@@ -149,5 +149,6 @@ if ($value) {
                 </form>
             </center>
         </div>
-    </body>
+          <?php include './Includes/footer.php'; ?>
+    </body>    
 </html>

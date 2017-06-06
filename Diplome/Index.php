@@ -16,5 +16,7 @@ and open the template in the editor.
         DisplayMenu(basename($_SERVER['PHP_SELF']));
         
         ?>
+          <?php include './Includes/footer.php'; ?>
     </body>
+   
 </html>

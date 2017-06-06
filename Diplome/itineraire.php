@@ -31,7 +31,7 @@ if (isset($idRoute)) {
 }
 ?>
         </script>
-        <div class=" routes col-lg-offset-1 col-lg-2">
+        <div class=" routes col-lg-offset-1 col-lg-2" style="height: 500px;">
 
             <?php
             $routes = GetRoutes($_SESSION["id"]);
@@ -43,7 +43,7 @@ if (isset($idRoute)) {
 
         </div>
         <input id="pac-input" class="controls" type="text" placeholder="Search Box" hidden/>
-        <div id="map" class="col-lg-7" style="height: 80%;"></div>
+        <div id="map" class="col-lg-7" style="height: 500px;"></div>
 
         <div class="btnZone col-lg-2 top-buffer"  >
             <!-- <button id="btnModif"  class="hidden btn btn-primary btn-block" name="none">Modifier le trajet</button>-->
@@ -59,7 +59,7 @@ if (isset($idRoute)) {
             <button class="btn  btn-block" data-toggle="modal" data-target="#modalimport" onclick='$("#msgCont").attr("Hidden", "true")' >Importer un nouveau trajet</button>
 
             <button id="RefreshRoute" class=" btn btn-primary btn-block  hidden modifRoute">Refresh the route</button>
-            <button id="RefreshRoute" class=" btn btn-danger btn-block  route hidden routeControl">Delete the route</button>
+            <button id="DeleteRoute" class=" btn btn-danger btn-block  hidden routeControl">Delete the route</button>
 
         </div>
 
@@ -105,5 +105,6 @@ if (isset($idRoute)) {
             <p><span style="text-align: left;" class="col-lg-8" id="InfoConsumption">Consumption : 52 liters</span><span style="text-align: right;" class="col-lg-6"></span></p>
 
         </div>
+          <?php include './Includes/footer.php'; ?>
     </body>
 </html>

@@ -47,5 +47,6 @@ and open the template in the editor.
             <p><span style="text-align: left;" class="col-lg-8" id="InfoConsumption">Consumption : 52 liters</span><span style="text-align: right;" class="col-lg-6"></span></p>
 
         </div>
+          <?php include './Includes/footer.php'; ?>
     </body>
 </html>
