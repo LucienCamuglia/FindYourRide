@@ -90,7 +90,7 @@
 \togglefalse{AbstractOnly}
 
 
-\newcommand{\fyr}{\emph{Find your ride}}
+\newcommand{\fyr}{\emph{Find your ride }}
 
 % Set the docs variables
 \title{Rapport \fyr}
@@ -192,14 +192,11 @@ Il permet à un utilisateur de créer un trajet et de l'importer sur son GPS.
 Il donne aussi la possibilités a l'utilisateur de visionnée ses différent déplacement.
 
 \begin{tabular}{|l|l|}
-\hline
-   Positif & Négatif \\
-   \hline
-   \hline
-   \tabitem Connexion directe avec le GPS & \tabitem Pas de partage\\
-   &\tabitem Obligation de posseder un GPS Garmin\\
-   \hline
- \end{tabular}
+	\hline
+	Positif                                & Négatif                                       \\ \hline\hline
+	\tabitem Connexion directe avec le GPS & \tabitem Pas de partage                       \\
+	                                       & \tabitem Obligation de posseder un GPS Garmin \\ \hline
+\end{tabular}
  
 \subsection{http://www.calculitineraires.fr/}
 
@@ -208,15 +205,12 @@ www.calculitineraires.fr est un site de partage d'itinéraire pour la course à 
 Il permet l'import/export de fichier GPX et TCX, la rechercher et le partage d'itinéraire.
 
 \begin{tabular}{|l|l|}
-\hline
-   Positif & Négatif \\
-   \hline
-   \hline
-   \tabitem Assez complet & \tabitem Interface compliquée d'utilisation\\
-   \tabitem Import / Export des fichiers GPS &\tabitem Pas de contribution pour la moto\\
-   \tabitem Création d'itinéraire & \\
-   \hline
- \end{tabular}
+	\hline
+	Positif                                   & Négatif                                     \\ \hline\hline
+	\tabitem Assez complet                    & \tabitem Interface compliquée d'utilisation \\
+	\tabitem Import / Export des fichiers GPS & \tabitem Pas de contribution pour la moto   \\
+	\tabitem Création d'itinéraire            &                                             \\ \hline
+\end{tabular}
 
 
 \subsection{http://www.bestbikingroads.com}
@@ -226,16 +220,18 @@ www.bestbikingroads.com est un site de partage d'itinéraire moto.
 Il permet l'import/export de fichier GPX, la rechercher, le partage d'itinéraire ainsi que la notation des balades.
 
 \begin{tabular}{|l|l|}
-\hline
-   Positif & Négatif \\
-   \hline
-   \hline
-   \tabitem Assez complet & \tabitem Tout les tracés s'affiche en meme temps sur la carte\\
-   \tabitem Import / Export des fichiers GPS & \tabitem pas de modification possible\\
-   \tabitem Création d'itinéraire & \\
-   \tabitem Notation des balades & \\
-   \hline
- \end{tabular}
+	\hline
+	Positif                                   & Négatif                                                       \\ \hline\hline
+	\tabitem Assez complet                    & \tabitem Tout les tracés s'affiche en meme temps sur la carte \\
+	\tabitem Import / Export des fichiers GPS & \tabitem pas de modification possible                         \\
+	\tabitem Création d'itinéraire            &                                                               \\
+	\tabitem Notation des balades             &                                                               \\ \hline
+\end{tabular}
+
+\subsection{Conclusion}
+Il existe différent site de partage d'itinéraire, cependant ils ont tous des fonctionnalitées assez similaire. Mon site se distingue des autres de part son interface intuitive pour l'utilisateur et certaines fonctionnalitées trouvée sur aucun site.
+
+Par exemple il est possible sur \fyr de calculer sa consommation théorique pour l'itinéraire ou de filtrer les routes selon leurs sinueusité.
 
 
 
@@ -469,8 +465,8 @@ Je lui précise aussi le mode d'erreur qui est \emph{PDO::ERRMODE\_EXCEPTION} ce
 
 Afin d'avoir un partage d'informations dans le bon format, on défini l'encodage de caractères en UTF-8
 
-\subsubsection{Requête préparée}
-Afin de sécuriser le site et éviter les injections SQL j'utilise des requête préparée.
+\subsubsection{Requêtes préparées}
+Afin de sécuriser le site et éviter les injections SQL j'utilise des requête préparées.
 
 On commence par préparer la requête, PDO va substituer les marqueurs (\emph{:marqueur}) pour les valeur fournie dans le tableau de paramètres fourni au moment de l'exécution. Ensuite, il faut exécuter la requête avec les parametres.
 
@@ -713,6 +709,45 @@ De plus, si l'utilisateur choisi de visualiser le traffique en temps réel, un c
 	\caption{initmap}
 \end{center}
 
+\subsubsection{ImportGPX}
+Prend en paramètre le fichier GPX à importer.
+
+Fait un appel AJAX à la méthode d'import de fichier.
+
+Ne retourne rien.
+
+\subsubsection{AskGoogle}
+Prend en paramètre le chemin de la route.
+
+Fait un appel AJAX à l'API google \emph{snapToRoads}.
+
+Récupère chaque valeures données par l'API.
+
+Retourne un tableau avec ces nouvelles valeures.
+
+\subsubsection{LoadPoints}
+Prend en paramètre l'identifiant de la route.
+
+Fait un appel AJAX à la fonction \emph{GetRoutePoints}.
+
+Récupère chaque valeur dans un tableau.
+
+Retourne le tableau .
+
+\subsubsection{SnappPoints2Road}
+Prend en paramètre la route (sous fomrat d'un tableau de points).
+
+Parcour le tableau et toute les 50 positions, appel la fonction \emph{AskGoogle}
+
+Retourne un tableau avec toutes le postions.
+
+\subsubsection{SaveNewLocation}
+Prend 3 paramètres, l'identifiant de la route, la route (sous fomrat d'un tableau de points), et un boolean pour savoir si la route vien depuis l'API google.
+
+
+
+
+
 
 \subsection{Fonction ajax}
 \subsubsection{GetModel}
@@ -800,7 +835,42 @@ Appel la fonction "Path2Gpx".
 
 Retourne le nom du fichier.
 
+\subsubsection{FilterRoad}
+Prend en entrée tout les paramètres d'une route (sinueusité, pente, autoroute, durée).
 
+Sélectionne dans la \bdd les routes qui correspondent aux critères saisi en entrée.
+
+Retourne un tableau JSON avec toute les données.
+
+
+\subsubsection{GetRoutesJSON}
+Ne prend aucun paramètre.
+
+Récupères toutes les routes en appelant la fonction \emph{GetRoutes}.
+
+Retourne les routes au format JSON.
+
+
+\subsubsection{GetRoadsInfos}
+Prend enentrée l'identifiant de la route.
+
+Récupère dans la \bdd les informations de la route et, si l'utilisateur est connecté, récupère la consommation de sa moto.
+
+Retourne un tableau JSON avec les informations.
+
+\subsubsection{CreateNewRoute}
+Prend en entrée le nom de la nouvelle route ainsi que si elle contient des autoroutes.
+
+Appel la méthode CreateRoute.
+
+Retourne l'identifiant de la nouvelle route au format JSON.
+
+\subsubsection{DeleteRoute}
+Prend en paramètre l'identifiant de la route.
+
+Supprime dans la \bdd les lieu comportant l'identifiant de la route ainsi que la route.
+
+Retourne "Success" au format JSON
 
 
 \begin{comment}

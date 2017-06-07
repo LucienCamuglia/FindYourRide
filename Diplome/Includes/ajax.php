@@ -257,5 +257,5 @@ function DeleteRoute($idRoute) {
     $query = "Delete from route where idRoute=:idRoute;";    
     PrepareExecute($query, $params);
     
-    echo json_encode("Succes");
+    echo json_encode("Success");
 }

@@ -182,7 +182,6 @@ function LoadPoints(idRoute) {
         dataType: "json",
         async: false,
         success: function(result) {
-            console.log(result);
             $.each(result, function(index, value)
             {
                 resultArray[index] = value;
@@ -342,14 +341,7 @@ $(document).ready(function() {
                     }
             }
             console.log("route");
-            console.log(route);
-            /*  oldRoute.shift()
-             oldRoute.unshift(route[0][0], route[0][1]);
-             //  oldRoute[oldRoute.length-1] = route[1];
-             route = oldRoute;
-             DisplayRoute();
-             console.log("new route");
-             console.log(route);*/
+            console.log(route);         
         }
     });
     $("#sinuosity").change(function() {

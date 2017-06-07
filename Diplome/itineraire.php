@@ -95,6 +95,7 @@ if (isset($idRoute)) {
             </div>                               
 
         </div>
+        
         <div class="modalLoad"></div>
         
         <div class="col-lg-5 col-lg-offset-4 routeControl hidden" >
