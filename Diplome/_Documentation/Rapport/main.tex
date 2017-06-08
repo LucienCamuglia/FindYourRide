@@ -15,6 +15,15 @@
 \usepackage[bottom]{footmisc}
 \usepackage{etoolbox}
 %\usepackage{pstricks}
+\usepackage{titlesec}
+
+\setcounter{secnumdepth}{4}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
 
 \usetikzlibrary{patterns}
 \pgfplotsset{compat=newest}
@@ -744,12 +753,117 @@ Retourne un tableau avec toutes le postions.
 \subsubsection{SaveNewLocation}
 Prend 3 paramètres, l'identifiant de la route, la route (sous fomrat d'un tableau de points), et un boolean pour savoir si la route vien depuis l'API google.
 
+\begin{center}
+\diag{SaveNewRoute}
+\end{center}
 
+\subsubsection{CreateRoute}
+Prend 2 paramètres, le nom de la route et si elle contient des autoroutes.
 
+Vérifie que le nom ne soit pas vide.
 
+Fait un appel AJAX à la fonction \emph{CreateRoute}.
+
+Appel \emph{SaveNewLocation} avec les valeurs reçu.
+
+Ne retourne rien.
+
+\subsubsection{RouteClick}
+Ne prend pas de paramètres.
+Ajoute un événement click sur tout les objets contenant la classe \emph{route}.
+
+Cet événement comprend :
+
+Effacer les informations sur la carte.
+
+Initialiser la carte sans modification.
+
+Défini l'action du bouton \emph{DeleteRoute} par la suppression de la route sélectionnée.
+
+Enlève l'attribut \emph{hidden} du bouton de modification du tracé.
+
+Enlève l'attribut \emph{hidden} des objects ayant pour classe \emph{routeControl}.
+
+Modifie l'attribut \emph{name} du bouton \emph{btnModif}.
+
+Retire la classe \emph{highlighted} de la route en surbriance.
+
+Ajoute la classe \emph{highlighted} à la route actuelle.
+
+Défini la variable \emph{highlighted} avec cet objet.
+
+Appel \emph{ShowParcour}.
+
+Appel \emph{DisplayRouteInfo}.
+
+ne retourne rien 
+
+\subsubsection{searchIti}
+Prend en paramètre 2 tableaux de point GPS, le premier contient le lieu d'origine et le second contient la destination.
+
+Crée une varialbe contenant la requête de recherche (origine, destination, mode de voyage, autoroutes?).
+
+Défini la carte dans le servcie \emph{Direction} de \emph{Google}.
+
+Cherche la route.
+
+Ajoute chaque étape de la route dans la variable globale \emph{route}.
+
+Affiche la route.
+
+Ne retourne rien.
+
+\subsection{Clear}
+Ne prend pas de paramètre.
+
+Efface la tableau de marqueur.
+
+Efface le tableau contenant la route.
+
+Ne retroune rien.
+
+\subsection{ShowParcours}
+Prend en paramètre le tableau de points GPS du tracé, si le parcour peut etre modifier et la couleur du parcour.
+
+Si la couleur n'est pas définie, défini la couleur par défaut (\#ff1ece).
+
+Si le tracé peut être modifié, appel \emph{CreateMarker} pour le marqueur de début et fin.
+
+Ajout au tableau \emph{route} les point du tracé.
+
+Etand les "bornes" pour centrer la carte sur la totalité du tracé.
+
+Appel la fonction \emph{DisplayRoute}.
+
+\subsubsection{DisplayRoute}
+Prend en paramètre la couleur du tracé.
+
+Si aucun paramètre n'est saisi, défini la couleur avec la couleur par défaut (\#ff1ece).
+
+Affiche la \emph{Polyline} du tracé sur la carte.
+
+ne retourne rien.
+
+\subsubsection{CreateMarker}
+Prend en paramètre, la localisation du marqueur, si la parcour peut etre modifié, si le marqueur peut etre supprimé, la couleur du marqueur, le texte du marquer et sa position (ordre du tracé).
+
+Défini l'image du marquer selon la couleur et le texte choisi.
+
+Crée le marqueur.
+
+Si la marqueur peut etre supprimé, ajoute les évenements de suppréssion.
+
+si le marqueur peut etre modifié, ajoute les évenements de modification.
+
+Ajute le marqueur au tableau de marqueurs.
+
+Ne retourne rien.
+
+\subsubsection{refreshValues}
 
 
 \subsection{Fonction ajax}
+
 \subsubsection{GetModel}
 Prend en entrée la marque.
 
@@ -871,14 +985,79 @@ Prend en paramètre l'identifiant de la route.
 Supprime dans la \bdd les lieu comportant l'identifiant de la route ainsi que la route.
 
 Retourne "Success" au format JSON
+\newpage
+\subsection{Base de données}
+La moteur utilisé est \emph{l'InnoDB}, afin de garder les valeur en \emph{UTF-8}.
+Le système de gestion de la \bdd est \emph{MySQL}.
 
+\subsubsection{Modèle conceptuel}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./Images/MCD.png}
+	\caption{Modèle conceptuel de données}
+\end{figure}
 
-\begin{comment}
+\subsubsection{Structure de la \bdd}
+\paragraph{Table \emph{moto}}
+Cette table regroupe toutes les motos du site.
 
+\begin{tabular}{|l|l|l|}
+	\hline
+	Colone          & Type         & Description                  \\ \hline\hline
+	\textbf{idMoto} & int          & Identifiant de la moto       \\ \hline
+	Brand           & Varchar(150) & Marque de la moto            \\ \hline
+	model           & Varchar(150) & Modèle de la moto            \\ \hline
+	year            & date         & Date de sortie de la moto    \\ \hline
+	consumption     & int          & Consommation de la moto      \\ \hline
+	Tiredness       & int          & Indice de fatigue de la moto \\ \hline
+\end{tabular}
 
-\end{comment}
+\paragraph{Table \emph{users}}
+Cette table regroupe touts les utilisateurs du site.
 
+\begin{tabular}{|l|l|l|}
+	\hline
+	Colone          & Type         & Description                  \\ \hline\hline
+	\textbf{iduser} & int & Identifiant de l'utilisateur \\ \hline
+	Username & Varchar(150) & Nom de l'utilisateur \\ \hline
+	Password & Varchar(150) & Mot de passe de l'utilisateur (sha1) \\ \hline
+	email & Varchar(150) & E-mail de l'utilisateur \\ \hline
+	\#idMoto & int & Identifiant de la moto \\ \hline
+	role & int & Role de l'utilisateur \\ \hline
+\end{tabular}
+
+\paragraph{Table \emph{route}}
+Cette table regroupe toutes les routes du site.
+
+\begin{tabular}{|l|l|l|}
+	\hline
+	Colone          & Type         & Description                  \\ \hline\hline
+	\textbf{idRoute}& int & Identifiant de la route \\ \hline
+	RouteName & Varchar(150) & Nom de la route \\ \hline
+	\#idUser & int & Identifiant de l'utilisateur créateur de la route \\ \hline
+	Length & int & Longueur de la route (en mètres) \\ \hline
+	Highway & Tinyint & La route contient des autoroutes ? \\ \hline
+	Time & int & Durée de la route \\ \hline
+	Sinuosity & double & Sinueusité de la route \\ \hline
+	Slope & double & Pente moyenne de la route \\ \hline
+\end{tabular}
+
+\paragraph{Table \emph{Place}}
+Cette table regroupe touts les points géographique du site.
+
+\begin{tabular}{|l|l|l|}
+	\hline
+	Colone          & Type         & Description                  \\ \hline\hline
+	\textbf{idLieu} & int & Identifiant du lieu \\ \hline
+	latitude & int & Latitude de l'endroit \\ \hline
+	longitude & int & Longitude de l'endroit \\ \hline
+	position & int& position dans le traçé \\ \hline
+	\#idRoute & int & Identifiant de la route correspondante au lieu \\ \hline
+\end{tabular}
 \pagebreak
+
+
+
 
 \section{Problèmes rencontré}
 \subsection{Google Api}

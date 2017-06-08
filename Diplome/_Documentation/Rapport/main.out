@@ -68,23 +68,28 @@
 \BOOKMARK [3][-]{subsubsection.5.9.4}{LoadPoints}{subsection.5.9}% 68
 \BOOKMARK [3][-]{subsubsection.5.9.5}{SnappPoints2Road}{subsection.5.9}% 69
 \BOOKMARK [3][-]{subsubsection.5.9.6}{SaveNewLocation}{subsection.5.9}% 70
-\BOOKMARK [2][-]{subsection.5.10}{Fonction ajax}{section.5}% 71
-\BOOKMARK [3][-]{subsubsection.5.10.1}{GetModel}{subsection.5.10}% 72
-\BOOKMARK [3][-]{subsubsection.5.10.2}{GetYear}{subsection.5.10}% 73
-\BOOKMARK [3][-]{subsubsection.5.10.3}{UserExists}{subsection.5.10}% 74
-\BOOKMARK [3][-]{subsubsection.5.10.4}{GetMotorcycles}{subsection.5.10}% 75
-\BOOKMARK [3][-]{subsubsection.5.10.5}{GetRoutePoints}{subsection.5.10}% 76
-\BOOKMARK [3][-]{subsubsection.5.10.6}{SaveNewRoute}{subsection.5.10}% 77
-\BOOKMARK [3][-]{subsubsection.5.10.7}{AddMotorcycle}{subsection.5.10}% 78
-\BOOKMARK [3][-]{subsubsection.5.10.8}{UpdateUserRole}{subsection.5.10}% 79
-\BOOKMARK [3][-]{subsubsection.5.10.9}{GetUserRole}{subsection.5.10}% 80
-\BOOKMARK [3][-]{subsubsection.5.10.10}{downloadRoute}{subsection.5.10}% 81
-\BOOKMARK [3][-]{subsubsection.5.10.11}{FilterRoad}{subsection.5.10}% 82
-\BOOKMARK [3][-]{subsubsection.5.10.12}{GetRoutesJSON}{subsection.5.10}% 83
-\BOOKMARK [3][-]{subsubsection.5.10.13}{GetRoadsInfos}{subsection.5.10}% 84
-\BOOKMARK [3][-]{subsubsection.5.10.14}{CreateNewRoute}{subsection.5.10}% 85
-\BOOKMARK [3][-]{subsubsection.5.10.15}{DeleteRoute}{subsection.5.10}% 86
-\BOOKMARK [1][-]{section.6}{Probl\350mes rencontr\351}{}% 87
-\BOOKMARK [2][-]{subsection.6.1}{Google Api}{section.6}% 88
-\BOOKMARK [2][-]{subsection.6.2}{Async}{section.6}% 89
-\BOOKMARK [1][-]{section.7}{Conclusion}{}% 90
+\BOOKMARK [3][-]{subsubsection.5.9.7}{CreateRoute}{subsection.5.9}% 71
+\BOOKMARK [3][-]{subsubsection.5.9.8}{RouteClick}{subsection.5.9}% 72
+\BOOKMARK [2][-]{subsection.5.10}{Fonction ajax}{section.5}% 73
+\BOOKMARK [3][-]{subsubsection.5.10.1}{GetModel}{subsection.5.10}% 74
+\BOOKMARK [3][-]{subsubsection.5.10.2}{GetYear}{subsection.5.10}% 75
+\BOOKMARK [3][-]{subsubsection.5.10.3}{UserExists}{subsection.5.10}% 76
+\BOOKMARK [3][-]{subsubsection.5.10.4}{GetMotorcycles}{subsection.5.10}% 77
+\BOOKMARK [3][-]{subsubsection.5.10.5}{GetRoutePoints}{subsection.5.10}% 78
+\BOOKMARK [3][-]{subsubsection.5.10.6}{SaveNewRoute}{subsection.5.10}% 79
+\BOOKMARK [3][-]{subsubsection.5.10.7}{AddMotorcycle}{subsection.5.10}% 80
+\BOOKMARK [3][-]{subsubsection.5.10.8}{UpdateUserRole}{subsection.5.10}% 81
+\BOOKMARK [3][-]{subsubsection.5.10.9}{GetUserRole}{subsection.5.10}% 82
+\BOOKMARK [3][-]{subsubsection.5.10.10}{downloadRoute}{subsection.5.10}% 83
+\BOOKMARK [3][-]{subsubsection.5.10.11}{FilterRoad}{subsection.5.10}% 84
+\BOOKMARK [3][-]{subsubsection.5.10.12}{GetRoutesJSON}{subsection.5.10}% 85
+\BOOKMARK [3][-]{subsubsection.5.10.13}{GetRoadsInfos}{subsection.5.10}% 86
+\BOOKMARK [3][-]{subsubsection.5.10.14}{CreateNewRoute}{subsection.5.10}% 87
+\BOOKMARK [3][-]{subsubsection.5.10.15}{DeleteRoute}{subsection.5.10}% 88
+\BOOKMARK [2][-]{subsection.5.11}{Base de donn\351es}{section.5}% 89
+\BOOKMARK [3][-]{subsubsection.5.11.1}{Mod\350le conceptuel}{subsection.5.11}% 90
+\BOOKMARK [3][-]{subsubsection.5.11.2}{Structure de la base de donn\351es}{subsection.5.11}% 91
+\BOOKMARK [1][-]{section.6}{Probl\350mes rencontr\351}{}% 92
+\BOOKMARK [2][-]{subsection.6.1}{Google Api}{section.6}% 93
+\BOOKMARK [2][-]{subsection.6.2}{Async}{section.6}% 94
+\BOOKMARK [1][-]{section.7}{Conclusion}{}% 95
