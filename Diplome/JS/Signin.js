@@ -71,7 +71,6 @@ function UserNameExists(username) {
         success: function(result) {
             if (result.exist) {
                 exist = true;
-                console.log("existe");
             }
         }
     });
@@ -103,8 +102,9 @@ function checkForEnabled() {
     }
 }
 
-$(document).ready(function() {        
+$(document).ready(function() {
 
+    //active les info-bulles
     $('[data-toggle="tooltip"]').tooltip();
 
     $(".brand").click(function() {
@@ -116,8 +116,8 @@ $(document).ready(function() {
         LoadYearFromModel($(".brand").val(), $(this).val());
         checkForEnabled();
     });
-    
-    $("#year").click(function(){
+
+    $("#year").click(function() {
         checkForEnabled();
     });
 

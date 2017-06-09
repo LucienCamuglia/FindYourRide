@@ -55,16 +55,16 @@ and open the template in the editor.
                     }
                     echo "</span></td>";
 
-                    echo "<td class=\"text-center no-border ";
+                    echo "<td class=\"text-center no-border action-table ";
                     if ($rank == 1) {
                         echo "disabled";
                     }echo "\" style=\"width: 60px;\"><a name=\"" . $user["idUser"] . "\" class=\"UpgradeRole\"><span class=\" glyphicon glyphicon-chevron-up \" > upgrade</span></a> </td>";
 
-                    echo "<td class=\"text-center no-border ";
+                    echo "<td class=\"text-center no-border action-table ";
                     if ($rank != 1) {
                         echo "disabled";
                     }echo "\" style=\"width: 80px;\"><a name=\"" . $user["idUser"] . "\" class=\"DowngradeRole\"><span class=\" glyphicon glyphicon-chevron-down \" > downgrade</span></a></td>";
-                    echo "<td class=\"text-center no-border ";
+                    echo "<td class=\"text-center no-border action-table ";
                     if ($rank == 3) {
                         echo "disabled";
                     }echo " \" style=\"width: 50px;\" ><a name=\"" . $user["idUser"] . "\" class=\"BanRole\"><span class=\" glyphicon glyphicon-ban-circle \" > ban</span></a></td>";

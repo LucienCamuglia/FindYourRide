@@ -17,8 +17,8 @@ function connexionDb() {
     try {
         //database login infos
         $serveur = '127.0.0.1';
-        $pseudo = 'root';
-        $pwd = '';
+        $pseudo = 'fyr';
+        $pwd = 'NekoFyr';
         $db = 'findyourride';
 
         static $pdo = null;

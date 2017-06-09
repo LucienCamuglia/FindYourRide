@@ -1,100 +1,135 @@
 \select@language {french}
-\contentsline {section}{\numberline {1}Introduction}{4}{section.1}
-\contentsline {subsection}{\numberline {1.1}R\IeC {\'e}sum\IeC {\'e}}{4}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}Abstract}{4}{subsection.1.2}
-\contentsline {section}{\numberline {2}Cahier des charges}{5}{section.2}
-\contentsline {section}{\numberline {3}Analyse de l'existant}{6}{section.3}
-\contentsline {subsection}{\numberline {3.1}Garmin BaseCamp}{6}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}http://www.calculitineraires.fr/}{6}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}http://www.bestbikingroads.com}{6}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}Conclusion}{6}{subsection.3.4}
-\contentsline {section}{\numberline {4}Analyse fonctionnelle}{7}{section.4}
-\contentsline {subsection}{\numberline {4.1}G\IeC {\'e}n\IeC {\'e}ralit\IeC {\'e}s}{7}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Description des fonctionnalit\IeC {\'e}s globales}{8}{subsection.4.2}
-\contentsline {subsubsection}{\numberline {4.2.1}Connexion}{8}{subsubsection.4.2.1}
-\contentsline {subsubsection}{\numberline {4.2.2}Inscription}{8}{subsubsection.4.2.2}
-\contentsline {subsubsection}{\numberline {4.2.3}Cr\IeC {\'e}ation de trajet}{8}{subsubsection.4.2.3}
-\contentsline {subsubsection}{\numberline {4.2.4}Exportation}{8}{subsubsection.4.2.4}
-\contentsline {subsubsection}{\numberline {4.2.5}Suppression d'un trajet}{8}{subsubsection.4.2.5}
-\contentsline {subsubsection}{\numberline {4.2.6}Visualiser le trajet}{8}{subsubsection.4.2.6}
-\contentsline {subsection}{\numberline {4.3}Description de l'interface}{9}{subsection.4.3}
-\contentsline {subsubsection}{\numberline {4.3.1}Inscription}{9}{subsubsection.4.3.1}
-\contentsline {subsubsection}{\numberline {4.3.2}Map}{9}{subsubsection.4.3.2}
-\contentsline {subsubsection}{\numberline {4.3.3}Detail trajet}{10}{subsubsection.4.3.3}
-\contentsline {subsubsection}{\numberline {4.3.4}Connexion}{10}{subsubsection.4.3.4}
-\contentsline {subsubsection}{\numberline {4.3.5}Vos trajets}{11}{subsubsection.4.3.5}
-\contentsline {subsection}{\numberline {4.4}Description des \IeC {\'e}l\IeC {\'e}ments de s\IeC {\'e}curit\IeC {\'e}}{11}{subsection.4.4}
-\contentsline {subsubsection}{\numberline {4.4.1}Fichier .htaccess}{11}{subsubsection.4.4.1}
-\contentsline {subsubsection}{\numberline {4.4.2}Utilisateur de la base de donn\IeC {\'e}es}{11}{subsubsection.4.4.2}
-\contentsline {subsubsection}{\numberline {4.4.3}Requ\IeC {\^e}tes}{11}{subsubsection.4.4.3}
-\contentsline {section}{\numberline {5}Analyse organique}{12}{section.5}
-\contentsline {subsection}{\numberline {5.1}R\IeC {\'e}sum\IeC {\'e}}{12}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Google API}{12}{subsection.5.2}
-\contentsline {subsubsection}{\numberline {5.2.1}Google Maps Javascipt}{12}{subsubsection.5.2.1}
-\contentsline {subsubsection}{\numberline {5.2.2}Google Direction}{12}{subsubsection.5.2.2}
-\contentsline {subsubsection}{\numberline {5.2.3}Google Elevation}{12}{subsubsection.5.2.3}
-\contentsline {subsubsection}{\numberline {5.2.4}Google Roads}{12}{subsubsection.5.2.4}
-\contentsline {subsection}{\numberline {5.3}Fichier GPX}{13}{subsection.5.3}
-\contentsline {subsection}{\numberline {5.4}Fonction PHP pour la base de donn\IeC {\'e}es}{13}{subsection.5.4}
-\contentsline {subsubsection}{\numberline {5.4.1}connexion \IeC {\`a} la base de donn\IeC {\'e}es}{13}{subsubsection.5.4.1}
-\contentsline {subsubsection}{\numberline {5.4.2}Requ\IeC {\^e}tes pr\IeC {\'e}par\IeC {\'e}es}{13}{subsubsection.5.4.2}
-\contentsline {subsubsection}{\numberline {5.4.3}GetMotorcycleBrand}{14}{subsubsection.5.4.3}
-\contentsline {subsubsection}{\numberline {5.4.4}GetMotorcycleModel}{14}{subsubsection.5.4.4}
-\contentsline {subsubsection}{\numberline {5.4.5}GetAllMotorcycleYear}{14}{subsubsection.5.4.5}
-\contentsline {subsubsection}{\numberline {5.4.6}GetAllMotorcycleConsumption}{14}{subsubsection.5.4.6}
-\contentsline {subsubsection}{\numberline {5.4.7}GetAllMotorcycleTiredness}{14}{subsubsection.5.4.7}
-\contentsline {subsubsection}{\numberline {5.4.8}GetAllMotorcycles}{14}{subsubsection.5.4.8}
-\contentsline {subsubsection}{\numberline {5.4.9}GetRoutes}{14}{subsubsection.5.4.9}
-\contentsline {subsubsection}{\numberline {5.4.10}CreateRoute}{15}{subsubsection.5.4.10}
-\contentsline {subsubsection}{\numberline {5.4.11}deletePlaces}{15}{subsubsection.5.4.11}
-\contentsline {subsubsection}{\numberline {5.4.12}addPlaceToRoute}{15}{subsubsection.5.4.12}
-\contentsline {subsubsection}{\numberline {5.4.13}deleteMotorcycle}{15}{subsubsection.5.4.13}
-\contentsline {subsubsection}{\numberline {5.4.14}getUserNMotorcycle}{15}{subsubsection.5.4.14}
-\contentsline {subsubsection}{\numberline {5.4.15}getUserRoleById}{15}{subsubsection.5.4.15}
-\contentsline {subsubsection}{\numberline {5.4.16}AddSinuosity}{15}{subsubsection.5.4.16}
-\contentsline {subsubsection}{\numberline {5.4.17}AddElevation}{16}{subsubsection.5.4.17}
-\contentsline {subsubsection}{\numberline {5.4.18}AddLength}{16}{subsubsection.5.4.18}
-\contentsline {subsubsection}{\numberline {5.4.19}GetmostSinuousRoad}{16}{subsubsection.5.4.19}
-\contentsline {subsubsection}{\numberline {5.4.20}GetLessSinuousRoad}{16}{subsubsection.5.4.20}
-\contentsline {subsubsection}{\numberline {5.4.21}GetMostSteepestRoad}{16}{subsubsection.5.4.21}
-\contentsline {subsubsection}{\numberline {5.4.22}GetLessSteepestRoad}{16}{subsubsection.5.4.22}
-\contentsline {subsection}{\numberline {5.5}Inscription sur le site}{17}{subsection.5.5}
-\contentsline {subsection}{\numberline {5.6}Connexion au site}{18}{subsection.5.6}
-\contentsline {subsection}{\numberline {5.7}\emph {Upload} d'un itin\IeC {\'e}raire}{20}{subsection.5.7}
-\contentsline {subsection}{\numberline {5.8}\emph {T\IeC {\'e}l\IeC {\'e}chargement} d'un itin\IeC {\'e}raire}{21}{subsection.5.8}
-\contentsline {subsection}{\numberline {5.9}Fonction javascript de gestion de la carte}{22}{subsection.5.9}
-\contentsline {subsubsection}{\numberline {5.9.1}Initialisation de la carte}{22}{subsubsection.5.9.1}
-\contentsline {subsubsection}{\numberline {5.9.2}ImportGPX}{25}{subsubsection.5.9.2}
-\contentsline {subsubsection}{\numberline {5.9.3}AskGoogle}{25}{subsubsection.5.9.3}
-\contentsline {subsubsection}{\numberline {5.9.4}LoadPoints}{25}{subsubsection.5.9.4}
-\contentsline {subsubsection}{\numberline {5.9.5}SnappPoints2Road}{25}{subsubsection.5.9.5}
-\contentsline {subsubsection}{\numberline {5.9.6}SaveNewLocation}{25}{subsubsection.5.9.6}
-\contentsline {subsubsection}{\numberline {5.9.7}CreateRoute}{26}{subsubsection.5.9.7}
-\contentsline {subsubsection}{\numberline {5.9.8}RouteClick}{26}{subsubsection.5.9.8}
-\contentsline {subsection}{\numberline {5.10}Fonction ajax}{27}{subsection.5.10}
-\contentsline {subsubsection}{\numberline {5.10.1}GetModel}{27}{subsubsection.5.10.1}
-\contentsline {subsubsection}{\numberline {5.10.2}GetYear}{27}{subsubsection.5.10.2}
-\contentsline {subsubsection}{\numberline {5.10.3}UserExists}{27}{subsubsection.5.10.3}
-\contentsline {subsubsection}{\numberline {5.10.4}GetMotorcycles}{27}{subsubsection.5.10.4}
-\contentsline {subsubsection}{\numberline {5.10.5}GetRoutePoints}{27}{subsubsection.5.10.5}
-\contentsline {subsubsection}{\numberline {5.10.6}SaveNewRoute}{28}{subsubsection.5.10.6}
-\contentsline {subsubsection}{\numberline {5.10.7}AddMotorcycle}{28}{subsubsection.5.10.7}
-\contentsline {subsubsection}{\numberline {5.10.8}UpdateUserRole}{28}{subsubsection.5.10.8}
-\contentsline {subsubsection}{\numberline {5.10.9}GetUserRole}{28}{subsubsection.5.10.9}
-\contentsline {subsubsection}{\numberline {5.10.10}downloadRoute}{28}{subsubsection.5.10.10}
-\contentsline {subsubsection}{\numberline {5.10.11}FilterRoad}{29}{subsubsection.5.10.11}
-\contentsline {subsubsection}{\numberline {5.10.12}GetRoutesJSON}{29}{subsubsection.5.10.12}
-\contentsline {subsubsection}{\numberline {5.10.13}GetRoadsInfos}{29}{subsubsection.5.10.13}
-\contentsline {subsubsection}{\numberline {5.10.14}CreateNewRoute}{29}{subsubsection.5.10.14}
-\contentsline {subsubsection}{\numberline {5.10.15}DeleteRoute}{29}{subsubsection.5.10.15}
-\contentsline {subsection}{\numberline {5.11}Base de donn\IeC {\'e}es}{30}{subsection.5.11}
-\contentsline {subsubsection}{\numberline {5.11.1}Mod\IeC {\`e}le conceptuel}{30}{subsubsection.5.11.1}
-\contentsline {subsubsection}{\numberline {5.11.2}Structure de la base de donn\IeC {\'e}es}{30}{subsubsection.5.11.2}
-\contentsline {paragraph}{\numberline {5.11.2.1}Table \emph {moto}}{30}{paragraph.5.11.2.1}
-\contentsline {paragraph}{\numberline {5.11.2.2}Table \emph {users}}{30}{paragraph.5.11.2.2}
-\contentsline {paragraph}{\numberline {5.11.2.3}Table \emph {route}}{31}{paragraph.5.11.2.3}
-\contentsline {paragraph}{\numberline {5.11.2.4}Table \emph {Place}}{31}{paragraph.5.11.2.4}
-\contentsline {section}{\numberline {6}Probl\IeC {\`e}mes rencontr\IeC {\'e}}{32}{section.6}
-\contentsline {subsection}{\numberline {6.1}Google Api}{32}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Async}{32}{subsection.6.2}
-\contentsline {section}{\numberline {7}Conclusion}{32}{section.7}
+\contentsline {section}{\numberline {1}Introduction}{5}{section.1}
+\contentsline {subsection}{\numberline {1.1}R\IeC {\'e}sum\IeC {\'e}}{5}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Abstract}{5}{subsection.1.2}
+\contentsline {section}{\numberline {2}Cahier des charges}{6}{section.2}
+\contentsline {subsection}{\numberline {2.1}Description}{6}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}But}{6}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Sp\IeC {\'e}cifications}{6}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Restrictions}{6}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Environement}{6}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.6}Livrables}{6}{subsection.2.6}
+\contentsline {subsection}{\numberline {2.7}Calendrier}{6}{subsection.2.7}
+\contentsline {section}{\numberline {3}Analyse de l'existant}{7}{section.3}
+\contentsline {subsection}{\numberline {3.1}Garmin BaseCamp}{7}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}http://www.calculitineraires.fr/}{7}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}http://www.bestbikingroads.com}{7}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Conclusion}{7}{subsection.3.4}
+\contentsline {section}{\numberline {4}Analyse fonctionnelle}{8}{section.4}
+\contentsline {subsection}{\numberline {4.1}G\IeC {\'e}n\IeC {\'e}ralit\IeC {\'e}s}{8}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Description des fonctionnalit\IeC {\'e}s globales}{9}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {4.2.1}Authentification}{9}{subsubsection.4.2.1}
+\contentsline {subsubsection}{\numberline {4.2.2}Inscription}{9}{subsubsection.4.2.2}
+\contentsline {subsubsection}{\numberline {4.2.3}Cr\IeC {\'e}ation de trajet}{9}{subsubsection.4.2.3}
+\contentsline {subsubsection}{\numberline {4.2.4}Exportation}{9}{subsubsection.4.2.4}
+\contentsline {subsubsection}{\numberline {4.2.5}Suppression d'un trajet}{9}{subsubsection.4.2.5}
+\contentsline {subsubsection}{\numberline {4.2.6}Visualiser le trajet}{9}{subsubsection.4.2.6}
+\contentsline {subsubsection}{\numberline {4.2.7}Contact}{9}{subsubsection.4.2.7}
+\contentsline {subsection}{\numberline {4.3}Description de l'interface}{10}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}Inscription}{10}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.2}Map}{10}{subsubsection.4.3.2}
+\contentsline {subsubsection}{\numberline {4.3.3}Detail trajet}{11}{subsubsection.4.3.3}
+\contentsline {subsubsection}{\numberline {4.3.4}Connexion}{11}{subsubsection.4.3.4}
+\contentsline {subsubsection}{\numberline {4.3.5}Vos trajets}{12}{subsubsection.4.3.5}
+\contentsline {subsection}{\numberline {4.4}Description des \IeC {\'e}l\IeC {\'e}ments de s\IeC {\'e}curit\IeC {\'e}}{12}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}Fichier .htaccess}{12}{subsubsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.2}Utilisateur de la base de donn\IeC {\'e}es}{12}{subsubsection.4.4.2}
+\contentsline {subsubsection}{\numberline {4.4.3}Requ\IeC {\^e}tes}{12}{subsubsection.4.4.3}
+\contentsline {section}{\numberline {5}Analyse organique}{13}{section.5}
+\contentsline {subsection}{\numberline {5.1}R\IeC {\'e}sum\IeC {\'e}}{13}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}\emph {Boostrap}}{13}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Google API}{13}{subsection.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1}Google Maps Javascipt}{13}{subsubsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.2}Google Direction}{13}{subsubsection.5.3.2}
+\contentsline {subsubsection}{\numberline {5.3.3}Google Elevation}{14}{subsubsection.5.3.3}
+\contentsline {subsubsection}{\numberline {5.3.4}Google Roads}{14}{subsubsection.5.3.4}
+\contentsline {subsection}{\numberline {5.4}Fichier GPX}{14}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.5}Fonction PHP pour la base de donn\IeC {\'e}es}{15}{subsection.5.5}
+\contentsline {subsubsection}{\numberline {5.5.1}connexion \IeC {\`a} la base de donn\IeC {\'e}es}{15}{subsubsection.5.5.1}
+\contentsline {subsubsection}{\numberline {5.5.2}Requ\IeC {\^e}tes pr\IeC {\'e}par\IeC {\'e}es}{15}{subsubsection.5.5.2}
+\contentsline {subsubsection}{\numberline {5.5.3}GetMotorcycleBrand}{15}{subsubsection.5.5.3}
+\contentsline {subsubsection}{\numberline {5.5.4}GetMotorcycleModel}{15}{subsubsection.5.5.4}
+\contentsline {subsubsection}{\numberline {5.5.5}GetAllMotorcycleYear}{15}{subsubsection.5.5.5}
+\contentsline {subsubsection}{\numberline {5.5.6}GetAllMotorcycleConsumption}{15}{subsubsection.5.5.6}
+\contentsline {subsubsection}{\numberline {5.5.7}GetAllMotorcycleTiredness}{16}{subsubsection.5.5.7}
+\contentsline {subsubsection}{\numberline {5.5.8}GetAllMotorcycles}{16}{subsubsection.5.5.8}
+\contentsline {subsubsection}{\numberline {5.5.9}GetRoutes}{16}{subsubsection.5.5.9}
+\contentsline {subsubsection}{\numberline {5.5.10}CreateRoute}{16}{subsubsection.5.5.10}
+\contentsline {subsubsection}{\numberline {5.5.11}deletePlaces}{16}{subsubsection.5.5.11}
+\contentsline {subsubsection}{\numberline {5.5.12}addPlaceToRoute}{16}{subsubsection.5.5.12}
+\contentsline {subsubsection}{\numberline {5.5.13}deleteMotorcycle}{17}{subsubsection.5.5.13}
+\contentsline {subsubsection}{\numberline {5.5.14}getUserNMotorcycle}{17}{subsubsection.5.5.14}
+\contentsline {subsubsection}{\numberline {5.5.15}getUserRoleById}{17}{subsubsection.5.5.15}
+\contentsline {subsubsection}{\numberline {5.5.16}AddSinuosity}{17}{subsubsection.5.5.16}
+\contentsline {subsubsection}{\numberline {5.5.17}AddElevation}{17}{subsubsection.5.5.17}
+\contentsline {subsubsection}{\numberline {5.5.18}AddLength}{17}{subsubsection.5.5.18}
+\contentsline {subsubsection}{\numberline {5.5.19}GetmostSinuousRoad}{17}{subsubsection.5.5.19}
+\contentsline {subsubsection}{\numberline {5.5.20}GetLessSinuousRoad}{18}{subsubsection.5.5.20}
+\contentsline {subsubsection}{\numberline {5.5.21}GetMostSteepestRoad}{18}{subsubsection.5.5.21}
+\contentsline {subsubsection}{\numberline {5.5.22}GetLessSteepestRoad}{18}{subsubsection.5.5.22}
+\contentsline {subsection}{\numberline {5.6}Inscription sur le site}{19}{subsection.5.6}
+\contentsline {subsection}{\numberline {5.7}Connexion au site}{20}{subsection.5.7}
+\contentsline {subsection}{\numberline {5.8}\emph {Upload} d'un itin\IeC {\'e}raire}{22}{subsection.5.8}
+\contentsline {subsection}{\numberline {5.9}T\IeC {\'e}l\IeC {\'e}chargement d'un itin\IeC {\'e}raire}{23}{subsection.5.9}
+\contentsline {subsection}{\numberline {5.10}Fonction javascript de gestion de la carte}{24}{subsection.5.10}
+\contentsline {subsubsection}{\numberline {5.10.1}Initialisation de la carte}{24}{subsubsection.5.10.1}
+\contentsline {subsubsection}{\numberline {5.10.2}ImportGPX}{27}{subsubsection.5.10.2}
+\contentsline {subsubsection}{\numberline {5.10.3}AskGoogle}{27}{subsubsection.5.10.3}
+\contentsline {subsubsection}{\numberline {5.10.4}LoadPoints}{27}{subsubsection.5.10.4}
+\contentsline {subsubsection}{\numberline {5.10.5}SnappPoints2Road}{27}{subsubsection.5.10.5}
+\contentsline {subsubsection}{\numberline {5.10.6}SaveNewLocation}{27}{subsubsection.5.10.6}
+\contentsline {subsubsection}{\numberline {5.10.7}CreateRoute}{28}{subsubsection.5.10.7}
+\contentsline {subsubsection}{\numberline {5.10.8}RouteClick}{28}{subsubsection.5.10.8}
+\contentsline {subsubsection}{\numberline {5.10.9}searchIti}{29}{subsubsection.5.10.9}
+\contentsline {subsubsection}{\numberline {5.10.10}Clear}{29}{subsubsection.5.10.10}
+\contentsline {subsubsection}{\numberline {5.10.11}ShowParcours}{29}{subsubsection.5.10.11}
+\contentsline {subsubsection}{\numberline {5.10.12}DisplayRoute}{30}{subsubsection.5.10.12}
+\contentsline {subsubsection}{\numberline {5.10.13}CreateMarker}{30}{subsubsection.5.10.13}
+\contentsline {subsubsection}{\numberline {5.10.14}refreshValues}{30}{subsubsection.5.10.14}
+\contentsline {subsubsection}{\numberline {5.10.15}DownloadRoute}{30}{subsubsection.5.10.15}
+\contentsline {subsubsection}{\numberline {5.10.16}EnableDisabledFilters}{30}{subsubsection.5.10.16}
+\contentsline {subsubsection}{\numberline {5.10.17}RefreshRouteWithFilters}{31}{subsubsection.5.10.17}
+\contentsline {subsubsection}{\numberline {5.10.18}RefreshRouteWithoutFilters}{31}{subsubsection.5.10.18}
+\contentsline {subsubsection}{\numberline {5.10.19}StartCreation}{31}{subsubsection.5.10.19}
+\contentsline {subsubsection}{\numberline {5.10.20}DisplayRouteInfo}{31}{subsubsection.5.10.20}
+\contentsline {subsubsection}{\numberline {5.10.21}DeleteRoute}{31}{subsubsection.5.10.21}
+\contentsline {subsubsection}{\numberline {5.10.22}ClearRoute}{32}{subsubsection.5.10.22}
+\contentsline {subsubsection}{\numberline {5.10.23}Document.Ready}{32}{subsubsection.5.10.23}
+\contentsline {subsubsection}{\numberline {5.10.24}Document.bind}{32}{subsubsection.5.10.24}
+\contentsline {subsection}{\numberline {5.11}fonction javascript pour l'inscription et la connexion}{32}{subsection.5.11}
+\contentsline {subsubsection}{\numberline {5.11.1}connexion}{32}{subsubsection.5.11.1}
+\contentsline {subsubsection}{\numberline {5.11.2}LoadModalFromBrand}{32}{subsubsection.5.11.2}
+\contentsline {subsubsection}{\numberline {5.11.3}LoadYearFromModel}{33}{subsubsection.5.11.3}
+\contentsline {subsubsection}{\numberline {5.11.4}UserNameExists}{33}{subsubsection.5.11.4}
+\contentsline {subsubsection}{\numberline {5.11.5}checkForEnabled}{33}{subsubsection.5.11.5}
+\contentsline {subsubsection}{\numberline {5.11.6}Document.Ready}{33}{subsubsection.5.11.6}
+\contentsline {subsection}{\numberline {5.12}Fonction ajax}{33}{subsection.5.12}
+\contentsline {subsubsection}{\numberline {5.12.1}GetModel}{33}{subsubsection.5.12.1}
+\contentsline {subsubsection}{\numberline {5.12.2}GetYear}{33}{subsubsection.5.12.2}
+\contentsline {subsubsection}{\numberline {5.12.3}UserExists}{34}{subsubsection.5.12.3}
+\contentsline {subsubsection}{\numberline {5.12.4}GetMotorcycles}{34}{subsubsection.5.12.4}
+\contentsline {subsubsection}{\numberline {5.12.5}GetRoutePoints}{34}{subsubsection.5.12.5}
+\contentsline {subsubsection}{\numberline {5.12.6}SaveNewRoute}{34}{subsubsection.5.12.6}
+\contentsline {subsubsection}{\numberline {5.12.7}AddMotorcycle}{34}{subsubsection.5.12.7}
+\contentsline {subsubsection}{\numberline {5.12.8}UpdateUserRole}{34}{subsubsection.5.12.8}
+\contentsline {subsubsection}{\numberline {5.12.9}GetUserRole}{35}{subsubsection.5.12.9}
+\contentsline {subsubsection}{\numberline {5.12.10}downloadRoute}{35}{subsubsection.5.12.10}
+\contentsline {subsubsection}{\numberline {5.12.11}FilterRoad}{35}{subsubsection.5.12.11}
+\contentsline {subsubsection}{\numberline {5.12.12}GetRoutesJSON}{35}{subsubsection.5.12.12}
+\contentsline {subsubsection}{\numberline {5.12.13}GetRoadsInfos}{35}{subsubsection.5.12.13}
+\contentsline {subsubsection}{\numberline {5.12.14}CreateNewRoute}{35}{subsubsection.5.12.14}
+\contentsline {subsubsection}{\numberline {5.12.15}DeleteRoute}{36}{subsubsection.5.12.15}
+\contentsline {subsection}{\numberline {5.13}Base de donn\IeC {\'e}es}{37}{subsection.5.13}
+\contentsline {subsubsection}{\numberline {5.13.1}Mod\IeC {\`e}le conceptuel}{37}{subsubsection.5.13.1}
+\contentsline {subsubsection}{\numberline {5.13.2}Structure de la base de donn\IeC {\'e}es}{37}{subsubsection.5.13.2}
+\contentsline {paragraph}{\numberline {5.13.2.1}Table \emph {moto}}{37}{paragraph.5.13.2.1}
+\contentsline {paragraph}{\numberline {5.13.2.2}Table \emph {users}}{37}{paragraph.5.13.2.2}
+\contentsline {paragraph}{\numberline {5.13.2.3}Table \emph {route}}{37}{paragraph.5.13.2.3}
+\contentsline {paragraph}{\numberline {5.13.2.4}Table \emph {Place}}{38}{paragraph.5.13.2.4}
+\contentsline {section}{\numberline {6}Estimation de l'apport personnel}{39}{section.6}
+\contentsline {section}{\numberline {7}Probl\IeC {\`e}mes rencontr\IeC {\'e}}{40}{section.7}
+\contentsline {subsection}{\numberline {7.1}Google Api}{40}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Asynchrone}{40}{subsection.7.2}
+\contentsline {section}{\numberline {8}Conclusion}{41}{section.8}
+\contentsline {subsection}{\numberline {8.1}Bilan personnel}{41}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Am\IeC {\'e}liorations }{41}{subsection.8.2}
