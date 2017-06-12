@@ -6,6 +6,7 @@
  * Version : 1.0 LC BaseVersion
  */
 
+//Fenêtre modal de connexion
 function includeConnexionModal() {
     ?>
     <div class="modal fade" id="modalConnexion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -45,6 +46,7 @@ function includeConnexionModal() {
     <?php
 }
 
+//fenêtre modale d'ajout de moto
 function AddMotorcycleModal() {
     ?>
     <div class="modal fade" id="modalMotorcycle" tabindex="-1" role="dialog" aria-labelledby="Modal motorcycle" aria-hidden="true">
@@ -109,6 +111,7 @@ function AddMotorcycleModal() {
     <?php
 }
 
+//fenêtre modal d'import de trajet
 function importerTrajetModal() {
     ?>
     <div class="modal fade" id="modalimport" tabindex="-1" role="dialog" aria-labelledby="modalimport" aria-hidden="true">
@@ -145,6 +148,7 @@ function importerTrajetModal() {
     <?php
 }
 
+//fenetre modale de confirmation de suppression d'une moto
 function confirmationDeleteMotorcycleModal($id, $brand, $model, $year) {
     ?>
     <div class="modal fade" id="modaldelete<?php echo $id ?>" tabindex="-1" role="dialog" aria-labelledby="modaldelete<?php echo $id ?>" aria-hidden="true">
@@ -177,6 +181,7 @@ function confirmationDeleteMotorcycleModal($id, $brand, $model, $year) {
     <?php
 }
 
+//fenêtre modal de création d'une nouvelle route
 function newRouteModal() {
     ?>
     <div class="modal fade" id="newRoutemodal" tabindex="-1" role="dialog" aria-labelledby="newRoutemodal" aria-hidden="true">

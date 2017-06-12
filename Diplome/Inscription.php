@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <?php
+/*
+ * Author : Lucien Camuglia
+ * Description : Signin page
+ * Date : April-june 2017
+ * Version : 1.0 LC BaseVersion
+ */
 $error = false;
 $errorMsg = "";
 if (isset($_GET["error"])) {
@@ -128,13 +129,13 @@ if (isset($_GET["values"])) {
                                 <label for="Username" class="col-sm-3 col-form-label">Year </label>
                                 <div class="col-sm-9">
                                     <select id="year" name="year" >
-<?php
-if ($value) {
-    if (isset($values->year)) {
-        echo "<option value=\"$values->year\" >$values->year</option>";
-    }
-}
-?>
+                                        <?php
+                                        if ($value) {
+                                            if (isset($values->year)) {
+                                                echo "<option value=\"$values->year\" >$values->year</option>";
+                                            }
+                                        }
+                                        ?>
                                         <option  value="">Select a model</option>
                                     </select>
                                 </div>
@@ -149,6 +150,6 @@ if ($value) {
                 </form>
             </center>
         </div>
-          <?php include './Includes/footer.php'; ?>
+        <?php include './Includes/footer.php'; ?>
     </body>    
 </html>

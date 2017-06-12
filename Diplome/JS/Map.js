@@ -1,7 +1,8 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/*
+ * Author : Lucien Camuglia
+ * Description : All map fonctions
+ * Date : April-june 2017
+ * Version : 1.0 LC BaseVersion
  */
 
 
@@ -56,7 +57,7 @@ var total = 0;
 var DisplayTraffic = false;
 var avoidHighways = false;
 
-
+//initialise the map
 function initMap(modif, traffic) {
     modif = modif || false;
     traffic = traffic || false;
@@ -67,6 +68,7 @@ function initMap(modif, traffic) {
     var pos = {
         lat: 46.203545,
         lng: 6.145150
+                //geneva
     };
 
     if (navigator.geolocation) {
@@ -87,6 +89,7 @@ function initMap(modif, traffic) {
             mapTypeId: google.maps.MapTypeId.TERRAIN
         }
     });
+    //if the route can be modified
     if (modif) {
         google.maps.event.addListener(map, 'click', function(event) {
             CreateMarker(event.latLng, true, true, "FE7569", ++addedPoints, addedPoints);
@@ -114,7 +117,6 @@ function initMap(modif, traffic) {
             var bounds = new google.maps.LatLngBounds();
             places.forEach(function(place) {
                 if (!place.geometry) {
-                    console.log("Returned place contains no geometry");
                     return;
                 }
                 var icon = {
@@ -136,12 +138,14 @@ function initMap(modif, traffic) {
         });
 
     }
+    //if the traffic have to be diplay
     if (traffic) {
         var trafficLayer = new google.maps.TrafficLayer();
         trafficLayer.setMap(map);
     }
 }
 
+//import a GPX file
 function ImporterGpx(file) {
     $.ajax({
         url: './Includes/ajax.php',
@@ -154,6 +158,7 @@ function ImporterGpx(file) {
     });
 }
 
+//Ask google Roads for snapping point to the road
 function AskGoogle(Path) {
     var snapped = [];
     $.ajax({
@@ -173,6 +178,7 @@ function AskGoogle(Path) {
     return snapped;
 }
 
+//load all points of a route
 function LoadPoints(idRoute) {
     var resultArray = [];
     $.ajax({
@@ -191,6 +197,7 @@ function LoadPoints(idRoute) {
     return resultArray;
 }
 
+//snapp all points of the route to the road
 function SnappPoints2Road(route) {
     var Path = "";
     var tmpSnapped = [];
@@ -210,6 +217,7 @@ function SnappPoints2Road(route) {
     return Snapped;
 }
 
+//save a new location
 function SaveNewLocation(idroute, route, fromweb) {
     fromweb = fromweb || false;
     var geoRoute = [];
@@ -217,6 +225,7 @@ function SaveNewLocation(idroute, route, fromweb) {
     var tmpRoute = route;
     $.each(route, function(index, value)
     {
+        //verify if the request is made from the web api
         if (fromweb) {
             geoRoute.push(new google.maps.LatLng(value.lat(), value.lng()));
 
@@ -225,7 +234,7 @@ function SaveNewLocation(idroute, route, fromweb) {
 
         }
     });
-
+    //get length and calcul the sinuosity
     var length = google.maps.geometry.spherical.computeLength(geoRoute);
     var sinuosity = route.length / length;
     var counter = 10;
@@ -246,22 +255,23 @@ function SaveNewLocation(idroute, route, fromweb) {
     for (var i = 0; i < geoRoute.length - counter; i += counter) {
         echantRoute.push(geoRoute[i]);
     }
+    //get the levation of each point of the route
     elevator.getElevationAlongPath({
         'path': echantRoute,
         'samples': 256
     }, function(elevations, status) {
-        console.log(elevations);
         if (status !== 'OK') {
             console.log("Error elevaton : " + status);
         } else {
             var elevationAverage = 0;
+            //calcul the elevation average
             for (var i = 1; i < elevations.length; i++) {
                 elevationAverage += Math.abs(elevations[i - 1].elevation - elevations[i].elevation);
             }
-            console.log("sinuosite : " + sinuosity);
             if (fromweb) {
                 route = JSON.stringify(route);
             }
+            //send the infos to the PHP file
             $.ajax({
                 url: './Includes/ajax.php',
                 type: 'POST',
@@ -277,10 +287,9 @@ function SaveNewLocation(idroute, route, fromweb) {
     });
 }
 
+//call the PHP fonction for creating a new route
 function CreateRoute(name, containsHighway) {
     if (name != "") {
-        console.log("create : " + name);
-        console.log("Highways ? " + containsHighway);
         $.ajax({
             url: './Includes/ajax.php',
             type: 'GET',
@@ -298,6 +307,7 @@ $(document).ready(function() {
     initMap();
     clear();
     RouteClick();
+    //when the modification button is pressed
     $("#btnModif").click(function() {
         if (highlighted != null) {
             oldRoute = route;
@@ -313,12 +323,9 @@ $(document).ready(function() {
             editlines();
         }
     });
+    //when th refresh button is pressed
     $("#RefreshRoute").click(function() {
-        console.log("Refresh");
-        //
         if (oldMarkers.length === Markers.length) {
-            console.log("old route");
-            console.log(route);
             var j = 0;
             for (var i = 0; i < Markers.length; i++) {
                 var from = [];
@@ -331,7 +338,6 @@ $(document).ready(function() {
                 if (i < Markers.length - 1)
                     while ((oldRoute[j].lat() !== oldMarkers[i + 1].position.lat()) && (oldRoute[j].lng() !== oldMarkers[i + 1].position.lng())) {
                         route.push(oldRoute[j]);
-                        console.log("push");
                         j++;
                     }
                 else
@@ -340,10 +346,10 @@ $(document).ready(function() {
                         j++;
                     }
             }
-            console.log("route");
-            console.log(route);         
+
         }
     });
+
     $("#sinuosity").change(function() {
         RefreshhRoutesWithFilters();
     });
@@ -367,10 +373,10 @@ $(document).ready(function() {
         } else {
             avoidHighways = true;
         }
-
-        console.log(avoidHighways);
     });
 });
+
+//when a request AJAX start, display a wheel 
 $(document).bind({
     ajaxStart: function() {
         $("body").addClass("loading");
@@ -379,12 +385,12 @@ $(document).bind({
         $("body").removeClass("loading");
     }
 });
+
 function RouteClick() {
     $(".route").click(function() {
         clear();
         initMap(false, DisplayTraffic);
         $("#DeleteRoute").click(function() {
-            console.log("Delete");
             DeleteRoute($(highlighted).attr('name'));
 
         });
@@ -401,27 +407,28 @@ function RouteClick() {
     });
 }
 
+//search an itinary
 function searchIti(from, to) {
 
     var request = {
-        origin: from, //new google.maps.LatLng(from.lat(), from.lng()),
-        destination: to, //new google.maps.LatLng(to.lat(), to.lng()),
+        origin: from,
+        destination: to,
         travelMode: google.maps.TravelMode.DRIVING,
         avoidHighways: avoidHighways
                 //WALKING / DRIVING / BICYCLING / TRANSIT / 
     };
 
-    //route = [];
     directionsDisplay.setMap(this.map);
     directionsService.route(request, function(result, status) {
 
         if (status === google.maps.DirectionsStatus.OK) {
             var distanceM = result.routes[0].legs[0].distance.value;
             var tempsS = result.routes[0].legs[0].duration.value;
-            //directionsDisplay.setDirections(result);
+            //add all point in the current route
             $.each(result.routes[0].overview_path, function(index, point) {
                 route.push(point);
             });
+            //display the route
             DisplayRoute();
         } else {
             console.log(status);
@@ -430,21 +437,15 @@ function searchIti(from, to) {
     });
 }
 
-function clear() {
-    Markers = [];
-    route = [];
-}
-
-/* Affiche les points
- @param array tableauPoints : Tableau des marqueurs Ã  afficher sur la map
- @param bool parcoursModif : savoir si les marqueurs route
- est modifiable ou pas(dÃ©plaÃ§able, supprimable)
+/* display the points
+ @param array tableauPoints : Markers array to display
+ @param bool parcoursModif : if the road can be modified
  */
 function ShowParcours(tableauPoints, parcoursModif, color) {
     color = color || "#ff1ece";
     var liste_des_points = tableauPoints;
     if (parcoursModif === true) {
-        //crée les marqueurs de début et fin de route
+        //create the first and last markers
         CreateMarker(liste_des_points[0], parcoursModif, false, "36af2d", "%E2%80%A2", 0);
         CreateMarker(liste_des_points[liste_des_points.length - 1], parcoursModif, false, "a52424", "%E2%80%A2", 1);
     }
@@ -461,6 +462,7 @@ function ShowParcours(tableauPoints, parcoursModif, color) {
     DisplayRoute(color);
 }
 
+//Display the polyline
 function DisplayRoute(color) {
     color = color || "#ff1ece";
     parcoursPolyline = new google.maps.Polyline({
@@ -472,7 +474,9 @@ function DisplayRoute(color) {
     });
 }
 
+//create a new marker
 function CreateMarker(value, parcoursModif, parcoursDelete, pinColor, texte, position) {
+    //load the image and add the position in the road
     var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=" + texte + "|" + pinColor,
             new google.maps.Size(21, 34),
             new google.maps.Point(0, 0),
@@ -483,7 +487,7 @@ function CreateMarker(value, parcoursModif, parcoursDelete, pinColor, texte, pos
     } else {
         pos = value;
     }
-    //nouveau marker
+
     parcoursMarker = new google.maps.Marker({
         position: pos,
         draggable: parcoursModif,
@@ -491,6 +495,7 @@ function CreateMarker(value, parcoursModif, parcoursDelete, pinColor, texte, pos
         map: map,
         icon: pinImage
     });
+    //if the marker can be delete
     if (parcoursDelete) {
         parcoursMarker.addListener('click', function() {
             this.setMap(null);
@@ -501,6 +506,7 @@ function CreateMarker(value, parcoursModif, parcoursDelete, pinColor, texte, pos
         });
     }
 
+    // if the marker can be move
     if (parcoursModif) {
         parcoursMarker.addListener('dragend', function() {
             refreshValues(this.zIndex);
@@ -509,16 +515,17 @@ function CreateMarker(value, parcoursModif, parcoursDelete, pinColor, texte, pos
         });
     }
 
-    //  Ajout du marqueur dans le tableau
+    //add the marker in the table
     Markers.push(parcoursMarker);
 }
 
+//display the values in the fields
 function refreshValues(index) {
-    console.log("Display values");
     $("#inpLatPoint" + index).val(Markers[index].position.lat());
     $("#inpLonPoint" + index).val(Markers[index].position.lng());
 }
 
+//Download the route
 function DownloadRoute() {
     if (highlighted == null) {
         alert("Please select a trip");
@@ -526,7 +533,6 @@ function DownloadRoute() {
     {
         name = $(highlighted).html();
         name = name.substr(0, name.indexOf("<span"));
-        console.log(name);
         $.ajax({
             url: './Includes/ajax.php',
             type: 'POST',
@@ -534,7 +540,6 @@ function DownloadRoute() {
             dataType: "html",
             async: false,
             success: function(result) {
-                console.log("ICI");
                 document.location.href = "./Includes/download.php?file=" + result;
             },
             error: function(result, status, error) {
@@ -546,6 +551,7 @@ function DownloadRoute() {
     }
 }
 
+//display or not the filters
 function EnabledDisabledFilters(caller) {
     if (caller.checked) {
         $("#filters").removeAttr("hidden");
@@ -556,6 +562,7 @@ function EnabledDisabledFilters(caller) {
     }
 }
 
+//refresh the displayed routes depending to the filters
 function RefreshhRoutesWithFilters() {
     var sinuosity = $("#sinuosity").val();
     var slope = $("#slope").val();
@@ -577,8 +584,8 @@ function RefreshhRoutesWithFilters() {
     });
 }
 
+//refresh the displayed routes
 function RefreshhRoutesWithoutFilters() {
-    console.log("no filters");
     $.ajax({
         url: './Includes/ajax.php',
         type: 'GET',
@@ -586,7 +593,6 @@ function RefreshhRoutesWithoutFilters() {
         dataType: "json",
         async: false,
         success: function(result) {
-            console.log(result);
             $(".routes").empty();
             $.each(result, function(index, value)
             {
@@ -601,11 +607,13 @@ function RefreshhRoutesWithoutFilters() {
     });
 }
 
+//start the creation of the new route (display the buttons
 function StartCreation() {
     ClearRoute();
     $(".SaveRouteControls").removeClass('hidden');
 }
 
+//display all infos about the road
 function DisplayRouteInfo(idroute) {
     $.ajax({
         url: './Includes/ajax.php',
@@ -625,8 +633,6 @@ function DisplayRouteInfo(idroute) {
                 $('#InfoConsumption').html("Théorical consumption : " + Math.round(result.Length * result.MotorcycleConsumption / 100) + " liters");
             }
 
-
-
         },
         error: function(result, status, error) {
             console.log(result);
@@ -637,8 +643,8 @@ function DisplayRouteInfo(idroute) {
 
 }
 
+//call the PHP fonction for delete a route
 function DeleteRoute(idRoute) {
-    console.log("id = " + idRoute);
     $.ajax({
         url: './Includes/ajax.php',
         type: 'GET',
@@ -651,23 +657,27 @@ function DeleteRoute(idRoute) {
     });
 }
 
+//clear all fields
 function ClearRoute() {
     initMap(true, DisplayTraffic);
     pointsArray = [];
     midmarkers = [];
     oldMarkers = [];
-    Markers = [];
     oldRoute = [];
-    route = [];
     addedPoints = 0;
+    clear();
+}
+
+function clear() {
+    Markers = [];
+    route = [];
 }
 
 
 
-/************************************************************************/
-/*              http://www.birdtheme.org/useful/v3tool.html             */
-/************************************************************************/
 
+
+// Editting the lines, found on : http://www.birdtheme.org/useful/v3tool.html            
 function editlines() {
     Markers = [];
     route = parcoursPolyline.getPath();
@@ -765,9 +775,6 @@ function setmidmarkers(point) {
                 parcoursPolyline.getPath().insertAt(i + 1, newpos);
                 marker.setPosition(firstVPos);
                 midmarkers.splice(i + 1, 0, newVMarker);
-                /*tmpPolyLine.getPath().removeAt(2);
-                 tmpPolyLine.getPath().removeAt(1);
-                 tmpPolyLine.getPath().removeAt(0);*/
                 break;
             }
         }

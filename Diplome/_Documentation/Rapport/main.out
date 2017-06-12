@@ -1,130 +1,133 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
 \BOOKMARK [2][-]{subsection.1.1}{R\351sum\351}{section.1}% 2
 \BOOKMARK [2][-]{subsection.1.2}{Abstract}{section.1}% 3
-\BOOKMARK [1][-]{section.2}{Cahier des charges}{}% 4
-\BOOKMARK [2][-]{subsection.2.1}{Description}{section.2}% 5
-\BOOKMARK [2][-]{subsection.2.2}{But}{section.2}% 6
-\BOOKMARK [2][-]{subsection.2.3}{Sp\351cifications}{section.2}% 7
-\BOOKMARK [2][-]{subsection.2.4}{Restrictions}{section.2}% 8
-\BOOKMARK [2][-]{subsection.2.5}{Environement}{section.2}% 9
-\BOOKMARK [2][-]{subsection.2.6}{Livrables}{section.2}% 10
-\BOOKMARK [2][-]{subsection.2.7}{Calendrier}{section.2}% 11
-\BOOKMARK [1][-]{section.3}{Analyse de l'existant}{}% 12
-\BOOKMARK [2][-]{subsection.3.1}{Garmin BaseCamp}{section.3}% 13
-\BOOKMARK [2][-]{subsection.3.2}{http://www.calculitineraires.fr/}{section.3}% 14
-\BOOKMARK [2][-]{subsection.3.3}{http://www.bestbikingroads.com}{section.3}% 15
-\BOOKMARK [2][-]{subsection.3.4}{Conclusion}{section.3}% 16
-\BOOKMARK [1][-]{section.4}{Analyse fonctionnelle}{}% 17
-\BOOKMARK [2][-]{subsection.4.1}{G\351n\351ralit\351s}{section.4}% 18
-\BOOKMARK [2][-]{subsection.4.2}{Description des fonctionnalit\351s globales}{section.4}% 19
-\BOOKMARK [3][-]{subsubsection.4.2.1}{Authentification}{subsection.4.2}% 20
-\BOOKMARK [3][-]{subsubsection.4.2.2}{Inscription}{subsection.4.2}% 21
-\BOOKMARK [3][-]{subsubsection.4.2.3}{Cr\351ation de trajet}{subsection.4.2}% 22
-\BOOKMARK [3][-]{subsubsection.4.2.4}{Exportation}{subsection.4.2}% 23
-\BOOKMARK [3][-]{subsubsection.4.2.5}{Suppression d'un trajet}{subsection.4.2}% 24
-\BOOKMARK [3][-]{subsubsection.4.2.6}{Visualiser le trajet}{subsection.4.2}% 25
-\BOOKMARK [3][-]{subsubsection.4.2.7}{Contact}{subsection.4.2}% 26
-\BOOKMARK [2][-]{subsection.4.3}{Description de l'interface}{section.4}% 27
-\BOOKMARK [3][-]{subsubsection.4.3.1}{Inscription}{subsection.4.3}% 28
-\BOOKMARK [3][-]{subsubsection.4.3.2}{Map}{subsection.4.3}% 29
-\BOOKMARK [3][-]{subsubsection.4.3.3}{Detail trajet}{subsection.4.3}% 30
-\BOOKMARK [3][-]{subsubsection.4.3.4}{Connexion}{subsection.4.3}% 31
-\BOOKMARK [3][-]{subsubsection.4.3.5}{Vos trajets}{subsection.4.3}% 32
-\BOOKMARK [2][-]{subsection.4.4}{Description des \351l\351ments de s\351curit\351}{section.4}% 33
-\BOOKMARK [3][-]{subsubsection.4.4.1}{Fichier .htaccess}{subsection.4.4}% 34
-\BOOKMARK [3][-]{subsubsection.4.4.2}{Utilisateur de la base de donn\351es}{subsection.4.4}% 35
-\BOOKMARK [3][-]{subsubsection.4.4.3}{Requ\352tes}{subsection.4.4}% 36
-\BOOKMARK [1][-]{section.5}{Analyse organique}{}% 37
-\BOOKMARK [2][-]{subsection.5.1}{R\351sum\351}{section.5}% 38
-\BOOKMARK [2][-]{subsection.5.2}{Boostrap}{section.5}% 39
-\BOOKMARK [2][-]{subsection.5.3}{Google API}{section.5}% 40
-\BOOKMARK [3][-]{subsubsection.5.3.1}{Google Maps Javascipt}{subsection.5.3}% 41
-\BOOKMARK [3][-]{subsubsection.5.3.2}{Google Direction}{subsection.5.3}% 42
-\BOOKMARK [3][-]{subsubsection.5.3.3}{Google Elevation}{subsection.5.3}% 43
-\BOOKMARK [3][-]{subsubsection.5.3.4}{Google Roads}{subsection.5.3}% 44
-\BOOKMARK [2][-]{subsection.5.4}{Fichier GPX}{section.5}% 45
-\BOOKMARK [2][-]{subsection.5.5}{Fonction PHP pour la base de donn\351es}{section.5}% 46
-\BOOKMARK [3][-]{subsubsection.5.5.1}{connexion \340 la base de donn\351es}{subsection.5.5}% 47
-\BOOKMARK [3][-]{subsubsection.5.5.2}{Requ\352tes pr\351par\351es}{subsection.5.5}% 48
-\BOOKMARK [3][-]{subsubsection.5.5.3}{GetMotorcycleBrand}{subsection.5.5}% 49
-\BOOKMARK [3][-]{subsubsection.5.5.4}{GetMotorcycleModel}{subsection.5.5}% 50
-\BOOKMARK [3][-]{subsubsection.5.5.5}{GetAllMotorcycleYear}{subsection.5.5}% 51
-\BOOKMARK [3][-]{subsubsection.5.5.6}{GetAllMotorcycleConsumption}{subsection.5.5}% 52
-\BOOKMARK [3][-]{subsubsection.5.5.7}{GetAllMotorcycleTiredness}{subsection.5.5}% 53
-\BOOKMARK [3][-]{subsubsection.5.5.8}{GetAllMotorcycles}{subsection.5.5}% 54
-\BOOKMARK [3][-]{subsubsection.5.5.9}{GetRoutes}{subsection.5.5}% 55
-\BOOKMARK [3][-]{subsubsection.5.5.10}{CreateRoute}{subsection.5.5}% 56
-\BOOKMARK [3][-]{subsubsection.5.5.11}{deletePlaces}{subsection.5.5}% 57
-\BOOKMARK [3][-]{subsubsection.5.5.12}{addPlaceToRoute}{subsection.5.5}% 58
-\BOOKMARK [3][-]{subsubsection.5.5.13}{deleteMotorcycle}{subsection.5.5}% 59
-\BOOKMARK [3][-]{subsubsection.5.5.14}{getUserNMotorcycle}{subsection.5.5}% 60
-\BOOKMARK [3][-]{subsubsection.5.5.15}{getUserRoleById}{subsection.5.5}% 61
-\BOOKMARK [3][-]{subsubsection.5.5.16}{AddSinuosity}{subsection.5.5}% 62
-\BOOKMARK [3][-]{subsubsection.5.5.17}{AddElevation}{subsection.5.5}% 63
-\BOOKMARK [3][-]{subsubsection.5.5.18}{AddLength}{subsection.5.5}% 64
-\BOOKMARK [3][-]{subsubsection.5.5.19}{GetmostSinuousRoad}{subsection.5.5}% 65
-\BOOKMARK [3][-]{subsubsection.5.5.20}{GetLessSinuousRoad}{subsection.5.5}% 66
-\BOOKMARK [3][-]{subsubsection.5.5.21}{GetMostSteepestRoad}{subsection.5.5}% 67
-\BOOKMARK [3][-]{subsubsection.5.5.22}{GetLessSteepestRoad}{subsection.5.5}% 68
-\BOOKMARK [2][-]{subsection.5.6}{Inscription sur le site}{section.5}% 69
-\BOOKMARK [2][-]{subsection.5.7}{Connexion au site}{section.5}% 70
-\BOOKMARK [2][-]{subsection.5.8}{Upload d'un itin\351raire}{section.5}% 71
-\BOOKMARK [2][-]{subsection.5.9}{T\351l\351chargement d'un itin\351raire}{section.5}% 72
-\BOOKMARK [2][-]{subsection.5.10}{Fonction javascript de gestion de la carte}{section.5}% 73
-\BOOKMARK [3][-]{subsubsection.5.10.1}{Initialisation de la carte}{subsection.5.10}% 74
-\BOOKMARK [3][-]{subsubsection.5.10.2}{ImportGPX}{subsection.5.10}% 75
-\BOOKMARK [3][-]{subsubsection.5.10.3}{AskGoogle}{subsection.5.10}% 76
-\BOOKMARK [3][-]{subsubsection.5.10.4}{LoadPoints}{subsection.5.10}% 77
-\BOOKMARK [3][-]{subsubsection.5.10.5}{SnappPoints2Road}{subsection.5.10}% 78
-\BOOKMARK [3][-]{subsubsection.5.10.6}{SaveNewLocation}{subsection.5.10}% 79
-\BOOKMARK [3][-]{subsubsection.5.10.7}{CreateRoute}{subsection.5.10}% 80
-\BOOKMARK [3][-]{subsubsection.5.10.8}{RouteClick}{subsection.5.10}% 81
-\BOOKMARK [3][-]{subsubsection.5.10.9}{searchIti}{subsection.5.10}% 82
-\BOOKMARK [3][-]{subsubsection.5.10.10}{Clear}{subsection.5.10}% 83
-\BOOKMARK [3][-]{subsubsection.5.10.11}{ShowParcours}{subsection.5.10}% 84
-\BOOKMARK [3][-]{subsubsection.5.10.12}{DisplayRoute}{subsection.5.10}% 85
-\BOOKMARK [3][-]{subsubsection.5.10.13}{CreateMarker}{subsection.5.10}% 86
-\BOOKMARK [3][-]{subsubsection.5.10.14}{refreshValues}{subsection.5.10}% 87
-\BOOKMARK [3][-]{subsubsection.5.10.15}{DownloadRoute}{subsection.5.10}% 88
-\BOOKMARK [3][-]{subsubsection.5.10.16}{EnableDisabledFilters}{subsection.5.10}% 89
-\BOOKMARK [3][-]{subsubsection.5.10.17}{RefreshRouteWithFilters}{subsection.5.10}% 90
-\BOOKMARK [3][-]{subsubsection.5.10.18}{RefreshRouteWithoutFilters}{subsection.5.10}% 91
-\BOOKMARK [3][-]{subsubsection.5.10.19}{StartCreation}{subsection.5.10}% 92
-\BOOKMARK [3][-]{subsubsection.5.10.20}{DisplayRouteInfo}{subsection.5.10}% 93
-\BOOKMARK [3][-]{subsubsection.5.10.21}{DeleteRoute}{subsection.5.10}% 94
-\BOOKMARK [3][-]{subsubsection.5.10.22}{ClearRoute}{subsection.5.10}% 95
-\BOOKMARK [3][-]{subsubsection.5.10.23}{Document.Ready}{subsection.5.10}% 96
-\BOOKMARK [3][-]{subsubsection.5.10.24}{Document.bind}{subsection.5.10}% 97
-\BOOKMARK [2][-]{subsection.5.11}{fonction javascript pour l'inscription et la connexion}{section.5}% 98
-\BOOKMARK [3][-]{subsubsection.5.11.1}{connexion}{subsection.5.11}% 99
-\BOOKMARK [3][-]{subsubsection.5.11.2}{LoadModalFromBrand}{subsection.5.11}% 100
-\BOOKMARK [3][-]{subsubsection.5.11.3}{LoadYearFromModel}{subsection.5.11}% 101
-\BOOKMARK [3][-]{subsubsection.5.11.4}{UserNameExists}{subsection.5.11}% 102
-\BOOKMARK [3][-]{subsubsection.5.11.5}{checkForEnabled}{subsection.5.11}% 103
-\BOOKMARK [3][-]{subsubsection.5.11.6}{Document.Ready}{subsection.5.11}% 104
-\BOOKMARK [2][-]{subsection.5.12}{Fonction ajax}{section.5}% 105
-\BOOKMARK [3][-]{subsubsection.5.12.1}{GetModel}{subsection.5.12}% 106
-\BOOKMARK [3][-]{subsubsection.5.12.2}{GetYear}{subsection.5.12}% 107
-\BOOKMARK [3][-]{subsubsection.5.12.3}{UserExists}{subsection.5.12}% 108
-\BOOKMARK [3][-]{subsubsection.5.12.4}{GetMotorcycles}{subsection.5.12}% 109
-\BOOKMARK [3][-]{subsubsection.5.12.5}{GetRoutePoints}{subsection.5.12}% 110
-\BOOKMARK [3][-]{subsubsection.5.12.6}{SaveNewRoute}{subsection.5.12}% 111
-\BOOKMARK [3][-]{subsubsection.5.12.7}{AddMotorcycle}{subsection.5.12}% 112
-\BOOKMARK [3][-]{subsubsection.5.12.8}{UpdateUserRole}{subsection.5.12}% 113
-\BOOKMARK [3][-]{subsubsection.5.12.9}{GetUserRole}{subsection.5.12}% 114
-\BOOKMARK [3][-]{subsubsection.5.12.10}{downloadRoute}{subsection.5.12}% 115
-\BOOKMARK [3][-]{subsubsection.5.12.11}{FilterRoad}{subsection.5.12}% 116
-\BOOKMARK [3][-]{subsubsection.5.12.12}{GetRoutesJSON}{subsection.5.12}% 117
-\BOOKMARK [3][-]{subsubsection.5.12.13}{GetRoadsInfos}{subsection.5.12}% 118
-\BOOKMARK [3][-]{subsubsection.5.12.14}{CreateNewRoute}{subsection.5.12}% 119
-\BOOKMARK [3][-]{subsubsection.5.12.15}{DeleteRoute}{subsection.5.12}% 120
-\BOOKMARK [2][-]{subsection.5.13}{Base de donn\351es}{section.5}% 121
-\BOOKMARK [3][-]{subsubsection.5.13.1}{Mod\350le conceptuel}{subsection.5.13}% 122
-\BOOKMARK [3][-]{subsubsection.5.13.2}{Structure de la base de donn\351es}{subsection.5.13}% 123
-\BOOKMARK [1][-]{section.6}{Estimation de l'apport personnel}{}% 124
-\BOOKMARK [1][-]{section.7}{Probl\350mes rencontr\351}{}% 125
-\BOOKMARK [2][-]{subsection.7.1}{Google Api}{section.7}% 126
-\BOOKMARK [2][-]{subsection.7.2}{Asynchrone}{section.7}% 127
-\BOOKMARK [1][-]{section.8}{Conclusion}{}% 128
-\BOOKMARK [2][-]{subsection.8.1}{Bilan personnel}{section.8}% 129
-\BOOKMARK [2][-]{subsection.8.2}{Am\351liorations }{section.8}% 130
+\BOOKMARK [1][-]{section.2}{Remerciements}{}% 4
+\BOOKMARK [1][-]{section.3}{Cahier des charges}{}% 5
+\BOOKMARK [2][-]{subsection.3.1}{Description}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.2}{But}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.3}{Sp\351cifications}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.4}{Restrictions}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.5}{Environnement}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.6}{Livrables}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.7}{Calendrier}{section.3}% 12
+\BOOKMARK [1][-]{section.4}{Analyse de l'existant}{}% 13
+\BOOKMARK [2][-]{subsection.4.1}{Garmin BaseCamp}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.2}{http://www.calculitineraires.fr/}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.3}{http://www.bestbikingroads.com}{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.4}{Conclusion}{section.4}% 17
+\BOOKMARK [1][-]{section.5}{Analyse fonctionnelle}{}% 18
+\BOOKMARK [2][-]{subsection.5.1}{G\351n\351ralit\351s}{section.5}% 19
+\BOOKMARK [2][-]{subsection.5.2}{Description des fonctionnalit\351s globales}{section.5}% 20
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Authentification}{subsection.5.2}% 21
+\BOOKMARK [3][-]{subsubsection.5.2.2}{Inscription}{subsection.5.2}% 22
+\BOOKMARK [3][-]{subsubsection.5.2.3}{Cr\351ation de trajet}{subsection.5.2}% 23
+\BOOKMARK [3][-]{subsubsection.5.2.4}{Exportation}{subsection.5.2}% 24
+\BOOKMARK [3][-]{subsubsection.5.2.5}{Suppression d'un trajet}{subsection.5.2}% 25
+\BOOKMARK [3][-]{subsubsection.5.2.6}{Visualiser le trajet}{subsection.5.2}% 26
+\BOOKMARK [3][-]{subsubsection.5.2.7}{Contact}{subsection.5.2}% 27
+\BOOKMARK [2][-]{subsection.5.3}{Description de l'interface}{section.5}% 28
+\BOOKMARK [3][-]{subsubsection.5.3.1}{Inscription}{subsection.5.3}% 29
+\BOOKMARK [3][-]{subsubsection.5.3.2}{Map}{subsection.5.3}% 30
+\BOOKMARK [3][-]{subsubsection.5.3.3}{D\351tail trajet}{subsection.5.3}% 31
+\BOOKMARK [3][-]{subsubsection.5.3.4}{Connexion}{subsection.5.3}% 32
+\BOOKMARK [3][-]{subsubsection.5.3.5}{Vos trajets}{subsection.5.3}% 33
+\BOOKMARK [2][-]{subsection.5.4}{Description des \351l\351ments de s\351curit\351}{section.5}% 34
+\BOOKMARK [3][-]{subsubsection.5.4.1}{Fichiers .htaccess}{subsection.5.4}% 35
+\BOOKMARK [3][-]{subsubsection.5.4.2}{Utilisateur de la base de donn\351es}{subsection.5.4}% 36
+\BOOKMARK [3][-]{subsubsection.5.4.3}{Requ\352tes}{subsection.5.4}% 37
+\BOOKMARK [1][-]{section.6}{Analyse organique}{}% 38
+\BOOKMARK [2][-]{subsection.6.1}{R\351sum\351}{section.6}% 39
+\BOOKMARK [2][-]{subsection.6.2}{Boostrap}{section.6}% 40
+\BOOKMARK [2][-]{subsection.6.3}{Google API}{section.6}% 41
+\BOOKMARK [3][-]{subsubsection.6.3.1}{Google Maps Javascipt}{subsection.6.3}% 42
+\BOOKMARK [3][-]{subsubsection.6.3.2}{Google Direction}{subsection.6.3}% 43
+\BOOKMARK [3][-]{subsubsection.6.3.3}{Google Elevation}{subsection.6.3}% 44
+\BOOKMARK [3][-]{subsubsection.6.3.4}{Google Roads}{subsection.6.3}% 45
+\BOOKMARK [2][-]{subsection.6.4}{Fichier GPX}{section.6}% 46
+\BOOKMARK [2][-]{subsection.6.5}{Fonction PHP pour la base de donn\351es}{section.6}% 47
+\BOOKMARK [3][-]{subsubsection.6.5.1}{connexion \340 la base de donn\351es}{subsection.6.5}% 48
+\BOOKMARK [3][-]{subsubsection.6.5.2}{Requ\352tes pr\351par\351es}{subsection.6.5}% 49
+\BOOKMARK [3][-]{subsubsection.6.5.3}{GetMotorcycleBrand}{subsection.6.5}% 50
+\BOOKMARK [3][-]{subsubsection.6.5.4}{GetMotorcycleModel}{subsection.6.5}% 51
+\BOOKMARK [3][-]{subsubsection.6.5.5}{GetAllMotorcycleYear}{subsection.6.5}% 52
+\BOOKMARK [3][-]{subsubsection.6.5.6}{GetAllMotorcycleConsumption}{subsection.6.5}% 53
+\BOOKMARK [3][-]{subsubsection.6.5.7}{GetAllMotorcycleTiredness}{subsection.6.5}% 54
+\BOOKMARK [3][-]{subsubsection.6.5.8}{GetAllMotorcycles}{subsection.6.5}% 55
+\BOOKMARK [3][-]{subsubsection.6.5.9}{GetRoutes}{subsection.6.5}% 56
+\BOOKMARK [3][-]{subsubsection.6.5.10}{CreateRoute}{subsection.6.5}% 57
+\BOOKMARK [3][-]{subsubsection.6.5.11}{deletePlaces}{subsection.6.5}% 58
+\BOOKMARK [3][-]{subsubsection.6.5.12}{addPlaceToRoute}{subsection.6.5}% 59
+\BOOKMARK [3][-]{subsubsection.6.5.13}{deleteMotorcycle}{subsection.6.5}% 60
+\BOOKMARK [3][-]{subsubsection.6.5.14}{getUserNMotorcycle}{subsection.6.5}% 61
+\BOOKMARK [3][-]{subsubsection.6.5.15}{getUserRoleById}{subsection.6.5}% 62
+\BOOKMARK [3][-]{subsubsection.6.5.16}{AddSinuosity}{subsection.6.5}% 63
+\BOOKMARK [3][-]{subsubsection.6.5.17}{AddElevation}{subsection.6.5}% 64
+\BOOKMARK [3][-]{subsubsection.6.5.18}{AddLength}{subsection.6.5}% 65
+\BOOKMARK [3][-]{subsubsection.6.5.19}{GetmostSinuousRoad}{subsection.6.5}% 66
+\BOOKMARK [3][-]{subsubsection.6.5.20}{GetLessSinuousRoad}{subsection.6.5}% 67
+\BOOKMARK [3][-]{subsubsection.6.5.21}{GetMostSteepestRoad}{subsection.6.5}% 68
+\BOOKMARK [3][-]{subsubsection.6.5.22}{GetLessSteepestRoad}{subsection.6.5}% 69
+\BOOKMARK [2][-]{subsection.6.6}{Inscription sur le site}{section.6}% 70
+\BOOKMARK [2][-]{subsection.6.7}{Connexion au site}{section.6}% 71
+\BOOKMARK [2][-]{subsection.6.8}{Upload d'un itin\351raire}{section.6}% 72
+\BOOKMARK [2][-]{subsection.6.9}{T\351l\351chargement d'un itin\351raire}{section.6}% 73
+\BOOKMARK [2][-]{subsection.6.10}{Fonction javascript de gestion de la carte}{section.6}% 74
+\BOOKMARK [3][-]{subsubsection.6.10.1}{Initialisation de la carte}{subsection.6.10}% 75
+\BOOKMARK [3][-]{subsubsection.6.10.2}{ImportGPX}{subsection.6.10}% 76
+\BOOKMARK [3][-]{subsubsection.6.10.3}{AskGoogle}{subsection.6.10}% 77
+\BOOKMARK [3][-]{subsubsection.6.10.4}{LoadPoints}{subsection.6.10}% 78
+\BOOKMARK [3][-]{subsubsection.6.10.5}{SnappPoints2Road}{subsection.6.10}% 79
+\BOOKMARK [3][-]{subsubsection.6.10.6}{SaveNewLocation}{subsection.6.10}% 80
+\BOOKMARK [3][-]{subsubsection.6.10.7}{CreateRoute}{subsection.6.10}% 81
+\BOOKMARK [3][-]{subsubsection.6.10.8}{RouteClick}{subsection.6.10}% 82
+\BOOKMARK [3][-]{subsubsection.6.10.9}{searchIti}{subsection.6.10}% 83
+\BOOKMARK [3][-]{subsubsection.6.10.10}{Clear}{subsection.6.10}% 84
+\BOOKMARK [3][-]{subsubsection.6.10.11}{ShowParcours}{subsection.6.10}% 85
+\BOOKMARK [3][-]{subsubsection.6.10.12}{DisplayRoute}{subsection.6.10}% 86
+\BOOKMARK [3][-]{subsubsection.6.10.13}{CreateMarker}{subsection.6.10}% 87
+\BOOKMARK [3][-]{subsubsection.6.10.14}{refreshValues}{subsection.6.10}% 88
+\BOOKMARK [3][-]{subsubsection.6.10.15}{DownloadRoute}{subsection.6.10}% 89
+\BOOKMARK [3][-]{subsubsection.6.10.16}{EnableDisabledFilters}{subsection.6.10}% 90
+\BOOKMARK [3][-]{subsubsection.6.10.17}{RefreshRouteWithFilters}{subsection.6.10}% 91
+\BOOKMARK [3][-]{subsubsection.6.10.18}{RefreshRouteWithoutFilters}{subsection.6.10}% 92
+\BOOKMARK [3][-]{subsubsection.6.10.19}{StartCreation}{subsection.6.10}% 93
+\BOOKMARK [3][-]{subsubsection.6.10.20}{DisplayRouteInfo}{subsection.6.10}% 94
+\BOOKMARK [3][-]{subsubsection.6.10.21}{DeleteRoute}{subsection.6.10}% 95
+\BOOKMARK [3][-]{subsubsection.6.10.22}{ClearRoute}{subsection.6.10}% 96
+\BOOKMARK [3][-]{subsubsection.6.10.23}{Document.Ready}{subsection.6.10}% 97
+\BOOKMARK [3][-]{subsubsection.6.10.24}{Document.bind}{subsection.6.10}% 98
+\BOOKMARK [2][-]{subsection.6.11}{Fonction javascript pour l'inscription et la connexion}{section.6}% 99
+\BOOKMARK [3][-]{subsubsection.6.11.1}{Connexion}{subsection.6.11}% 100
+\BOOKMARK [3][-]{subsubsection.6.11.2}{LoadModalFromBrand}{subsection.6.11}% 101
+\BOOKMARK [3][-]{subsubsection.6.11.3}{LoadYearFromModel}{subsection.6.11}% 102
+\BOOKMARK [3][-]{subsubsection.6.11.4}{UserNameExists}{subsection.6.11}% 103
+\BOOKMARK [3][-]{subsubsection.6.11.5}{checkForEnabled}{subsection.6.11}% 104
+\BOOKMARK [3][-]{subsubsection.6.11.6}{Document.Ready}{subsection.6.11}% 105
+\BOOKMARK [2][-]{subsection.6.12}{Fonction ajax}{section.6}% 106
+\BOOKMARK [3][-]{subsubsection.6.12.1}{GetModel}{subsection.6.12}% 107
+\BOOKMARK [3][-]{subsubsection.6.12.2}{GetYear}{subsection.6.12}% 108
+\BOOKMARK [3][-]{subsubsection.6.12.3}{UserExists}{subsection.6.12}% 109
+\BOOKMARK [3][-]{subsubsection.6.12.4}{GetMotorcycles}{subsection.6.12}% 110
+\BOOKMARK [3][-]{subsubsection.6.12.5}{GetRoutePoints}{subsection.6.12}% 111
+\BOOKMARK [3][-]{subsubsection.6.12.6}{SaveNewRoute}{subsection.6.12}% 112
+\BOOKMARK [3][-]{subsubsection.6.12.7}{AddMotorcycle}{subsection.6.12}% 113
+\BOOKMARK [3][-]{subsubsection.6.12.8}{UpdateUserRole}{subsection.6.12}% 114
+\BOOKMARK [3][-]{subsubsection.6.12.9}{GetUserRole}{subsection.6.12}% 115
+\BOOKMARK [3][-]{subsubsection.6.12.10}{downloadRoute}{subsection.6.12}% 116
+\BOOKMARK [3][-]{subsubsection.6.12.11}{FilterRoad}{subsection.6.12}% 117
+\BOOKMARK [3][-]{subsubsection.6.12.12}{GetRoutesJSON}{subsection.6.12}% 118
+\BOOKMARK [3][-]{subsubsection.6.12.13}{GetRoadsInfos}{subsection.6.12}% 119
+\BOOKMARK [3][-]{subsubsection.6.12.14}{CreateNewRoute}{subsection.6.12}% 120
+\BOOKMARK [3][-]{subsubsection.6.12.15}{DeleteRoute}{subsection.6.12}% 121
+\BOOKMARK [2][-]{subsection.6.13}{Base de donn\351es}{section.6}% 122
+\BOOKMARK [3][-]{subsubsection.6.13.1}{Mod\350le conceptuel}{subsection.6.13}% 123
+\BOOKMARK [3][-]{subsubsection.6.13.2}{Structure de la base de donn\351es}{subsection.6.13}% 124
+\BOOKMARK [1][-]{section.7}{Estimation de l'apport personnel}{}% 125
+\BOOKMARK [1][-]{section.8}{Probl\350mes rencontr\351s}{}% 126
+\BOOKMARK [2][-]{subsection.8.1}{Google Api}{section.8}% 127
+\BOOKMARK [2][-]{subsection.8.2}{Asynchrone}{section.8}% 128
+\BOOKMARK [1][-]{section.9}{Conclusion}{}% 129
+\BOOKMARK [2][-]{subsection.9.1}{Bilan personnel}{section.9}% 130
+\BOOKMARK [2][-]{subsection.9.2}{Am\351liorations }{section.9}% 131
+\BOOKMARK [1][-]{section.10}{Sources}{}% 132
+\BOOKMARK [1][-]{section.11}{Annexes}{}% 133

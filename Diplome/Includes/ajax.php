@@ -1,14 +1,14 @@
 <?php
-
 /*
  * Author : Lucien Camuglia
- * Description : Ajax request
+ * Description : contains all function used in ajax 
  * Date : April-june 2017
  * Version : 1.0 LC BaseVersion
  */
 
 session_start();
 include './functions.php';
+
 if (isset($_REQUEST["fonction"])) {
     $function = $_REQUEST["fonction"];
 
@@ -47,8 +47,12 @@ if (isset($_REQUEST["fonction"])) {
         default : exit();
             break;
     }
-}exit();
+}else{
+    header('location: ../index.php');   
+}
+exit();
 
+//Retrun motorcycle models by brand
 function GetModel($brand) {
     $query = "select distinct model from moto where Brand = :brand ";
     $params = array('brand' => $brand);
@@ -59,6 +63,7 @@ function GetModel($brand) {
     echo json_encode($array_response);
 }
 
+//Retrun motorcycle's year by brand and model
 function GetYear($brand, $model) {
     $query = "select distinct year from moto where Brand = :brand  and model = :model order by year";
     $params = array('brand' => $brand, 'model' => $model);
@@ -69,6 +74,7 @@ function GetYear($brand, $model) {
     echo json_encode($array_response);
 }
 
+//check if an user exists
 function UserExists($username) {
     $query = "select idUser from users where Username = :username";
     $params = array('username' => $username);
@@ -80,6 +86,7 @@ function UserExists($username) {
     echo json_encode($array_response);
 }
 
+//Return all motorcycles according to input criteria
 function GetMotorcycles($brand, $model, $year, $consumption, $tiredness) {
     $query = "Select * from moto where Brand like :brand and model like :model and year like :year and consumption like :consumption and Tiredness like :tiredness order by Brand";
     $params = array('brand' => $brand, 'model' => $model, 'year' => $year, 'consumption' => $consumption, 'tiredness' => $tiredness);
@@ -91,6 +98,7 @@ function GetMotorcycles($brand, $model, $year, $consumption, $tiredness) {
     echo json_encode($array_response);
 }
 
+//Get all points of a road
 function GetRoutePoints($idRoute) {
     $query = "Select * from place where idRoute=:idRoute order by position;";
     $params = array('idRoute' => $idRoute);
@@ -105,8 +113,11 @@ function GetRoutePoints($idRoute) {
     echo json_encode($array_response);
 }
 
+//save a new route
 function SaveNewRoute($idroute, $route, $sinueusite, $elevation, $length) {
+    //delete all places from this road
     deleatePlaces($idroute);
+    
     AddSinuosity($idroute, $sinueusite);
     AddElevation($idroute, $elevation);
     AddLength($idroute, $length);
@@ -128,6 +139,7 @@ function SaveNewRoute($idroute, $route, $sinueusite, $elevation, $length) {
     }
 }
 
+//add a new motorcycle
 function AddMotorcycle($brand, $model, $year, $consumption, $tiredness) {
     $array_response = [];
     $array_response["error"]["status"] = false;
@@ -145,11 +157,13 @@ function AddMotorcycle($brand, $model, $year, $consumption, $tiredness) {
     echo json_encode($array_response);
 }
 
+//update a user role
 function UpdateUserRole($idUser, $idRole) {
     $array_response = [];
     $array_response["error"]["status"] = false;
     $array_response["error"]["message"] = "";
 
+    //check if the user is admin
     if (isset($_SESSION["role"]) && $_SESSION["role"] == 1) {
 
         $query = "UPDATE users SET role = :role WHERE idUser=:idUser;";
@@ -175,6 +189,7 @@ function UpdateUserRole($idUser, $idRole) {
     echo json_encode($array_response);
 }
 
+//get user role by id
 function GetUserRole($idUser) {
     $result;
     switch (getUserRoleById($idUser)) {
@@ -188,11 +203,13 @@ function GetUserRole($idUser) {
     echo json_encode($result);
 }
 
+//download prepare to download and return filename
 function downloadRoute($name, $path) {
     $file = Path2Gpx($name, $path);
     echo $file;
 }
 
+//return a filtered road 
 function FilterRoad($sinuosity, $slope, $highway, $time) {
     $query = "Select * from route natural join users where Sinuosity <= :sinuosity AND Slope <= :slope AND Time <= :time AND highway = :highway ORDER BY RouteName;";
     // $query  = "Select * from route where Sinuosity <= 135 AND Slope <= 0 AND Time <= 1 AND highway = 0;";
@@ -213,11 +230,13 @@ function FilterRoad($sinuosity, $slope, $highway, $time) {
     echo json_encode($array_response);
 }
 
+//return all routes in JSON
 function GetRoutesJSON() {
     $routes = GetRoutes();
     echo json_encode($routes);
 }
 
+//get roads info
 function GetRoadsInfos($idRoute) {
     $query = "Select * from route where idRoute = :idRoute";
     $params = Array("idRoute" => $idRoute);
@@ -229,6 +248,7 @@ function GetRoadsInfos($idRoute) {
     $array_response["Sinuosity"] = (int) (($datas["Sinuosity"] * 10000 / GetMostSinuousRoad()) * 10);
     $array_response["Slope"] = round($datas["Slope"] / GetMostSteepestRoad() * 10);
 
+    //if th euser is connected, return motorcycle consumption if not, return 0
     if (isset($_SESSION["id"])) {
         $query = "select * from moto natural join users where idUser = :idUser ";
         $params = Array("idUser" => $_SESSION["id"]);
@@ -244,11 +264,13 @@ function GetRoadsInfos($idRoute) {
     echo json_encode($array_response);
 }
 
+//add a route in database and return id
 function CreateNewRoute($name, $containsHighway) {
     $id = CreateRoute($name, $_SESSION["id"], $containsHighway);
     echo json_encode($id);
 }
 
+//delete a route
 function DeleteRoute($idRoute) {
     $query = "Delete from place where idRoute=:idRoute;";
     $params = array("idRoute" => $idRoute);

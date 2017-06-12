@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<?php
+/*
+ * Author : Lucien Camuglia
+ * Description : User page for own itinaries
+ * Date : April-june 2017
+ * Version : 1.0 LC BaseVersion
+ */
+?>
 <html>
     <head>
         <?php include './Includes/header.php'; ?>        
@@ -46,7 +49,7 @@ if (isset($idRoute)) {
         <div id="map" class="col-lg-7" style="height: 500px;"></div>
 
         <div class="btnZone col-lg-2 top-buffer"  >
-            <!-- <button id="btnModif"  class="hidden btn btn-primary btn-block" name="none">Modifier le trajet</button>-->
+             <!--<button id="btnModif"  class="hidden btn btn-primary btn-block" name="none">Modifier le trajet</button>-->
 
             <label class="checkbox-inline SaveRouteControls hidden">
                 <input id="chkHighway" type="checkbox" checked data-toggle="toggle"> Highways
@@ -95,9 +98,9 @@ if (isset($idRoute)) {
             </div>                               
 
         </div>
-        
+
         <div class="modalLoad"></div>
-        
+
         <div class="col-lg-5 col-lg-offset-4 routeControl hidden" >
             <center><h2>Road Infos</h2></center>
             <h4 class="col-lg-12" id="InfoHighway">This road does not includes highways</h4>
@@ -106,6 +109,6 @@ if (isset($idRoute)) {
             <p><span style="text-align: left;" class="col-lg-8" id="InfoConsumption">Consumption : 52 liters</span><span style="text-align: right;" class="col-lg-6"></span></p>
 
         </div>
-          <?php include './Includes/footer.php'; ?>
+        <?php include './Includes/footer.php'; ?>
     </body>
 </html>

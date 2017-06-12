@@ -1,9 +1,11 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/*
+ * Author : Lucien Camuglia
+ * Description : managing users fonctions
+ * Date : April-june 2017
+ * Version : 1.0 LC BaseVersion
  */
 
+//update the user role
 function ModifyUser(idUser, role) {
     $.ajax({
         url: './Includes/ajax.php',

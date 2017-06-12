@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-
+<?php
+/*
+ * Author : Lucien Camuglia
+ * Description : managing motorcycle page
+ * Date : April-june 2017
+ * Version : 1.0 LC BaseVersion
+ */
+?>
 <html>
     <head>
         <?php include './Includes/header.php' ?>
@@ -16,8 +18,8 @@ and open the template in the editor.
         DisplayMenu(basename($_SERVER['PHP_SELF']));
         AddMotorcycleModal();
         $motorcyles = GetAllMotorcycles();
-        foreach ($motorcyles as $motorcycle){
-            confirmationDeleteMotorcycleModal($motorcycle["idMoto"],$motorcycle["Brand"],$motorcycle["model"],substr($motorcycle["year"],0,4));
+        foreach ($motorcyles as $motorcycle) {
+            confirmationDeleteMotorcycleModal($motorcycle["idMoto"], $motorcycle["Brand"], $motorcycle["model"], substr($motorcycle["year"], 0, 4));
         }
         ?>
 
@@ -59,27 +61,26 @@ and open the template in the editor.
 
             </thead>
             <tbody id="motorcylesDatas">
-                <?php              
-                
+                <?php
                 foreach ($motorcyles as $motorcyle) {
                     echo "<tr>";
                     echo "<td>";
                     echo $motorcyle["Brand"];
                     echo "</td>";
-                     echo "<td>";
+                    echo "<td>";
                     echo $motorcyle["model"];
                     echo "</td>";
-                     echo "<td>";
-                    echo substr($motorcyle["year"],0,4);
+                    echo "<td>";
+                    echo substr($motorcyle["year"], 0, 4);
                     echo "</td>";
-                     echo "<td>";
+                    echo "<td>";
                     echo $motorcyle["consumption"];
                     echo "</td>";
-                     echo "<td>";
+                    echo "<td>";
                     echo $motorcyle["Tiredness"];
                     echo "</td>";
                     echo "<td>";
-                    echo "<span class=\"glyphicon glyphicon-remove red\"  data-toggle=\"modal\" data-target=\"#modaldelete".$motorcyle["idMoto"]."\" ></span>";                    
+                    echo "<span class=\"glyphicon glyphicon-remove red\"  data-toggle=\"modal\" data-target=\"#modaldelete" . $motorcyle["idMoto"] . "\" ></span>";
                     echo "</td>";
                     echo "</tr>";
                 }
@@ -90,6 +91,6 @@ and open the template in the editor.
             </tfoot>
 
         </table>
-          <?php include './Includes/footer.php'; ?>
+        <?php include './Includes/footer.php'; ?>
     </body>
 </html>

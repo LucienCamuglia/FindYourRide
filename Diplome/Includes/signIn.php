@@ -1,7 +1,14 @@
 <?php
+/*
+ * Author : Lucien Camuglia
+ * Description :sing in fonction
+ * Date : April-june 2017
+ * Version : 1.0 LC BaseVersion
+ */
 
 require_once './functions.php';
 
+//check all input values
 if (isset($_POST["submit"])) {
     if (isset($_POST["username"])&&!empty($_POST["username"])) {
         $values["username"] = $_POST["username"];

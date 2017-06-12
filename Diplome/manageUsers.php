@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<?php 
+/*
+ * Author : Lucien Camuglia
+ * Description : Managing users page
+ * Date : April-june 2017
+ * Version : 1.0 LC BaseVersion
+ */
+?>
 
 <html>
     <head>
@@ -74,17 +77,7 @@ and open the template in the editor.
                     echo "<td> <span class=\"glyphicon glyphicon-remove red\" ></span></td>";
                 }
                 ?>
-                <!--<tr>
-                    <td>admin</td>
-                    <td>admin@cfpt.c</td>
-                    <td>administrator </td>
-                    <td class="text-center" style="width: 60px;"><span class=" glyphicon glyphicon-chevron-up " > upgrade</span> </td>
-                    <td class="text-center" style="width: 80px;"><span class=" glyphicon glyphicon-chevron-down " > downgrade</span></td>
-                    <td class="text-center" style="width: 50px;" ><span class=" glyphicon glyphicon-ban-circle " > block</span></td>
-                    <td>Kawasaki</td>
-                    <td>z750</td>
-                    <td>2014</td>
-                </tr>-->
+        
             </tbody>
             <tfoot>
 

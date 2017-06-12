@@ -1,12 +1,18 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/*
+ * Author : Lucien Camuglia
+ * Description : Sign in javascript fonctions
+ * Date : April-june 2017
+ * Version : 1.0 LC BaseVersion
  */
 
+//field validation regex
 var passwordRegex = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/i); //8char 1upper 1 lower 1 number
 var emailRegex = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/i); //found on http://stackoverflow.com/questions/2507030/email-validation-using-jquery
 
+/**
+ * Connexion function
+ * @param {array} datas array who contains username and data
+ */
 function connexion(datas) {
     $.ajax({
         url: './Includes/connexion.php',
@@ -24,6 +30,7 @@ function connexion(datas) {
     });
 }
 
+//Load motorcycle model from brand
 function LoadModelFromBrand(brand) {
     $.ajax({
         url: './Includes/ajax.php',
@@ -31,16 +38,18 @@ function LoadModelFromBrand(brand) {
         data: {fonction: "GetModel", Brand: brand},
         dataType: "json",
         success: function(result) {
-            $("#model").html("");
+            //clear the select
+            $("#model").html("");            
             $("#year").html("<option value=\"\">Select a model</option>");
             $("#model").append("<option value=\"\">Select...</option>");
+            //add all returned motorcycle
             $.each(result, function(i, item) {
                 $("#model").append("<option value=" + item + ">" + item + "</option>");
             });
         }
     });
 }
-
+//Load motorcycle year from brand and model
 function LoadYearFromModel(brand, model) {
     $.ajax({
         url: './Includes/ajax.php',
@@ -59,6 +68,7 @@ function LoadYearFromModel(brand, model) {
 
 }
 
+//check if the username exists
 function UserNameExists(username) {
     exist = false;
     $.ajax({
@@ -77,6 +87,7 @@ function UserNameExists(username) {
     return exist;
 }
 
+//check if the submit button can be pressed
 function checkForEnabled() {
     $("#Signin").removeClass("disabled");
     if ($("#LogoUsername").hasClass("red")) {
@@ -104,7 +115,7 @@ function checkForEnabled() {
 
 $(document).ready(function() {
 
-    //active les info-bulles
+    //active Tooltip
     $('[data-toggle="tooltip"]').tooltip();
 
     $(".brand").click(function() {
@@ -121,6 +132,7 @@ $(document).ready(function() {
         checkForEnabled();
     });
 
+    //check if the username exists or not when the input change
     $('#Username').on('input', function(e) {
         text = $("#Username").val();
         $("#LogoUsername").removeClass("green");
@@ -140,6 +152,7 @@ $(document).ready(function() {
         checkForEnabled();
     });
 
+    //check if the password is correct or not when the input change
     $('#password').on('input', function(e) {
         $("#Logopwd").removeClass("green");
         $("#Logopwd").removeClass("glyphicon-ok");
@@ -154,6 +167,7 @@ $(document).ready(function() {
         checkForEnabled();
     });
 
+   //check if the email is correct or not when the input change 
     $('#email').on('input', function(e) {
         $("#LogoEmail").removeClass("green");
         $("#LogoEmail").removeClass("glyphicon-ok");
@@ -168,6 +182,7 @@ $(document).ready(function() {
         checkForEnabled();
     });
 
+    //check if the 2nd password equals the 1st or not when the input change
     $('#password2').on('input', function(e) {
         $("#LogoPwd2").removeClass("green");
         $("#LogoPwd2").removeClass("glyphicon-ok");

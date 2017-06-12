@@ -1,4 +1,3 @@
-% !TeX spellcheck = <none>
 \documentclass[a4paper]{article}
 \usepackage[utf8x]{inputenc}
 \usepackage{natbib}
@@ -110,10 +109,10 @@
 \author{Lucien Camuglia}
 \newcommand{\enseignants}{M. Zeltner}
 \newcommand{\classe}{Classe : T.IS-E2A}
-\newcommand{\ecole}{CFPT en informatique}
+\newcommand{\ecole}{CFPT école d'informatique}
 \newcommand{\formation}{Technicien ES en informatique}
 \newcommand{\authorA}{Lucien Camuglia }
-\newcommand{\travail}{Travail de diplôme}
+\newcommand{\travail}{Travail de diplôme technicien ES}
 \newcommand{\volee}{Session : 2016-2017}
 \date{\today}
 \newcommand{\rpi}{\emph{Raspbery Pi}}
@@ -187,16 +186,26 @@
 \input{./Intro.tex}
 \pagebreak
 
+\section{Remerciements}
+Tout d'abord, je souhaite remercier ma maman pour la relecture complète et la correction du document.
 
+Ensuite, je souhaite remercier mon professeur, M. Zeltner, pour son suivi, ses idées et conseils tout au long du travail.
+
+Je voudrais également remercier mon ancienne enseignante, Mme Travnjak, pour son aide lors de l'utilisation des outils Google.
+
+Mes camarades de classe m'ont conseillé pour mon projet et m'ont aidé pour de petits détails et je les remercie. Je les remercie également pour la bonne ambiance de travail durant ces neuf semaines.
+
+Finalement, je remercie mon amie, Aurore Spörri, pour sa correction de ma traduction anglaise, du résumé.
+\newpage
 \section{Cahier des charges}
 
 \subsection{Description}
-Site web permettant aux motard de partagé leurs excursions. 
+Site web permettant aux motards de partager leurs excursions. 
 
 \subsection{But}
-Le but de ce travail est d'avoir un site web permettent le partage et la communication entre les passionnés de la moto.
+Le but de ce travail est d'avoir un site web permettant le partage et la communication entre les passionnés de la moto.
 
-Le site permettra d'afficher sur une carte le tracé du trajet, la durée, leur appréciation personnelle et celle de la communauté, divers commentaire et éventuellement la consommation d'essence.
+Le site permettra d'afficher sur une carte le tracé du trajet, la durée, leur appréciation personnelle et celle de la communauté, divers commentaires et éventuellement la consommation d'essence.
 
 Le site donnera aussi la possibilité au motard d'importer ou d'exporter des tracés depuis son GPS à l'aide de fichier .GPX
 
@@ -217,9 +226,9 @@ Le tout sera développé autour de l'API Google Map.
 
 
 
-\subsection{Environement}
+\subsection{Environnement}
 \begin{itemize}
-	\item PC standard de l'école avec droit d'administrateur
+	\item PC standard de l'école avec droits d'administrateur
 	\item Netbeans IDE 7.4
 	\item EasyPHP Devserver 7.1.1
 \end{itemize}
@@ -245,54 +254,54 @@ Le tout sera développé autour de l'API Google Map.
 \section{Analyse de l'existant}
 
 
-\subsection{Garmin BaseCamp}
-Garmin BaseCamp est un logiciel fournit par Garmin.
+\subsection{Garmin \emph{BaseCamp}}
+Garmin \emph{BaseCamp} est un logiciel fournit par Garmin.
 
 Il permet à un utilisateur de créer un trajet et de l'importer sur son GPS.
 
-Il donne aussi la possibilités a l'utilisateur de visionner ses différents déplacements.
+Il donne aussi la possibilité à l'utilisateur de visionner ses différents déplacements.
 
 \begin{tabular}{|l|l|}
 	\hline
 	Positif                                & Négatif                                       \\ \hline\hline
 	\tabitem Connexion directe avec le GPS & \tabitem Pas de partage                       \\
-	                                       & \tabitem Obligation de posseder un GPS Garmin \\ \hline
+	                                       & \tabitem Obligation de posséder un GPS Garmin \\ \hline
 \end{tabular}
  
 \subsection{http://www.calculitineraires.fr/}
 
-www.calculitineraires.fr est un site de partage d'itinéraire pour la course à pied, le vélo et la randonnée
+www.calculitineraires.fr est un site de partage d'itinéraires pour la course à pied, le vélo et la randonnée.
 
-Il permet l'import/export de fichier GPX et TCX, la rechercher et le partage d'itinéraire.
+Il permet l'import/export de fichier GPX et TCX, la recherche et le partage d'itinéraires.
 
 \begin{tabular}{|l|l|}
 	\hline
 	Positif                                   & Négatif                                     \\ \hline\hline
 	\tabitem Assez complet                    & \tabitem Interface compliquée d'utilisation \\
 	\tabitem Import / Export des fichiers GPS & \tabitem Pas de contribution pour la moto   \\
-	\tabitem Création d'itinéraire            &                                             \\ \hline
+	\tabitem Création d'itinéraires            &                                             \\ \hline
 \end{tabular}
 
 
 \subsection{http://www.bestbikingroads.com}
-www.bestbikingroads.com est un site de partage d'itinéraire moto.
+www.bestbikingroads.com est un site de partage d'itinéraires moto.
 
 
-Il permet l'import/export de fichier GPX, la rechercher, le partage d'itinéraire ainsi que la notation des balades.
+Il permet l'import/export de fichier GPX, la recherche, le partage d'itinéraires ainsi que la notation des balades.
 
 \begin{tabular}{|l|l|}
 	\hline
-	Positif                                   & Négatif                                                       \\ \hline\hline
-	\tabitem Assez complet                    & \tabitem Tout les tracés s'affiche en meme temps sur la carte \\
-	\tabitem Import / Export des fichiers GPS & \tabitem pas de modification possible                         \\
-	\tabitem Création d'itinéraire            &                                                               \\
-	\tabitem Notation des balades             &                                                               \\ \hline
+	Positif                                   & Négatif                                                         \\ \hline\hline
+	\tabitem Assez complet                    & \tabitem Tous les tracés s'affichent en même temps sur la carte \\
+	\tabitem Import / Export des fichiers GPS & \tabitem pas de modification possible                           \\
+	\tabitem Création d'itinéraires           &  \\
+	\tabitem Notation des balades             &  \\ \hline
 \end{tabular}
 
 \subsection{Conclusion}
-Il existe différent site de partage d'itinéraire, cependant ils ont tous des fonctionnalitées assez similaire. Mon site se distingue des autres de part son interface intuitive pour l'utilisateur et certaines fonctionnalitées trouvée sur aucun site.
+Il existe différents sites de partage d'itinéraires, cependant ils ont tous des fonctionnalitées assez similaires. Mon site se distingue des autres de part son interface intuitive pour l'utilisateur et certaines fonctionnalitées trouvées sur aucun site.
 
-Par exemple il est possible sur \fyr de calculer sa consommation théorique pour l'itinéraire ou de filtrer les routes selon leurs sinueusité.
+Par exemple, il est possible sur \fyr de calculer sa consommation théorique pour l'itinéraire ou de filtrer les routes selon leur sinuosité.
 
 
 
@@ -311,29 +320,29 @@ Ci-dessous se trouve le schéma initial de mon site web. Les ronds représentent
 
 \subsection{Description des fonctionnalités globales}
 \subsubsection{Authentification}
-Cette fonctionnalité permet à un utilisateur de s'authentifier et d'accéder à ses trajets mit en ligne ou partager de nouveaux trajets.
+Cette fonctionnalité permet à un utilisateur de s'authentifier et d'accéder à ses trajets mis en ligne ou partager de nouveaux trajets.
 
 \subsubsection{Inscription}
-Cette fonctionnalité permet à un nouvel utilisateur de créer un compte et donc de pouvoir bénéficier des fonctionnalités d'un utilisateur connecté
+Cette fonctionnalité permet à un nouvel utilisateur de créer un compte et ainsi de pouvoir bénéficier des fonctionnalités d'un utilisateur connecté.
 
 \subsubsection{Création de trajet}
-Cette fonctionnalité se distingue en deux sous fonctionnalités : 
+Cette fonctionnalité se distingue en deux sous-fonctionnalités : 
 \begin{itemize}
     \item Création : crée un nouveau trajet depuis le site directement.
-    \item Importation : importe un fichier de type GPX et éventuellement modifier le trajet.
+    \item Importation : importe un fichier de type GPX.
 \end{itemize}
 
 \subsubsection{Exportation}
 Cette fonctionnalité permet à un utilisateur d'exporter le trajet de son choix au format GPX pour l'inclure dans son GPS.
 
 \subsubsection{Suppression d'un trajet}
-Cette fonction permet a un utilisateur de supprimer un de ses trajet.
+Cette fonction permet à un utilisateur de supprimer un de ses trajet.
 
 \subsubsection{Visualiser le trajet}
-Cette fonctionnalité permet à n'importe qui de visualiser les trajets mit en ligne, puis les exporter en les modifiant s'il le souhaite.
+Cette fonctionnalité permet à chacun de visualiser les trajets mis en ligne, puis les exporter en les modifiant s'il le souhaite.
 
 \subsubsection{Contact}
-Cette fonctionnalité permet à n'importe qui de contacter le webmaster afin de faire des remarques ou des demandes.
+Cette fonctionnalité permet à chacun de contacter le webmaster afin de faire des remarques ou des demandes.
 
 \newpage
 
@@ -346,12 +355,12 @@ Cette fonctionnalité permet à n'importe qui de contacter le webmaster afin de 
 \caption{Page inscription}
 \end{figure}
 
-Cette page sert à l'inscription des utilisateurs. On y trouve différent champs : 
+Cette page sert à l'inscription des utilisateurs. On y trouve différents champs : 
 \begin{itemize}
     \item Nom d'utilisateur
     \item E-mail
-    \item Mot de passe, ce champ apparaît deux fois pour avoir la validation de celui-ci
-    \item Moto : diverse informations sur la moto de l'utilisateur comme par exemple sa consomation pour calculer la consomation des trajets.
+    \item Mot de passe (ce champ apparaît deux fois pour avoir la validation de celui-ci)
+    \item Moto : diverses informations sur la moto de l'utilisateur comme par exemple sa consomation pour calculer la dépense en carburant des trajets.
 \end{itemize}
 
 \subsubsection{Map}
@@ -363,44 +372,44 @@ Cette page sert à l'inscription des utilisateurs. On y trouve différent champs
 
 Cette page sert à l'affichage de la carte et des différents trajets.
 
-Sur la gauche apparaissent tout les trajets ainsi qu'un bouton filtre.
-Ce bouton permet de filtre les trajets parmi différents critères.
+Sur la gauche apparaissent tous les trajets ainsi qu'un bouton filtre.
+Ce dernier permet de filtrer les trajets parmi différents critères.
 \begin{itemize}
     \item Avec ou sans autoroute
     \item Durée
     \item Dénivelé
-    %\item sinuosité
+    \item Sinuosité
 \end{itemize}
-Sur la droite une carte Google ou apparaît le tracé sélectionné.
+Sur la droite, une carte Google où apparaît le tracé sélectionné.
 
-\subsubsection{Detail trajet}
+\subsubsection{Détail trajet}
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.5\textwidth]{./Images/Interfaces/DetailTrajet.png}
-\caption{Page Detail Trajet}
+\caption{Page Détail Trajet}
 \end{figure}
 
 Cette page sert à afficher le détail d'un trajet.
 
-Sur le haut de la page apparai les détails du trajet.
+Sur le haut de la page apparait les détails du trajet.
 \begin{itemize}
     \item Durée du trajet
     \item S'il contient des autoroutes
     \item Dénivelé
-    \item La consomation (si l'utilisateur à renseignée les données de la moto)
-    %\item sinuosité
+    \item La consommation (si l'utilisateur a renseigné les données de la moto)
+    \item Sinuosité
 \end{itemize}
-Deux bouton sont présent pour modifier ou exporter le trajet.
-Sur le bas de la page, la carte google avec le trajet.
+Deux boutons sont présents pour modifier ou exporter le trajet.
+Sur le bas de la page, la carte Google avec le trajet.
 
 \subsubsection{Connexion}
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.5\textwidth]{./Images/Interfaces/Connexin.png}
-\caption{Modal connexion}
+\caption{Modale connexion}
 \end{figure}
 
-Le formulaire de connexion est une fenêtre modal qui s'ouvre par dessus les autres pages avec uniquement deux champs.
+Le formulaire de connexion est une fenêtre modale qui s'ouvre par dessus les autres pages avec uniquement deux champs.
 \begin{itemize}
     \item Nom d'utilisateur
     \item Mot de passe
@@ -414,23 +423,23 @@ Le formulaire de connexion est une fenêtre modal qui s'ouvre par dessus les aut
 \caption{Page vos trajet}
 \end{figure}
 
-Cette page est identique que la page \emph{Map} mais au lieu d'avoir tout les trajet disponible du site, il y a uniquement les trajet de l'utilisateur.
+Cette page est identique à la page \emph{Map} mais au lieu d'avoir tous les trajets disponibles du site, il y a uniquement les trajets de l'utilisateur.
 
-Deux boutons sont disponible sur cette page.
+Deux boutons sont disponibles sur cette page.
 \begin{itemize}
-    \item Créer un nouveau trajet, permet de créer un trajet a partir de la carte
+    \item Créer un nouveau trajet, permet de créer un trajet à partir de la carte
     \item Importer un nouveau trajet, permet d'importer un fichier GPX avec le trajet.
 \end{itemize}
 
 \subsection{Description des éléments de sécurité}
-\subsubsection{Fichier .htaccess}
-Permet d'empêcher la navigation sur certain dossier/fichiers du site. Ils permettent aussi de définir des pages d'erreurs personnalisées
+\subsubsection{Fichiers .htaccess}
+Permettent d'empêcher la navigation sur certains dossiers/fichiers du site. Ils permettent aussi de définir des pages d'erreurs personnalisées.
 
 \subsubsection{Utilisateur de la base de données}
-Utiliser un utilisateur différent que \emph{root} pour accéder à la base de donnée afin de donner des droits qu'au éléments nécessaire.
+Créer un utilisateur différent que \emph{root} pour accéder à la \bdd \ afin de donner des droits qu'aux éléments nécessaires.
 
 \subsubsection{Requêtes}
-Utilisation de requêtes préparée pour éviter les injections SQL.
+Utilisation de requêtes préparées pour éviter les injections SQL.
 
 
 \pagebreak
@@ -450,18 +459,18 @@ Utilisation de requêtes préparée pour éviter les injections SQL.
 Dans cette section sera expliqué le fonctionnement de l'application.
 
 \subsection{\emph{Boostrap}}
-N'étant pas designeur web j'ai décidé de réaliser le design du site à l'aide du framework\footnote{Infrastrucuture de devloppement. \url{https://fr.wikipedia.org/wiki/Framework}} \bt.
+N'étant pas designeur web, j'ai donc décidé de réaliser le design du site à l'aide du framework\footnote{Infrastrucuture de devloppement. \url{https://fr.wikipedia.org/wiki/Framework}} \bt.
 
-Le framework \bt initialement appelé \emph{Twitter Blueprint} à été créé en 2010 par \emph{Twitter}.
+Le framework \bt, initialement appelé \emph{Twitter Blueprint} a été créé en 2010 par \emph{Twitter}.
 
 Il offre une collection d'outils d'aide à la création du design d'un site web.
 
-L'avantage de cet outil est la compatibilité avec les versions récentes des navigateurs, il est aussi \emph{responsive} ce qui permet la consultation du site sur tout types d'écran, que ce soit oridnateur, tablette ou smartphone.
+L'avantage de cet outil est la compatibilité avec les versions récentes des navigateurs, il est aussi \emph{responsive} ce qui permet la consultation du site sur tous types d'écrans, que ce soit oridnateur, tablette ou smartphone.
 
 
 
 \subsection{Google API}
-Les API\footnote{\emph{Application Programming Interface}(Interface de Programation Applicative) \url{https://fr.wikipedia.org/wiki/Interface_de_programmation}} Google sont une suite d'outils développé et fourni par Google pour permettre à des utilisateurs d'intégrer les services Google dans un site web ou une application.
+Les API\footnote{\emph{Application Programming Interface}(Interface de Programation Applicative) \url{https://fr.wikipedia.org/wiki/Interface_de_programmation}} Google sont une suite d'outils développés et fournis par Google pour permettre à des utilisateurs d'intégrer les services Google dans un site web ou une application.
 
 Il en existe environ 66 dont 16 pour \gmap. Pour la réalisation de ce site j'utilise 4 API \gmap : 
 \begin{itemize}
@@ -474,18 +483,18 @@ Il en existe environ 66 dont 16 pour \gmap. Pour la réalisation de ce site j'ut
 \subsubsection{Google Maps Javascipt}
 Cette API permet d'intégrer une \gmap \ sur le site web, c'est la seule qui sera visible pour l'utilisateur. C'est sur celle-ci qu'apparaissent les itinéraires et les positions GPS.
 \subsubsection{Google Direction}
-Le fonctionnement de cette API est assez simple. Il suffit d'envoyer un point d'origine et une destination à Google Direction et il nous retourne un tableau JSON avec différent paramètres.
+Le fonctionnement de cette API est assez simple. Il suffit d'envoyer un point d'origine et une destination à Google Direction et il nous retourne un tableau JSON avec différents paramètres.
 \begin{itemize}
     \item La durée
     \item La distance
     \item Les étapes du parcours (positions GPS)
-    \item Les étapes du parcours (Francais, par exemple : Tournez a droite,...)
+    \item Les indications du parcours (Francais, par exemple : Tournez a droite,...)
 \end{itemize}
 
 \subsubsection{Google Elevation}
-Cette API permet d'obtenir l'altitude de points géographique à la surface de la Terre, y compris les fonds marins.
+Cette API permet d'obtenir l'altitude de points géographiques à la surface de la Terre, y compris les fonds marins.
 
-Les données géographique peuvent être fournie de deux façon différente : 
+Les données géographiques peuvent être fournies de deux façon différentes : 
 \begin{itemize}
 	\item En tant que point géographique
 	\item En tant que tracé
@@ -502,14 +511,14 @@ Cette API permet de faire 3 choses différentes :
     \item \emph{Speed limits}
 \end{itemize}
 
-J'utilise deux fonctionnalitées de cette API, \emph{Snap to raod} et \emph{Nearest road}.
+J'utilise deux fonctionnalités de cette API, \emph{Snap to raod} et \emph{Nearest road}.
 
-\emph{Snap to raod} permet de "déplacer" un trajet pour qu'il suive la route. Il faut lui envoyer l'ensemble des point GPS de notre route et il nous retourne un ensemble de point qui suivent la route.
+\emph{Snap to raod} permet de "déplacer" un trajet pour qu'il suive la route. Il faut lui envoyer l'ensemble des points GPS de notre route et il nous retourne un ensemble de points qui suivent la route.
 
 \emph{Nearest road} permet de donner la position d'un point GPS sur la route la plus proche.
 
 \subsection{Fichier GPX}
-GPX est un format de fichier ouvert permettant l'échange de coordonée GPS. Il peut contenir trois types d'informations : 
+GPX est un format de fichier ouvert permettant l'échange de coordonées GPS. Il peut contenir trois types d'informations : 
 
 \begin{itemize}
 	\item Point de cheminement (\emph{waypoint})
@@ -545,15 +554,15 @@ Ci dessous, un exemple de fichier GPX
 
 \subsection{Fonction PHP pour la \bdd}
 \subsubsection{connexion à la \bdd}
-La connexion à la \bdd se fait à l'aide de PDO\footnote{\emph{PHP Data Object}, \url{http://php.net/manual/fr/intro.pdo.php}}. PDO a besoin de l'utilisateur de la \bdd et du mot de passe ainsi que le nom de la base.
+La connexion à la \bdd \ se fait à l'aide de PDO\footnote{\emph{PHP Data Object}, \url{http://php.net/manual/fr/intro.pdo.php}}. PDO a besoin de l'utilisateur de la \bdd \  et du mot de passe ainsi que le nom de la base.
 Je lui précise aussi le mode d'erreur qui est \emph{PDO::ERRMODE\_EXCEPTION} ce mode permet d'afficher le code d'erreur et de déclencher une exception\footnote{Plus d'informations \url{http://php.net/manual/fr/pdo.error-handling.php}}.
 
-Afin d'avoir un partage d'informations dans le bon format, on défini l'encodage de caractères en UTF-8
+Afin d'avoir un partage d'informations dans le bon format, on défini l'encodage de caractères en UTF-8.
 
 \subsubsection{Requêtes préparées}
 Afin de sécuriser le site et éviter les injections SQL j'utilise des requêtes préparées.
 
-On commence par préparer la requête, PDO va substituer les marqueurs (\emph{:marqueur}) pour les valeur fournie dans le tableau de paramètres fourni au moment de l'exécution. Ensuite, il faut exécuter la requête avec les parametres.
+On commence par préparer la requête, PDO va substituer les marqueurs (\emph{:marqueur}) pour les valeurs fournies dans le tableau de paramètres fourni au moment de l'exécution. Ensuite, il faut exécuter la requête avec les paramètres.
 
 \subsubsection{GetMotorcycleBrand}
 Ne prend pas de paramètre d'entrée.
@@ -564,9 +573,9 @@ Retourne un tableau contenant les marques.
 \subsubsection{GetMotorcycleModel}
 Ne prend pas de paramètre d'entrée.
 
-Récupère dans la base de donées tout les models de moto.
+Récupère dans la base de données tous les modèles de moto.
 
-Retourne un tableau contenant les models trié par ordre alphabétique.
+Retourne un tableau contenant les modèles triés par ordre alphabétique.
 \subsubsection{GetAllMotorcycleYear}
 Ne prend pas de paramètre d'entrée.
 
@@ -582,7 +591,7 @@ Retourne un tableau contenant les consommations dans l'ordre croissant.
 \subsubsection{GetAllMotorcycleTiredness}
 Ne prend pas de paramètre d'entrée.
 
-Récupère dans la base de données touts les indices de fatigue.
+Récupère dans la base de données tous les indices de fatigue.
 
 Retourne un tableau contenant les indices de fatigue dans l'ordre croissant.
 \subsubsection{GetAllMotorcycles}
@@ -590,46 +599,46 @@ Ne prend pas de paramètre d'entrée.
 
 Récupère dans la base de données toutes les motos.
 
-Retourne un tableau contenant toutes les motos et leurs informations trié par marque. 
+Retourne un tableau contenant toutes les motos et leurs informations triées par marque. 
 \subsubsection{GetRoutes}
 Prend un paramètre facultatif qui est l'identifiant de l'utilisateur.
 
-Récupère dans la base de données les routes. Soit toutes les routes, soit les route de l'utilisateur.
+Récupère dans la base de données les routes soit toutes les routes, soit les routes de l'utilisateur.
 
 Retourne un tableau contenant les routes.
 
 \subsubsection{CreateRoute}
-Prend 3 données en entré, le nom de la route, l'identifiant de l'utilisateur et si la route contient des autoroutes.
+Prend 3 données en entrée, le nom de la route, l'identifiant de l'utilisateur et si la route contient des autoroutes.
 
-Insère les données dans la base de données
+Insère les données dans la base de données.
 
 Retourne l'identifiant de la route créée.
 
 \subsubsection{deletePlaces}
-Prend entrée l'identifiant de la route.
+Prend en entrée l'identifiant de la route.
 
-Supprime touts les points GPS de la route dans la base de données.
+Supprime tous les points GPS de la route dans la base de données.
 
-Ne retourne rien
+Ne retourne rien.
 
 \subsubsection{addPlaceToRoute}
 Prend en entrée 4 paramètres, la latitude, la longitude, la position du point dans le tracé et l'identifiant de la route.
 
 Insère les informations dans la base de données.
 
-Ne retourne rien
+Ne retourne rien.
 
 \subsubsection{deleteMotorcycle}
-Prend en entrée l'identifiant de la moto
+Prend en entrée l'identifiant de la moto.
 
-Supprime la moto
+Supprime la moto.
 
 Ne retourne rien.
 
 \subsubsection{getUserNMotorcycle}
 Ne prend pas de paramètre d'entrée.
 
-Récupère toutes les infomrations d'un utilisateur et de sa moto.
+Récupère toutes les informations d'un utilisateur et de sa moto.
 
 Retourne un tableau avec toutes les informations.
 
@@ -637,30 +646,30 @@ Retourne un tableau avec toutes les informations.
 \subsubsection{getUserRoleById}
 Prend en entrée l'identifiant de l'utilisateur.
 
-Selectionne dans la \bdd le role de l'utilisateur.
+Selectionne dans la \bdd  \ le rôle de l'utilisateur.
 
 Retourne le rôle.
 
 \subsubsection{AddSinuosity}
-Prend en entrée l'identifiant de la route et la sinueusité.
+Prend en entrée l'identifiant de la route et la sinuosité.
 
-Ajoute la sinueusité dans la \bdd
+Ajoute la sinuosité dans la \bdd.
 
 Ne retourne rien.
 
 \subsubsection{AddElevation}
 Prend en entrée l'identifiant de la route et l'altitude.
 
-Ajoute l'altitude dans la \bdd
+Ajoute l'altitude dans la \bdd.
 
 Ne retourne rien.
 
 \subsubsection{AddLength}
-Prend en entrée l'identifiant de la route et la longueure.
+Prend en entrée l'identifiant de la route et la longueur.
 
-Ajoute la longueure dans la \bdd
+Ajoute la longueur dans la \bdd.
 
-Ne retourne rien
+Ne retourne rien.
 
 \subsubsection{GetmostSinuousRoad}
 Ne prend rien en entrée.
@@ -693,7 +702,7 @@ Retourne la valeur de la route la moins "pentue".
 \newpage
 \subsection{Inscription sur le site}
 
-Afin de pouvoir bénéficier de toutes les fonctionnalitées du site, l'utilisateur doit se connecter. Si celui-ci n'a pas de compte, il a la possibilité d'un créer un. 
+Afin de pouvoir bénéficier de toutes les fonctionnalités du site, l'utilisateur doit se connecter. Si celui-ci n'a pas de compte, il a la possibilité d'en créer un. 
 
 La création d'un utilisateur se fait en plusieurs étapes :
 \begin{itemize}
@@ -702,10 +711,10 @@ La création d'un utilisateur se fait en plusieurs étapes :
     \item Création de l'utilisateur en PHP et SQL
 \end{itemize}
 
-La vérification Ajax est assez simple, lorsque l'utilisateur appuye sur une touche, on affiche une croix rouge puis on envoie une requete à la page PHP qu va nous retourner un booléen a \emph{true} si l'utilisateur exite. S'il est vrai, on laisse la croix rouge sinon on affiche un vu vers.
+La vérification Ajax est assez simple, lorsque l'utilisateur appuie sur une touche, on affiche une croix rouge puis on envoie une requete à la page PHP qui va nous retourner un booléen à \emph{true} si l'utilisateur exite. S'il est vrai, on laisse la croix rouge sinon on affiche un vu vert.
 
-Une fois la verification faite en javascript/ajax, les données sont envoyées a une fonction PHP qui revérifie si l'utilisateur est déjà présent dans la base, puis, récupère l'identifiant de la moto daprès la marque, le model et l'année.
-Finalement, les données sont ajoutée à la base de données.
+Une fois la vérification faite en javascript/ajax, les données sont envoyées à une fonction PHP qui re-vérifie si l'utilisateur est déjà présent dans la base, puis récupère l'identifiant de la moto d'après la marque, le modèle et l'année.
+Finalement, les données sont ajoutées à la base de données.
 \begin{center}
 	 \diag{Inscription}
 \end{center}
@@ -718,24 +727,24 @@ Une fois l'inscirption effectuée, l'utilisateur a la possibilité de se connect
 
 Pour ce faire, l'utilisateur saisi ses informations dans le formulaire et se connecte.
 Une première vérification en HTML5 vérifie que les champs soient remplis(\emph{required}).
-Une fois cette vérification éffectuée, les informations sont envoyée à la page PHP \emph{connexion.php} qui vérifie encore une fois que les champs soient rempli. Puis, envoie les données à la fonction PHP de connexion qui va récupérer :
+Une fois cette vérification éffectuée, les informations sont envoyées à la page PHP \emph{connexion.php} qui vérifie encore une fois que les champs soient remplis. Puis, il envoie les données à la fonction PHP de connexion qui va récupérer :
 \begin{itemize}
 	\item Les ids utilisateur
 	\item Les mots de passe
-	\item Les roles
+	\item Les rôles
 \end{itemize}
 
-Une fois ces informations récupérée, on les parcour tous pour être sûr que le nom d'utilisateur et le mot de passe fourni correspondent bien à un utilisateur existant.
-Si c'est le cas, on enregistre l'id, le role et le nom d'utilisateur dans des \emph{Sessions} et on retourne \emph{true} pour dire que les informations sont correcte.
+Une fois ces informations récupérées, on les parcour toutes pour être sûr que le nom d'utilisateur et le mot de passe fournis correspondent bien à un utilisateur existant.
+Si c'est le cas, on enregistre l'id, le rôle et le nom d'utilisateur dans des \emph{Sessions} et on retourne \emph{true} pour dire que les informations sont correctes.
 
 \begin{center}
 	\diag{Connexion}
 \end{center}
 
 \subsection{\emph{Upload} d'un itinéraire}
-L'utilisateur à la possibilité de mettre en ligne ses itinéraires depuis un fichier \emph{.GPX}.
+L'utilisateur a la possibilité de mettre en ligne ses itinéraires depuis un fichier \emph{.GPX}.
 
-Premierement, un script vérifie l'extension du fichier. Une fois l'extension vérifiée, une fonction enregistre chaque point du fichier dans la \bdd. Finalement, une fonction javascript envoie a google les point et récupère la position sur la route (API Google Roads) et enregistre les nouvelles coordonées.
+Premièrement, un script vérifie l'extension du fichier. Une fois l'extension vérifiée, une fonction enregistre chaque point du fichier dans la \bdd. Finalement, une fonction javascript envoie à Google les points et récupère la position sur la route (API Google Roads) et enregistre les nouvelles coordonées.
 
 \begin{center}
 	\diag{Gpx2Sql}
@@ -743,12 +752,12 @@ Premierement, un script vérifie l'extension du fichier. Une fois l'extension v�
 
 
 \subsection{Téléchargement d'un itinéraire}
-Un itinéraire disponnible sur le site est téléchargeable.
+Un itinéraire disponible sur le site est téléchargeable.
 Pour ce faire, l'utilisateur choisi l'itinéraire et clique sur \emph{Download route}.
 
 Le traitement se fait en PHP.
 
-Le trajet et le nom sont transmit à la fonction qui va  vérifier si un fichier du même nom existe déja. Si c'est le cas, le fichier est supprimé et un autre est créé. 
+Le trajet et le nom sont transmis à la fonction qui va  vérifier si un fichier du même nom existe déja. Si c'est le cas, le fichier est supprimé et un autre est créé. 
 
 On ajoute ensuite l'entête du fichier XML et GPX.
 
@@ -758,7 +767,7 @@ On ajoute ensuite l'entête du fichier XML et GPX.
 <gpx version="1.0" creator="FindYourRide.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/0" xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd">
 \end{lstlisting}
 
-Une fois ces informations insérée dans le fichier il faut ajouter le nom, chaque point et fermer les balises.
+Une fois ces informations insérées dans le fichier il faut ajouter le nom, chaque point et fermer les balises.
 
 \begin{center}
 	\diag{PathToGpx}
@@ -766,10 +775,10 @@ Une fois ces informations insérée dans le fichier il faut ajouter le nom, chaq
 
 
 \subsection{Fonction javascript de gestion de la carte}
-Ci-dessous sont toutes les fontions utilisée pour créer et gérer la carte Google.
+Ci-dessous sont toutes les fontions utilisées pour créer et gérer la carte Google.
 
 \subsubsection{Initialisation de la carte}
-L'initialisation de la carte se fait à plusieurs moment : 
+L'initialisation de la carte se fait à plusieurs moments : 
 \begin{itemize}
 	\item Chargement de la page
 	\item Chargement d'un itinéraire
@@ -784,9 +793,9 @@ Lors de l'appel de l'initalisation il faut définir deux choses :
 
 Par défaut la carte est centrée sur Genève. Si La géolocalisation est disponible et activée sur le navigateur, la carte se centre sur le lieu de l'utilisateur.
 
-Si la variable de modification est vrai, un évenemment \emph{click} sera ajouté à la carte.
+Si la variable de modification est \emph{true}, un évenemment \emph{click} sera ajouté à la carte.
 
-De plus, si l'utilisateur choisi de visualiser le traffique en temps réel, un calque avec le traffique sera rejouté a \gmap
+De plus, si l'utilisateur choisi de visualiser le traffic en temps réel, un calque avec le traffic sera rajouté à \gmap
 
 
 \begin{center}
@@ -806,9 +815,9 @@ Prend en paramètre le chemin de la route.
 
 Fait un appel AJAX à l'API Google \emph{snapToRoads}.
 
-Récupère chaque valeures données par l'API.
+Récupère chaque valeur donnée par l'API.
 
-Retourne un tableau avec ces nouvelles valeures.
+Retourne un tableau avec ces nouvelles valeurs.
 
 \subsubsection{LoadPoints}
 Prend en paramètre l'identifiant de la route.
@@ -817,17 +826,17 @@ Fait un appel AJAX à la fonction \emph{GetRoutePoints}.
 
 Récupère chaque valeur dans un tableau.
 
-Retourne le tableau .
+Retourne le tableau.
 
 \subsubsection{SnappPoints2Road}
-Prend en paramètre la route (sous fomrat d'un tableau de points).
+Prend en paramètre la route (sous format d'un tableau de points).
 
-Parcour le tableau et toute les 50 positions, appel la fonction \emph{AskGoogle}
+Parcoure le tableau et toutes les 50 positions, appelle la fonction \emph{AskGoogle}
 
 Retourne un tableau avec toutes le postions.
 
 \subsubsection{SaveNewLocation}
-Prend 3 paramètres, l'identifiant de la route, la route (sous fomrat d'un tableau de points), et un boolean pour savoir si la route vien depuis l'API google.
+Prend 3 paramètres, l'identifiant de la route, la route (sous format d'un tableau de points), et un booléen pour savoir si la route vient depuis l'API Google.
 
 \begin{center}
 \diag{SaveNewRoute}
@@ -840,19 +849,19 @@ Vérifie que le nom ne soit pas vide.
 
 Fait un appel AJAX à la fonction \emph{CreateRoute}.
 
-Appel \emph{SaveNewLocation} avec les valeurs reçu.
+Appel \emph{SaveNewLocation} avec les valeurs reçues.
 
 Ne retourne rien.
 
 \subsubsection{RouteClick}
 Ne prend pas de paramètres.
-Ajoute un événement click sur tout les objets contenant la classe \emph{route}.
+Ajoute un événement click sur tous les objets contenant la classe \emph{route}.
 
 Cet événement comprend :
 
 Effacer les informations sur la carte.
 
-Initialiser la carte sans modification.
+Initialise la carte sans modification.
 
 Défini l'action du bouton \emph{DeleteRoute} par la suppression de la route sélectionnée.
 
@@ -862,7 +871,7 @@ Enlève l'attribut \emph{hidden} des objects ayant pour classe \emph{routeContro
 
 Modifie l'attribut \emph{name} du bouton \emph{btnModif}.
 
-Retire la classe \emph{highlighted} de la route en surbriance.
+Retire la classe \emph{highlighted} de la route en surbrillance.
 
 Ajoute la classe \emph{highlighted} à la route actuelle.
 
@@ -872,7 +881,7 @@ Appel \emph{ShowParcour}.
 
 Appel \emph{DisplayRouteInfo}.
 
-ne retourne rien 
+Ne retourne rien.
 
 \subsubsection{searchIti}
 Prend en paramètre 2 tableaux de point GPS, le premier contient le lieu d'origine et le second contient la destination.
@@ -899,17 +908,17 @@ Efface le tableau contenant la route.
 Ne retroune rien.
 
 \subsubsection{ShowParcours}
-Prend en paramètre le tableau de points GPS du tracé, si le parcour peut etre modifier et la couleur du parcour.
+Prend en paramètre le tableau de points GPS du tracé, si le parcours peut être modifié et la couleur du parcours.
 
 Si la couleur n'est pas définie, défini la couleur par défaut (\#ff1ece).
 
-Si le tracé peut être modifié, appel \emph{CreateMarker} pour le marqueur de début et fin.
+Si le tracé peut être modifié, appelle \emph{CreateMarker} pour le marqueur de début et fin.
 
-Ajout au tableau \emph{route} les point du tracé.
+Ajoute au tableau \emph{route} les points du tracé.
 
-Etand les "bornes" pour centrer la carte sur la totalité du tracé.
+Etend les "bornes" pour centrer la carte sur la totalité du tracé.
 
-Appel la fonction \emph{DisplayRoute}.
+Appelle la fonction \emph{DisplayRoute}.
 
 \subsubsection{DisplayRoute}
 Prend en paramètre la couleur du tracé.
@@ -918,28 +927,28 @@ Si aucun paramètre n'est saisi, défini la couleur avec la couleur par défaut 
 
 Affiche la \emph{Polyline} du tracé sur la carte.
 
-ne retourne rien.
+Ne retourne rien.
 
 \subsubsection{CreateMarker}
-Prend en paramètre, la localisation du marqueur, si la parcour peut etre modifié, si le marqueur peut etre supprimé, la couleur du marqueur, le texte du marquer et sa position (ordre du tracé).
+Prend en paramètre la localisation du marqueur, si le parcours peut être modifié, si le marqueur peut être supprimé, la couleur du marqueur, le texte du marqueur et sa position (ordre du tracé).
 
-Défini l'image du marquer selon la couleur et le texte choisi.
+Défini l'image du marqueur selon la couleur et le texte choisi.
 
 Crée le marqueur.
 
-Si la marqueur peut etre supprimé, ajoute les évenements de suppréssion.
+Si le marqueur peut être supprimé, ajoute les évenements de suppression.
 
-si le marqueur peut etre modifié, ajoute les évenements de modification.
+Si le marqueur peut être modifié, ajoute les événements de modification.
 
-Ajute le marqueur au tableau de marqueurs.
+Ajoute le marqueur au tableau de marqueurs.
 
 Ne retourne rien.
 
 \subsubsection{refreshValues}
-Cette fonction sert à raffrachir la valeur d'un point GPS dans les zones de saisie.
+Cette fonction sert à raffraîchir la valeur d'un point GPS dans les zones de saisie.
 
 \subsubsection{DownloadRoute}
-Ne prend pas de paramètres.
+Ne prend pas de paramètre.
 
 Vérifie qu'un itinéraire soit sélectionné.
 
@@ -949,51 +958,51 @@ Fait un appel AJAX à la fonction PHP \emph{Download} avec comme paramètres, le
 
 Fait appel à la page de téléchargement avec le nom du fichier.
 
-ne retourne rien.
+Ne retourne rien.
 
 \subsubsection{EnableDisabledFilters}
 Prend en paramètre le checkbox.
 
-Vérifie si le checkbox est checker ou non.
+Vérifie si le checkbox est coché ou non.
 
 Ajoute ou retire l'attribut \emph{Hidden}.
 
-Si les filtre doivent être affiché, appel \emph{RefreshRouteWithFilters} sinon appel \emph{RefreshRouteWithoutFilters}.
+Si les filtres doivent être affichés, appelle \emph{RefreshRouteWithFilters} sinon appelle \emph{RefreshRouteWithoutFilters}.
 
 \subsubsection{RefreshRouteWithFilters}
-Ne prend pas de paramètres.
+Ne prend pas de paramètre.
 
-Récupère la valeur de tout les filtres. (sinueusité, Pente et autoroute).
+Récupère la valeur de tous les filtres. (sinueusité, pente et autoroute).
 
-Fait un appel AJAX à la fonction PHP \emph{FilterRoad} avec comme paramètres les valeurs récupérée précédement.
+Fait un appel AJAX à la fonction PHP \emph{FilterRoad} avec comme paramètres les valeurs récupérées précédemment.
 
 Supprime l'affichage de toutes les routes. 
 
-Ajoute chaque route que l'AJAX nous a retourné.
+Ajoute chaque route que l'AJAX nous a retournée.
 
-Appel la fonction \emph{RouteClick}
+Appelle la fonction \emph{RouteClick}
 
 Ne retourne rien.
 
 \subsubsection{RefreshRouteWithoutFilters}
-Ne prend pas de paramètres.
+Ne prend pas de paramètre.
 
 Fait un appel AJAX à la fontion PHP \emph{GetRoutes}
 
 Supprime l'affichage de toutes les routes.
 
-Ajoutes les routes que l'AJAX nous a retourné.
+Ajoute les routes que l'AJAX nous a retournées.
 
-Appel la fonction \emph{RouteClick}.
+Appelle la fonction \emph{RouteClick}.
 
 Ne retourne rien.
 
 \subsubsection{StartCreation}
-Ne prend pas de paramètres.
+Ne prend pas de paramètre.
 
-Appel la fonction \emph{ClearRoute}.
+Appelle la fonction \emph{ClearRoute}.
 
-Enlève la classe CSS \emph{Hidden} à tout les objets qui ont pour classe \emph{SaveRouteControls}.
+Enlève la classe CSS \emph{Hidden} à touts les objets qui ont pour classe \emph{SaveRouteControls}.
 
 
 \subsubsection{DisplayRouteInfo}
@@ -1001,7 +1010,7 @@ Prend en paramètre l'identifiant de la route.
 
 Fait un appel AJAX à la fonction PHP \emph{GetRoadsInfos}.
 
-Affiche toutes les informations retournée par l'appel AJAX dans les champs prévu à cet effet.
+Affiche toutes les informations retournées par l'appel AJAX dans les champs prévus à cet effet.
 
 Ne retourne rien.
 
@@ -1016,90 +1025,90 @@ Recharge la page.
 \subsubsection{ClearRoute}
 Ne prend pas de paramètre.
 
-Appel la fonction \emph{InitMap}
+Appelle la fonction \emph{InitMap}
 
-Vide tout les tableaux de données.
+Vide tous les tableaux de données.
 
 \subsubsection{Document.Ready}
-Appel la fonction \emph{initMap}.
+Appelle la fonction \emph{initMap}.
 
-Appel la fonction \emph{Clear}.
+Appelle la fonction \emph{Clear}.
 
-Appel la fonction \emph{RouteClick}.
+Appelle la fonction \emph{RouteClick}.
 
 Ajoute un événement click sur le bouton \emph{btnmodif}.
 
 Ajoute un événement click sur le bouton \emph{RefreshRoute}.
 
-Ajoute un événement lorsque la valeur du \emph{slider} de sinueusité change.
+Ajoute un événement lorsque la valeur du \emph{slider} de sinuosité change.
 
 Ajoute un événement lorsque la valeur du \emph{slider} d'altitude change.
 
-Ajoute un événement lorsque la case a cocher du filtre d'autoroute change.
+Ajoute un événement lorsque la case à cocher du filtre d'autoroute change.
 
 Ajoute un événement click sur le bouton \emph{StartCreation}.
 
 Ajoute un événement click sur le bouton \emph{ClearRoute}.
 
-Ajoute un événement lorsque la case a cocher d'utilisation des autoroute change.
+Ajoute un événement lorsque la case à cocher d'utilisation des autoroutes change.
 
 \subsubsection{Document.bind}
-Ajoute une classe \emph{loading} au body lorsque une requête AJAX démarre.
+Ajoute une classe \emph{loading} au body lorsqu'une requête AJAX démarre.
 
-Retire la classe \emph{loading} au body lorsque une requête AJAX se termine.
+Retire la classe \emph{loading} au body lorsqu'une requête AJAX se termine.
 
 Ce système permet d'afficher une roue qui tourne pour faire patienter l'utilisateur.
 
-\subsection{fonction javascript pour l'inscription et la connexion}
-\subsubsection{connexion}
+\subsection{Fonction javascript pour l'inscription et la connexion}
+\subsubsection{Connexion}
 Prend un paramètre qui est un tableau contenant l'utilisateur et le mot de passe.
 
 Fait un appel AJAX à la page PHP \emph{Connexion}.
 
 Vérifie la réponse AJAX et recharge la page ou affiche un message d'erreur.
 
-ne retourne rien 
+Ne retourne rien.
 
 \subsubsection{LoadModalFromBrand}
 Prend en paramètre la marque.
 
 Fait un appel AJAX à la fonction PHP \emph{GetModel}
 
-Affiche tout les model retourné par l'AJAX.
+Affiche tout les modèles retournés par l'AJAX.
 
 Ne retourne rien.
 
 \subsubsection{LoadYearFromModel}
-Prend 2 paramètres, la marque et le model.
+Prend 2 paramètres, la marque et le modèle.
 
-Fait un appel AJAX à la fonction PHP \emph{GetYear}
+Fait un appel AJAX à la fonction PHP \emph{GetYear}.
 
-Affiche toutes les années retournée par l'AJAX.
+Affiche toutes les années retournées par l'AJAX.
 
 Ne retourne rien.
 
 \subsubsection{UserNameExists}
 Prend en paramètre le nom d'utilisateur.
 
-Crée une variable existe a faux.
+Crée une variable existe à faux.
 
 Fait un appel AJAX à la fonction PHP \emph{UserExists}.
 
-Défini a vrai la variable si l'utilisateur existe.
+Défini à vrai la variable si l'utilisateur existe.
 
 Retourne la variable.
 
 \subsubsection{checkForEnabled}
 Ne prend pas de paramètre.
 
-Vérifie pour chaque champs de saisie s'il y a la croix rouge. Si c'est la cas, desactive le bouton submit.
+Vérifie pour chaque champ de saisie s'il y a la croix rouge. Si c'est le cas, désactive le bouton submit.
 
 Ne retourne rien.
 
 \subsubsection{Document.Ready}
 Active les info-bulles.
 
-Pour chaque champ de saisie, active le contrôle de saisie et mets a jour la croix rouge ou le vu vert.
+Pour chaque champs de saisie, active le contrôle de saisie et met à jour la croix rouge ou le vu vert.
 
 
 \subsection{Fonction ajax}
@@ -1107,94 +1116,94 @@ Pour chaque champ de saisie, active le contrôle de saisie et mets a jour la cro
 \subsubsection{GetModel}
 Prend en entrée la marque.
 
-Sélectionne dans la \bdd touts les model correspondant à la marque.
+Sélectionne dans la \bdd \ tous les modèles correspondants à la marque.
 
-Retourne un tableau JSON contenant touts les models.
+Retourne un tableau JSON contenant tous les modèles.
 
 \subsubsection{GetYear}	
-Prend en entrée la marque et le model.
+Prend en entrée la marque et le modèle.
 
-Sélectionne dans la \bdd toutes les années d'un véhicule.
+Sélectionne dans la \bdd \ toutes les années d'un véhicule.
 
 Retourne un tableau JSON contenant toutes les années.
 
 \subsubsection{UserExists}
 Prend en entrée le nom d'utilisateur.
 
-Sélectionne dans la \bdd l'utilisateur contenant ce nom d'utilisateur.
+Sélectionne dans la \bdd \ l'utilisateur contenant ce nom d'utilisateur.
 
-Si la \bdd retourne quelquechose, retourne vrai sinon retourne faux
+Si la \bdd \ retourne quelque chose, retourne vrai sinon retourne faux.
 
 
 \subsubsection{GetMotorcycles}
-Prend en entrée marque, model, année, consomation et indice de fatigue.
+Prend en entrée marque, modèles, année, consommation et indice de fatigue.
 
-Sélectionne dans la \bdd les motos correspondant aux critères saisis.
+Sélectionne dans la \bdd \ les motos correspondantes aux critères saisis.
 
 Retourne un tableau contenant toutes les informations des motos.
 
 \subsubsection{GetRoutePoints}
 Prend en entrée l'identifiant de la route.
 
-Sélectionne dans la \bdd tout les points GPS correspondant à l'identifiant de la route.
+Sélectionne dans la \bdd \ tous les points GPS correspondants à l'identifiant de la route.
 
-retourne un tableau contenant touts les points
+Retourne un tableau contenant tous les points.
 
 \subsubsection{SaveNewRoute}
-Prend en entrée l'identifiant de la route, la route, la sinueusité, l'altitude et la longugeure.
+Prend en entrée l'identifiant de la route, la route, la sinueusité, l'altitude et la longeur.
 
-Supprime les points enregistré pour cette route.
+Supprime les points enregistrés pour cette route.
 
-Ajoute la sinueusité.
+Ajoute la sinuosité.
 
 Ajoute l'altitude.
 
-Ajoute la longueure.
+Ajoute la longueur.
 
-Vérifie le format d'entrée de la route, si c'est un string, le convertit en tableau.
+Vérifie le format d'entrée de la route, si c'est un \emph{string}, le convertit en tableau.
 
-Pour chaque points de la route, appel la méthode d'ajout du point.
+Pour chaque point de la route, appelle la méthode d'ajout du point.
 
 Ne retourne rien.
 
 \subsubsection{AddMotorcycle}
-Prend en entrée, la marque, le model, l'année, la consomation et l'indice de fatigue.
+Prend en entrée, la marque, le modèle, l'année, la consomation et l'indice de fatigue.
 
-Vérifie que les champs ne soient pas nul.
+Vérifie que les champs ne soient pas null.
 
 Ajoute la moto dans la \bdd.
 
-Retourne un tableau conteant soit un message d'erreur soit rien du tout.
+Retourne un tableau contenant soit un message d'erreur soit rien du tout.
 
 \subsubsection{UpdateUserRole}
 Prend en entrée, l'identifiant d'utilisateur et l'identifiant du futur rôle.
 
 Vérifie que l'utilisateur connecté est administrateur.
 
-Met à jours le rôle de l'utilisateur.
+Met à jour le rôle de l'utilisateur.
 
 Retourne un tableau contenant soit une erreur soit le nouveau rôle de l'utilisateur.
 
 \subsubsection{GetUserRole}
 Prend en entrée, l'identifiant de l'utilisateur.
 
-Appel la méthode GetUserRoleById.
+Appelle la méthode GetUserRoleById.
 
 Retourne le nom du rôle.
 
 \subsubsection{downloadRoute}
-Prend en entrée, le nom de la route et sont parcour.
+Prend en entrée, le nom de la route et son parcours.
 
 Appel la fonction "Path2Gpx".
 
 Retourne le nom du fichier.
 
 \subsubsection{FilterRoad}
-Prend en entrée tout les paramètres d'une route (sinueusité, pente, autoroute, durée).
+Prend en entrée tous les paramètres d'une route (sinuosité, pente, autoroute, durée).
 
-Sélectionne dans la \bdd les routes qui correspondent aux critères saisi en entrée.
+Sélectionne dans la \bdd \ les routes qui correspondent aux critères saisis en entrée.
 
-Retourne un tableau JSON avec toute les données.
+Retourne un tableau JSON avec toutes les données.
 
 
 \subsubsection{GetRoutesJSON}
@@ -1206,29 +1215,29 @@ Retourne les routes au format JSON.
 
 
 \subsubsection{GetRoadsInfos}
-Prend enentrée l'identifiant de la route.
+Prend en entrée l'identifiant de la route.
 
-Récupère dans la \bdd les informations de la route et, si l'utilisateur est connecté, récupère la consommation de sa moto.
+Récupère dans la \bdd \ les informations de la route et, si l'utilisateur est connecté, récupère la consommation de sa moto.
 
 Retourne un tableau JSON avec les informations.
 
 \subsubsection{CreateNewRoute}
 Prend en entrée le nom de la nouvelle route ainsi que si elle contient des autoroutes.
 
-Appel la méthode CreateRoute.
+Appelle la méthode \emph{CreateRoute}.
 
 Retourne l'identifiant de la nouvelle route au format JSON.
 
 \subsubsection{DeleteRoute}
 Prend en paramètre l'identifiant de la route.
 
-Supprime dans la \bdd les lieu comportant l'identifiant de la route ainsi que la route.
+Supprime dans la \bdd \ les lieux qui comportent l'identifiant de la route ainsi que la route.
 
 Retourne "Success" au format JSON
 \newpage
 \subsection{Base de données}
-La moteur de \bdd \ utilisé est \emph{l'InnoDB}, afin de garder les valeur en \emph{UTF-8}.
-Le système de gestion de la \bdd est \emph{MySQL}.
+Le moteur de \bdd \ utilisé est \emph{l'InnoDB}, afin de garder les valeurs en \emph{UTF-8}.
+Le système de gestion de la \bdd \ est \emph{MySQL}.
 
 \subsubsection{Modèle conceptuel}
 \begin{figure}[h]
@@ -1253,17 +1262,17 @@ Cette table regroupe toutes les motos du site.
 \end{tabular}
 
 \paragraph{Table \emph{users}}
-Cette table regroupe touts les utilisateurs du site.
+Cette table regroupe tous les utilisateurs du site.
 
 \begin{tabular}{|l|l|l|}
 	\hline
-	Colone          & Type         & Description                  \\ \hline\hline
-	\textbf{iduser} & int & Identifiant de l'utilisateur \\ \hline
-	Username & Varchar(150) & Nom de l'utilisateur \\ \hline
-	Password & Varchar(150) & Mot de passe de l'utilisateur (sha1) \\ \hline
-	email & Varchar(150) & E-mail de l'utilisateur \\ \hline
-	\#idMoto & int & Identifiant de la moto \\ \hline
-	role & int & Role de l'utilisateur \\ \hline
+	Colone          & Type         & Description                          \\ \hline\hline
+	\textbf{iduser} & int          & Identifiant de l'utilisateur         \\ \hline
+	Username        & Varchar(150) & Nom de l'utilisateur                 \\ \hline
+	Password        & Varchar(150) & Mot de passe de l'utilisateur (sha1) \\ \hline
+	email           & Varchar(150) & E-mail de l'utilisateur              \\ \hline
+	\#idMoto        & int          & Identifiant de la moto               \\ \hline
+	role            & int          & Rôle de l'utilisateur                \\ \hline
 \end{tabular}
 
 \paragraph{Table \emph{route}}
@@ -1271,28 +1280,28 @@ Cette table regroupe toutes les routes du site.
 
 \begin{tabular}{|l|l|l|}
 	\hline
-	Colone          & Type         & Description                  \\ \hline\hline
-	\textbf{idRoute}& int & Identifiant de la route \\ \hline
-	RouteName & Varchar(150) & Nom de la route \\ \hline
-	\#idUser & int & Identifiant de l'utilisateur créateur de la route \\ \hline
-	Length & int & Longueur de la route (en mètres) \\ \hline
-	Highway & Tinyint & La route contient des autoroutes ? \\ \hline
-	Time & int & Durée de la route \\ \hline
-	Sinuosity & double & Sinueusité de la route \\ \hline
-	Slope & double & Pente moyenne de la route \\ \hline
+	Colone           & Type         & Description                                       \\ \hline\hline
+	\textbf{idRoute} & int          & Identifiant de la route                           \\ \hline
+	RouteName        & Varchar(150) & Nom de la route                                   \\ \hline
+	\#idUser         & int          & Identifiant de l'utilisateur créateur de la route \\ \hline
+	Length           & int          & Longueur de la route (en mètres)                  \\ \hline
+	Highway          & Tinyint      & La route contient des autoroutes ?                \\ \hline
+	Time             & int          & Durée de la route                                 \\ \hline
+	Sinuosity        & double       & Sinuosité de la route                            \\ \hline
+	Slope            & double       & Pente moyenne de la route                         \\ \hline
 \end{tabular}
 
 \paragraph{Table \emph{Place}}
-Cette table regroupe touts les points géographique du site.
+Cette table regroupe touts les points géographiques du site.
 
 \begin{tabular}{|l|l|l|}
 	\hline
-	Colone          & Type         & Description                  \\ \hline\hline
-	\textbf{idLieu} & int & Identifiant du lieu \\ \hline
-	latitude & double & Latitude de l'endroit \\ \hline
-	longitude & double & Longitude de l'endroit \\ \hline
-	position & int& position dans le traçé \\ \hline
-	\#idRoute & int & Identifiant de la route correspondante au lieu \\ \hline
+	Colone          & Type   & Description                                    \\ \hline\hline
+	\textbf{idLieu} & int    & Identifiant du lieu                            \\ \hline
+	latitude        & double & Latitude de l'endroit                          \\ \hline
+	longitude       & double & Longitude de l'endroit                         \\ \hline
+	position        & int    & Position dans le tracé                         \\ \hline
+	\#idRoute       & int    & Identifiant de la route correspondante au lieu \\ \hline
 \end{tabular}
 \pagebreak
 
@@ -1301,56 +1310,75 @@ Cette table regroupe touts les points géographique du site.
 \section{Estimation de l'apport personnel}
 \begin{tabular}{|l|p{11cm}|c|}
 	\hline
-	Fichiers & Détails & pourcentage \\ \hline \hline
-	*.php & J'ai réalisé la totalité des pages PHP & 100\% \\ \hline
-	*.css & J'ai réalisé une partie du code CSS nécéssaire pour le positionnement de certain objet sinon le reste est fait par \emph{bootstrap} & 5\% \\ \hline
-	*.js &J'ai réaliser la totalité des fontion de gestion pour google map ormis les fonctions d'affichage des lignes modifiable. Le reste des fichier sont ceux de \emph{bootstrap} et je ne les ai pas modifié &80\% \\ \hline
+	Fichiers & Détails                                                                                                                                                                                                & pourcentage \\ \hline\hline
+	*.php    & J'ai réalisé la totalité des pages PHP                                                                                                                                                                 &    100\%    \\ \hline
+	*.css    & J'ai réalisé une partie du code CSS nécessaire pour le positionnement de certains objets sinon le reste est fait par \emph{bootstrap}                                                                    &     5\%     \\ \hline
+	*.js     & J'ai réalisé la totalité des fonctions de gestion pour \gmap \ hormis les fonctions d'affichage des lignes modifiables. Le reste des fichiers sont ceux de \emph{bootstrap} et je ne les ai pas modifiés. &    80\%     \\ \hline
 \end{tabular}
 
 \newpage
-\section{Problèmes rencontré}
+\section{Problèmes rencontrés}
 \subsection{Google Api}
 Durant ce projet, j'ai été confronté à l'utilisation des API Google. 
 
-Ces API sont bien doccumentée et il est facile de comprendre comment les utiliser.
+Ces API sont bien documentées et il est facile de comprendre comment les utiliser.
 
-Cependant Google a établi des quotas assez stricte ce qui fait qu'on se retrouve vite limité.
+Cependant Google a établi des quotas assez stricts ce qui fait qu'on se retrouve vite limité.
 
-Il m'est arrivé a plusieures reprise de ne plus pouvoir faire de requête car j'avais atteint le nombre maximal de requête. 
+Il m'est arrivé à plusieures reprises de ne plus pouvoir faire de requête car j'avais atteint le nombre maximal de requêtes. 
 
-Pour remedier à ce problème, j'ai créé plusieurs compte devloppeur Google et lorsque l'un de mes compte arrivais à la limite des quotas je changeais de clef d'API.
+Pour remédier à ce problème, j'ai créé plusieurs comptes développeur Google et lorsque l'un de mes compte arrivait à la limite des quotas je changeais de clef d'API.
 
-Cette méthode n'est néanmois pas optimal et il n'est pas possible de publier un site web dans ces conditions.
+Cette méthode n'est néanmois pas optimale et il n'est pas possible de publier un site web dans ces conditions.
 
-La solution est de payer un abonement auprès de Google afin d'obtenir plus de requête journalière.
+La solution est de payer un abonnement auprès de Google afin d'obtenir plus de requêtes journalières.
 \subsection{Asynchrone}
-Les fonctions de rappel javascript fonctionnent toutes de façon asynchrone.
+Les fonctions de rappel Javascript fonctionnent toutes de façon asynchrone.
 
-J'ignorais  cet aspect au début du travail, ce qui fait qu'il m'a fallut un peu de temps pour comprendre pourquoi certaine variables changeais de valeur "toute seule" ou avait des valeurs différente en mode deboguage.
+J'ignorais  cet aspect au début du travail, ce qui fait qu'il m'a fallut un peu de temps pour comprendre pourquoi certaines variables changeaient de valeur "toutes seules" ou avaient des valeurs différentes en mode déboguage.
 
-Pour l'AJAX, lorque j'avais besoin qu'une fonction de rappel ne soit pas asynchrone, j'utilisait le champ \emph{async} que je définissait a \emph{false}.
+Pour l'AJAX, lorque j'avais besoin qu'une fonction de rappel ne soit pas asynchrone, j'utilisais le champs \emph{async} que je définissais à \emph{false}.
 
 \newpage
 \section{Conclusion}
 \subsection{Bilan personnel}
-Durant ce projet de 9 semaines, j'ai pu découvrir les outils de dévloppement Google. Ceux-ci sont très complet et rélativement simple d'utilisation grâce à leurs bonne documentation. 
+Durant ce projet de 9 semaines, j'ai pu découvrir les outils de développement Google. Ceux-ci sont très complets et rélativement simples d'utilisation grâce à leurs bonnes documentations. 
 
-Je regrette de ne pas avoir fait un bon planning dès le début car je me suis perdu arrivé à environ la moitié du projet. Une bonne plannification m'aurais permis de travailler plus efficacement en suivant un fil conducteur.
+Je regrette de ne pas avoir fait un bon planning dès le début car je me suis perdu à environ la moitié du projet. Une bonne planification m'aurait permis de travailler plus efficacement en suivant un fil conducteur.
 
 L'objectif de mon travail qui était \emph{"avoir un site web permettent le partage entre les passionnés de la moto"} est atteint.
 \subsection{Améliorations }
-Au fur et à messure du travil des idées me sont apparue pour l'amélioration du site :
+Au fur et à messure du travail des idées me sont apparues pour l'amélioration du site :
 \begin{itemize}
-	\item Permettre aux utilisateur de noter un itinéraire.
-	\item Fournir à l'utilisateur un lien unique pour partager un itinéraire avec des personnes externe au site.
-	\item Permettre à l'utilisateur d'avoir plusieurs moto et de les gérer
-	\item Ajouter la "fatigue" sur les itinéraires
+	\item Permettre aux utilisateurs de noter un itinéraire.
+	\item Fournir à l'utilisateur un lien unique pour partager un itinéraire avec des personnes externes au site.
+	\item Permettre à l'utilisateur d'avoir plusieurs motos et de les gérer.
+	\item Ajouter la "fatigue" sur les itinéraires.
 \end{itemize}
 
 \pagebreak
+\section{Sources}
+\url{http://stackoverflow.com/questions/2507030/email-validation-using-jquery}, m'as permis d'ajouter la regex de validation d'e-mail.
+
+\url{http://www.birdtheme.org/useful/v3tool.html}, m'as permis d'implémenter la modification d'une \emph{polyline}.
+
+\url{http://getbootstrap.com/css/}, aide Bootstrap.
+
+\url{https://developers.google.com/}, pour toutes les informations des API \emph{Google}.
+
+\newpage
 
 
 
+
+\section{Annexes}
+\begin{itemize}
+	\item CDROM avec les sources du projet
+	\item Code source au format PDF
+	\item Planning
+\end{itemize}
+\newpage
 \listoffigures
+
 
 \end{document}

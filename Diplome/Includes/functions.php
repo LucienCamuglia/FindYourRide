@@ -203,7 +203,11 @@ function signin($values) {
     return $pdo->lastInsertId();
 }
 
-
+/**
+ * Get all routes
+ * @param $idUser facultative user id
+ * @return JSON array
+ */
 function GetRoutes($idUser = NULL) {
     if ($idUser == NULL) {
         $query = "select * from route natural join users  order by RouteName ";
@@ -220,6 +224,13 @@ function GetRoutes($idUser = NULL) {
     return $array_response;
 }
 
+/**
+ * Create a new route 
+ * @param string $name name of the trip
+ * @param int $iduser
+ * @param boolean $containsHighway
+ * @return int Route Id
+ */
 function CreateRoute($name, $iduser, $containsHighway) {
     $query = "INSERT INTO route(RouteName, idUser, highway) VALUES (:name,:user, :highway)";
     $params = array(
@@ -232,6 +243,10 @@ function CreateRoute($name, $iduser, $containsHighway) {
     return $pdo->lastInsertId();
 }
 
+/**
+ * Deleate all points of a road
+ * @param int $idRoute
+ */
 function deleatePlaces($idRoute) {
     $query = "DELETE FROM `place` WHERE idRoute = :idRoute";
     $params = array(
@@ -240,6 +255,13 @@ function deleatePlaces($idRoute) {
     $st = PrepareExecute($query, $params);
 }
 
+/**
+ * Add a new point of a road
+ * @param double $lat latitude
+ * @param double $lon longitude
+ * @param int $position position of the point in the route
+ * @param int $idRoute
+ */
 function addPlaceToRoute($lat, $lon, $position, $idRoute) {
     $query = "INSERT INTO place(latitude, longitude, position, idRoute) VALUES (:lat,:lon,:pos,:route)";
     $params = array(
@@ -251,17 +273,31 @@ function addPlaceToRoute($lat, $lon, $position, $idRoute) {
     $st = PrepareExecute($query, $params);
 }
 
+/**
+ * Save a GPX file in the database
+ * @param string $file path and filname
+ * @param int $iduser
+ * @param boolean $containsHighway
+ * @return int routeID
+ */
 function Gpx2Sql($file, $iduser, $containsHighway) {
+    //create a new dom Document
     $dom = new DOMDocument();
+    //open the file
     $dom->load($file);
+    //get the route name in the file
     $names = $dom->getElementsByTagName("name");
     $name = $names->item(0)->nodeValue;
+    //get all trakpoint
     $trackpoint = $dom->getElementsByTagName("trkpt");
     if ($trackpoint == NULL) {
+        //get all route point
         $trackpoint = $dom->getElementsByTagName("rtept");
     }
+    //create the route and get the id
     $idRoute = CreateRoute($name, $iduser, $containsHighway);
     $position = 0;
+    //add all points in the database
     foreach ($trackpoint as $point) {
         $lat = $point->getAttribute("lat");
         $lon = $point->getAttribute("lon");
@@ -270,6 +306,12 @@ function Gpx2Sql($file, $iduser, $containsHighway) {
     return $idRoute;
 }
 
+/**
+ * Convert a path into a GPX file
+ * @param string $name road name
+ * @param JSON array $path
+ * @return string filename
+ */
 function Path2Gpx($name, $path) {
     $path = json_decode($path);
     $file = $name . ".gpx";
@@ -294,6 +336,10 @@ function Path2Gpx($name, $path) {
     return $file;
 }
 
+/**
+ * Delete a motorcycle
+ * @param int $id motorcycle id
+ */
 function deleteMotorcycle($id) {
     $query = "Delete from moto where idMoto=:id";
     $params = array(
@@ -302,6 +348,10 @@ function deleteMotorcycle($id) {
     $st = PrepareExecute($query, $params);
 }
 
+/**
+ * Get a user and his motorcycle
+ * @return JSON array values
+ */
 function getUsersNMotorcycle() {
     $array_response = [];
     $query = "Select * from users natural join moto;";
@@ -312,6 +362,11 @@ function getUsersNMotorcycle() {
     return $array_response;
 }
 
+/**
+ * Get the role of an user 
+ * @param int $id user id
+ * @return int role of the user
+ */
 function getUserRoleById($id) {
     $query = "Select role from users where idUser=:id;";
     $params = array(
@@ -322,6 +377,11 @@ function getUserRoleById($id) {
     return $data["role"];
 }
 
+/**
+ * Add sinuosity of a road
+ * @param int $idRoute
+ * @param int $sinueusite road sinuosity
+ */
 function AddSinuosity($idRoute, $sinueusite) {
     $query = "Update route SET Sinuosity=:sinuosity where idRoute=:idRoute;";
     $params = array(
@@ -331,6 +391,11 @@ function AddSinuosity($idRoute, $sinueusite) {
     PrepareExecute($query, $params);
 }
 
+/**
+ * Add elevation of a road
+ * @param int $idRoute
+ * @param int $elevation road elevation
+ */
 function AddElevation($idRoute,$elevation) {
     $query = "Update route SET Slope=:elevation where idRoute=:idRoute;";
     $params = array(
@@ -340,6 +405,11 @@ function AddElevation($idRoute,$elevation) {
     PrepareExecute($query, $params);
 }
 
+/**
+ * Add length of a road
+ * @param int $idRoute
+ * @param int length road length
+ */
 function AddLength($idRoute,$length) {
     $query = "Update route SET Length=:length where idRoute=:idRoute;";
     $params = array(
@@ -349,6 +419,10 @@ function AddLength($idRoute,$length) {
     PrepareExecute($query, $params);
 }
 
+/**
+ * Get the most sinuous road
+ * @return int sinuosity value
+ */
 function GetMostSinuousRoad() {
     $query = "SELECT max(Sinuosity)*10000 AS Road FROM route;";
     $st = PrepareExecute($query);
@@ -356,6 +430,10 @@ function GetMostSinuousRoad() {
     return (int) $val[0]["Road"];
 }
 
+/**
+ * Get the less sinuous road
+ * @return int sinuosity value
+ */
 function GetLessSinuousRoad() {
     $query = "SELECT min(Sinuosity)*10000 AS Road FROM route;";
     $st = PrepareExecute($query);
@@ -363,13 +441,20 @@ function GetLessSinuousRoad() {
     return (int) $val[0]["Road"];
 }
 
+/**
+ * Get the most steepest road
+ * @return int steepest value
+ */
 function GetMostSteepestRoad() {
     $query = "SELECT max(Slope) AS Road FROM route;";
     $st = PrepareExecute($query);
     $val = $st->fetchAll(PDO::FETCH_ASSOC);
     return (int) $val[0]["Road"];
 }
-
+/**
+ * Get the less steepest road
+ * @return int steepest value
+ */
 function GetLessSteepestRoad() {
     $query = "SELECT min(Slope) AS Road FROM route;";
     $st = PrepareExecute($query);

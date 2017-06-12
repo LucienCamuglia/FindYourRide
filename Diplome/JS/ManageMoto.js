@@ -1,9 +1,11 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/*
+ * Author : Lucien Camuglia
+ * Description : managing motorcycles fonctions 
+ * Date : April-june 2017
+ * Version : 1.0 LC BaseVersion
  */
 
+//create a new motorcycle
 function AddMotorcycle(brand, model, year, consumption, tiredness) {
 
     $.ajax({
@@ -23,6 +25,7 @@ function AddMotorcycle(brand, model, year, consumption, tiredness) {
 }
 
 
+//load all motorcycles
 function LoadMotorcycles(brand, model, year, consumption, tiredness) {
     $.ajax({
         url: './Includes/ajax.php',
@@ -46,11 +49,9 @@ function LoadMotorcycles(brand, model, year, consumption, tiredness) {
     });
 }
 
-function DeleteMotorcycle(){
-    
-}
 
 $(document).ready(function() {
+    //filters for motorcycles
     $("select").click(function() {
         LoadMotorcycles($("#brand").val(), $("#model").val(), $("#year").val() + "-01-01", $("#consumption").val(), $("#tiredness").val());
     });

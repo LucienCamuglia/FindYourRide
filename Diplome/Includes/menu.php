@@ -1,8 +1,9 @@
 <?php
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author : Lucien Camuglia
+ * Description : navigation menu
+ * Date : April-june 2017
+ * Version : 1.0 LC BaseVersion
  */
 require_once './Includes/Modals.php';
 
@@ -16,8 +17,7 @@ function DisplayMenu($page) {
     }
     ?>
     <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="container-fluid">          
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
@@ -28,7 +28,7 @@ function DisplayMenu($page) {
                 <a class="navbar-brand" href="./Index.php">Find your ride</a>
             </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
+
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li <?php
@@ -48,22 +48,22 @@ function DisplayMenu($page) {
                         ?>                   
 
                         <li <?php
-                if ($page == "itineraire.php") {
-                    echo 'class="active"';
-                }
+                        if ($page == "itineraire.php") {
+                            echo 'class="active"';
+                        }
                         ?>><a href="./itineraire.php">My routes</a></li>
                             <?php if ($_SESSION["role"] == 1) { ?>
                             <li <?php
-                    if ($page == "manageUsers.php") {
-                        echo 'class="active"';
-                    }
-                                ?>><a href="./manageUsers.php">Manage users</a></li>
+                            if ($page == "manageUsers.php") {
+                                echo 'class="active"';
+                            }
+                            ?>><a href="./manageUsers.php">Manage users</a></li>
 
                             <li <?php
-                if ($page == "manageMoto.php") {
-                    echo 'class="active"';
-                }
-                                ?>><a href="./manageMoto.php">Manage motorcycles</a></li>
+                            if ($page == "manageMoto.php") {
+                                echo 'class="active"';
+                            }
+                            ?>><a href="./manageMoto.php">Manage motorcycles</a></li>
                             <?php } ?>
                     </ul>
 
@@ -80,23 +80,23 @@ function DisplayMenu($page) {
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li <?php
-            if ($page == "Inscription.php") {
-                echo 'class="active"';
-            }
-                    ?>><a href="./Inscription.php">Sign in</a></li>
+                        if ($page == "Inscription.php") {
+                            echo 'class="active"';
+                        }
+                        ?>><a href="./Inscription.php">Sign in</a></li>
 
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li <?php
-                if ($page == "connexion.php") {
-                    echo 'class="active"';
-                }
-                    ?>  ><a href="#" data-toggle="modal" data-target="#modalConnexion" onclick='$("#msgCont").attr("Hidden", "true")'>Connection</a></li>
+                        if ($page == "connexion.php") {
+                            echo 'class="active"';
+                        }
+                        ?>  ><a href="#" data-toggle="modal" data-target="#modalConnexion" onclick='$("#msgCont").attr("Hidden", "true")'>Connection</a></li>
 
                     </ul>
                 <?php } ?>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
+            </div>
+        </div>
     </nav>
 
     <?php

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<?php
+/*
+ * Author : Lucien Camuglia
+ * Description : Page with all itinaries 
+ * Date : April-june 2017
+ * Version : 1.0 LC BaseVersion
+ */?>
 <html>
     <head>
         <?php include './Includes/header.php' ?>
